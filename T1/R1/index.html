@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T1_R1</title>
+</head>
+<style>
+    section {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding: 20px;
+        margin: 0;
+    }
+
+    div {
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<body>
+    <h1>Lista de ejercicios T1 - R1</h1>
+    <section>
+        <div>
+            <h2>Ejercicio 1:</h2>
+            <p>Mostrar resultado de varias operaciones</p>
+            <button id="btn1">Ver operaciones</button>
+        </div>
+
+        <div>
+            <h2>Ejercicio 2:</h2>
+            <p>Utilizar operador ternario para comprobar edad</p>
+            <button id="btn2">Comprobar edad</button>
+        </div>
+
+        <div>
+            <h3>Ejercicio 3:</h3>
+            <p>Mostrar mensaje en función de la edad</p>
+            <button id="btn3">Mostrar mensaje</button>
+        </div>
+
+        <div>
+            <h2>Ejercicio 4:</h2>
+            <p>Mostrar lista de horas</p>
+            <button id="btn4">Mostrar lista</button>
+        </div>
+
+        <div>
+            <h2>Ejercicio 5:</h2>
+            <p>Explicar que ocurre en un código dado</p>
+            <button id="btn5.1">Codigo antes</button>
+            <button id="btn5.2">Codigo después</button>
+            <p>Anteriormente al tener 'countdown-- ' el valor de la cuenta disminuía a cada paso que dabamos por tanto
+                cuando este era menor a 0 terminaba, pero al reemplazar el '--' por '++' este comienza a aumentar de 1
+                en 1 cada iteración. Por tanto tenemos un bucle infinito debido a que es imposible que se cumpla la
+                condición de salida de este </p>
+        </div>
+
+        <div>
+            <h2>Ejercicio 6:</h2>
+            <p>Ejercicio anterior reemplazando el bucle 'while' por 'for'</p>
+            <button id="btn6">Comprobar funcionamiento adecuado</button>
+        </div>
+
+        <div>
+            <h2>Ejercicio 7:</h2>
+            <p>Crear un control parental</p>
+            <button id="btn7">Intentar iniciar sesión</button>
+        </div>
+
+        <div>
+            <h2>Ejercicio 8:</h2>
+            <p>Control parental 2.0</p>
+            <button id="btn8">Intentar iniciar sesión</button>
+        </div>
+
+    </section>
+    <script src="mainScript.js" type="module"></script>
+</body>
+
+</html>
