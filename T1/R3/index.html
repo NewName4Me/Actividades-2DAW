@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios T1 - R3</title>
+    <style>
+        section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+            margin: 0;
+        }
+
+        div {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <h1>Lista de ejercicios T1 - R2</h1>
+    <section>
+        <div>
+            <h2>Ejercicio 1</h2>
+            <p>Calcular la edad de un usuario dada su fecha de nacimiento mostrando sus dos opciones</p>
+            <button id="btn1">Calcular edad</button>
+        </div>
+        <div>
+            <h2>Ejercicio 2</h2>
+            <p>Calcular cuantos suministros debes comprar de un producto para que te duren de por vida</p>
+            <button id="btn2">Calcular suministros necesarios</button>
+        </div>
+        <div>
+            <h2>Ejercicio 3</h2>
+            <p>Calcular el area y perimetro de un círculo dado su radio</p>
+            <button id="btn3">Proporcionar radio</button>
+        </div>
+        <div>
+            <h2>Ejercicio 4</h2>
+            <p>Convertir la temperatura de Celsius a Farenheit o viceversa</p>
+            <button id="btn4">Calcular temperatura</button>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const ALL_BUTTONS = document.querySelectorAll('BUTTON');
+
+            ALL_BUTTONS.forEach(button => {
+                button.addEventListener('click', e => {
+
+                    const CLICKED_BTN = e.target.id;
+
+                    switch (CLICKED_BTN) {
+                        case "btn1":
+                            //pedir datos
+                            const AGE = parseInt(prompt("Cúando naciste?"));
+
+                            alert(ageCalculator(AGE));
+                            break;
+
+                        case "btn2":
+                            //pedir datos
+                            const CURRENT_AGE = parseInt(prompt("Cuantos años tienes ahora?"));
+                            const EXPECTED_AGE = parseInt(prompt("Cuantos años crees que tendras cuando mueres?"));
+                            const DAILY_CONSUME = parseInt(prompt("Dime cuanto consumes de un producto?"));
+
+                            alert(supplyCalculator(CURRENT_AGE, EXPECTED_AGE, DAILY_CONSUME));
+                            break;
+
+                        case "btn3":
+                            //pedir datos
+                            const RADIUS = parseInt(prompt("Dime el radio de tu circulo"));
+
+                            //destructuring de nuestra funcion
+                            const { area, circumference } = theGeometrizer(RADIUS);
+
+                            alert(area);
+                            alert(circumference);
+                            break;
+
+                        case "btn4":
+                            let unit = prompt("Quieres pasar de (Cº a F)=>1 o de (F a Cº)=>2");
+
+                            if (unit != 1 || unit != 2) {
+                                alert("Numero introducido no valido");
+                                return;
+                            }
+
+                            const TEMPERATURE = prompt("Cuantos grados?");
+                            if (unit == 1) {
+                                unit = "celsius";
+                                alert(convertTemperature(TEMPERATURE, unit));
+                            } else if (unit == 2) {
+                                unit = 'fahrenheit';
+                                alert(convertTemperature(TEMPERATURE, unit));
+                            }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
