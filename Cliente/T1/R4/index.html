@@ -21,6 +21,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
     </style>
+    <script src="./controlador.js" type="module"></script>
 </head>
 
 <body>
@@ -28,24 +29,16 @@
     <section>
         <div>
             <h2>Ejercicio 1</h2>
-            <p></p>
-            <button id="btn1">Test</button>
+            <p>Sumar todos los numeros dados hasta que nos digan que paremos</p>
+            <button id="btn1">Dar numeros</button>
+        </div>
+        <div>
+            <h2>Ejercicio 2</h2>
+            <p>Sumar todos los numeros dados hasta que nos digan que paremos ignorando cuando nos dan un string</p>
+            <button id="btn1">Dar numeros</button>
         </div>
     </section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const BUTTONS = document.querySelectorAll('BUTTON');
-
-            BUTTONS.forEach(button => {
-                button.addEventListener('click', e => {
-                    const BTN_ID = e.target.id;
-
-                    console.log(BTN_ID);
-                });
-            });
-        });
-    </script>
 </body>
 
 </html>

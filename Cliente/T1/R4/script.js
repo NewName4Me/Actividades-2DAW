@@ -4,8 +4,8 @@
  * @param {*} values 
  * @returns 
  */
-function sum(...values) {
-    return values.reduce((acumulator, value) => acumulator + value, 0);
+export function sum(...values) {
+    return values.reduce((acumulator, value) => acumulator + parseInt(value), 0);
 }
 
 //#region Ej 2
@@ -15,7 +15,7 @@ function sum(...values) {
  * @param {*} values 
  * @returns 
  */
-function sumOfAll(...values) {
+export function sumOfAll(...values) {
     return values.reduce((acumulator, value) => {
 
         if (!isNaN(value)) {
@@ -31,7 +31,7 @@ function sumOfAll(...values) {
  * una funcion que puede tomar un numero indefinido de parametros y nos dice cuantos hemos introducido
  * @param {...*} args 
  */
-function countTheArgs(...args) {
+export function countTheArgs(...args) {
     return args.length;
 }
 
@@ -43,7 +43,7 @@ function countTheArgs(...args) {
  * @param {*} secondArray 
  * @returns 
  */
-function combineTwoArrays(firstArray = [], secondArray = []) {
+export function combineTwoArrays(firstArray = [], secondArray = []) {
     return [...firstArray, ...secondArray];
 }
 
@@ -53,7 +53,7 @@ function combineTwoArrays(firstArray = [], secondArray = []) {
  * funcion que dado un numero indefinido de parametros nos suma los que estan en posicion par
  * @param {...*} values 
  */
-function sumEveryOther(...values) {
+export function sumEveryOther(...values) {
     return values.reduce((acumulador, value, index) => {
         if (index % 2 == 0) {
             return acumulador + value;
@@ -68,7 +68,7 @@ function sumEveryOther(...values) {
  * funcion que nos dice si un numero es divisible entre 0 o no
  * @param {*} number 
  */
-function divisible(number) {
+export function divisible(number) {
     return number % 3 == 0;
 }
 
@@ -79,7 +79,7 @@ function divisible(number) {
  * @param {*} divisor 
  * @returns 
  */
-function divisibleEntre(dividendo, divisor) {
+export function divisibleEntre(dividendo, divisor) {
     if (dividendo == 0) return "No se puede dividir por 0";
     return dividendo % divisor == 0;
 }
@@ -91,7 +91,7 @@ function divisibleEntre(dividendo, divisor) {
  * @param {*} rangoInf 
  * @param {*} rangoSup 
  */
-function rango(valor, rangoInf, rangoSup) {
+export function rango(valor, rangoInf, rangoSup) {
     return (valor >= rangoInf && valor <= rangoSup);
 }
 
@@ -101,7 +101,7 @@ function rango(valor, rangoInf, rangoSup) {
  * @param {*} number 
  * @returns 
  */
-function tieneTresDigitos(number) {
+export function tieneTresDigitos(number) {
     if (isNaN(parseInt(number))) return "El valor introducido no es un numero";
     return number.toString().length == 3;
 }
@@ -113,7 +113,7 @@ function tieneTresDigitos(number) {
  * @param {*} altura 
  * @returns 
  */
-function areaRectangulo(base, altura) {
+export function areaRectangulo(base, altura) {
     return base * altura;
 }
 
@@ -124,7 +124,7 @@ function areaRectangulo(base, altura) {
  * @param {*} height 
  * @returns 
  */
-function IMC(weight, height) {
+export function IMC(weight, height) {
     return weight / (Math.pow(height, 2));
 }
 
@@ -135,7 +135,7 @@ function IMC(weight, height) {
  * @param {*} discount 
  * @returns 
  */
-function precioFinal(originalPrice, discount) {
+export function precioFinal(originalPrice, discount) {
     return originalPrice - (originalPrice * (discount / 100));
 }
 
@@ -145,13 +145,13 @@ function precioFinal(originalPrice, discount) {
  * @param {*} number 
  * @returns 
  */
-function calularFactorial(number) {
+export function calularFactorial(number) {
     if (number === 1 || number === 0) return 1;
     return number * calularFactorial(number - 1);
 }
 
 //en caso de que al profesor no le gusta usar recursividad que lo entiendo perfectamente
-function calularFactorialSinRecursividad(number) {
+export function calularFactorialSinRecursividad(number) {
     let result = 1;
     for (let i = 2; i <= number; i++) {
         result *= i;
@@ -161,7 +161,7 @@ function calularFactorialSinRecursividad(number) {
 }
 
 //#region Pruebas
-console.log(sum(2, 6, 7));
+/* console.log(sum(2, 6, 7));
 console.log(sumOfAll(2, 6, 7, "holw,", 5));
 console.log(countTheArgs(2, 6, 7, "holw,", 5));
 console.log(combineTwoArrays([1, 1, 1, 1], ["a", "c", "d"]));
@@ -174,4 +174,4 @@ console.log(areaRectangulo(2, 10));
 console.log(IMC(70, 182));
 console.log(precioFinal(100, 20));
 console.log(calularFactorial(170));
-console.log(calularFactorialSinRecursividad(170));
+console.log(calularFactorialSinRecursividad(170)); */
