@@ -17,9 +17,11 @@ export function sum(...values) {
  */
 export function sumOfAll(...values) {
     return values.reduce((acumulator, value) => {
+        const VALUE_TO_NUMBER = parseFloat(value);
 
-        if (!isNaN(value)) {
-            return acumulator + value;
+        //compruebo si es un numero antes de añadirlo al acumulador
+        if (!isNaN(VALUE_TO_NUMBER)) {
+            return acumulator + VALUE_TO_NUMBER;
         }
 
         return acumulator;
