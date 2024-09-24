@@ -1,4 +1,10 @@
-import { sum, sumOfAll, countTheArgs } from "./script.js";
+import {
+    sum, sumOfAll, countTheArgs,
+    combineTwoArrays, sumEveryOther,
+    divisible, divisibleEntre, rango,
+    tieneTresDigitos, areaRectangulo, IMC,
+    precioFinal, calularFactorial
+} from "./script.js";
 
 /**
  * este bloque se encarga de ejecutar el metodo necesario en funcion de que boton pulsen
@@ -9,65 +15,31 @@ document.addEventListener('DOMContentLoaded', () => {
     BUTTONS.forEach(button => {
         button.addEventListener('click', e => {
             const BTN_ID = e.target.id;
+            const PRE = document.querySelector('PRE');
 
-            switch (BTN_ID) {
-                case "btn1": {
-                    //#region Ej 1
-                    //CALCULAR LA SUMA DE UN CONJUNTO DE NUMEROS
-                    let numeroPedidoAlUsuario;
-                    let listaDeDatosDelUsuario = [];
+            //Limpiar el contenido innecesario
+            const SECTION = document.querySelector('SECTION');
+            SECTION.innerHTML = '';
 
-                    //pedimos datos hasta que el usuario diga stop
-                    while (numeroPedidoAlUsuario != "stop") {
-                        numeroPedidoAlUsuario = prompt("Dame un numero o escribe 'stop' para terminar");
-                        listaDeDatosDelUsuario.push(parseInt(numeroPedidoAlUsuario));
-                    }
-
-                    //eliminamos el ultimo dato introducido dado que este sera "stop"
-                    listaDeDatosDelUsuario.pop();
-                    alert(`La suma total de los numeros dados es: ${sum(...listaDeDatosDelUsuario)}`);
-
-                    break;
-                }
-
-                case "btn2": {
-                    //#region Ej 2
-                    //CALCULAR LA SUMA DE UN CONJUNTO DE NUMEROS ADMITIENDO PERO EVITANDO LOS STRINGS
-                    let datosPedidosAlUsuario;
-                    let listaDeDatosDelUsuario = [];
-
-                    //pedimos datos hasta que el usuario diga stop
-                    while (datosPedidosAlUsuario != "stop") {
-                        datosPedidosAlUsuario = prompt("Dame un numero o escribe 'stop' para terminar");
-                        listaDeDatosDelUsuario.push(datosPedidosAlUsuario);
-                    }
-
-                    //eliminamos el ultimo dato introducido dado que este sera "stop"
-                    listaDeDatosDelUsuario.pop();
-                    console.log(listaDeDatosDelUsuario);
-                    alert(`La suma total de los numeros dados es: ${sumOfAll(...listaDeDatosDelUsuario)}`);
-
-                    break;
-                }
-
-                case "btn3": {
-                    //#region Ej 3
-                    //DEVOLVER EL NUMERO DE PARAMETROS QUE HA INTRODUCIDO EL USUARIO
-                    let parametrosDelUsuario;
-                    let listaDeDatosDelUsuario = [];
-
-                    while (parametrosDelUsuario != "stop") {
-                        parametrosDelUsuario = prompt("Dame un numero o escribe 'stop' para terminar");
-                        listaDeDatosDelUsuario.push(parametrosDelUsuario);
-                    }
-
-                    //eliminamos el ultimo dato introducido dado que este sera "stop"
-                    listaDeDatosDelUsuario.pop();
-                    alert(`En total has introducido ${countTheArgs(...listaDeDatosDelUsuario)} argumentos`);
-                    break;
-                }
-
+            const functionsQueDebeEjecutarCadaBoton = {
+                "btn1": sum,
+                "btn2": sumOfAll,
+                "btn3": countTheArgs,
+                "btn4": combineTwoArrays,
+                "btn5": sumEveryOther,
+                "btn6": divisible,
+                "btn7": divisibleEntre,
+                "btn8": rango,
+                "btn9": tieneTresDigitos,
+                "btn10": areaRectangulo,
+                "btn11": IMC,
+                "btn12": precioFinal,
+                "btn13": calularFactorial,
             }
+
+            //ejecutamos la funcion correspondiente
+            PRE.textContent = functionsQueDebeEjecutarCadaBoton[BTN_ID].toString();
+
         });
     });
 });
