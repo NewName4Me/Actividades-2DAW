@@ -44,137 +44,96 @@ document.addEventListener('DOMContentLoaded', () => {
                 "btn13": calularFactorial,
             }
 
-            //esto deberia haberlo movido a un JSON y hacer un fetch
-            //pero no queria darle más vueltas
+            // Definimos el objeto test, puede que fuera mejor usar un json ,pero no quiero liarla más
             const testDeCadaFuncion = {
                 "btn1": {
-                    "name": "sum",
-                    "tests": [
-                        { input: [2, 6, 7] },
-                        { input: [2, 6, -1] }
-                    ]
+                    "sum": [1, 5, 7],
+                    "sum2": [1, 5, 7, 2],
                 },
                 "btn2": {
-                    "name": "sumOfAll",
-                    "tests": [
-                        { input: [2, 6, 7, "hola"] },
-                        { input: [2, 6, "testin", -1] }
-                    ]
+                    "sumOfAll": [2, 6, 7, "hola"],
+                    "sumOfAll2": [2, 6, "testin", -1]
                 },
                 "btn3": {
-                    "name": "countTheArgs",
-                    "tests": [
-                        { input: [2, 6, 7, "holiwi", "5"] },
-                        { input: ["0", true, 5] }
-                    ]
+                    "countTheArgs": [2, 6, 7, "holiwi", "5"],
+                    "countTheArgs2": ["0", true, 5]
                 },
                 "btn4": {
-                    "name": "combineTwoArrays",
-                    "tests": [
-                        { input: [[1, 1, 1, 1], [2, 2, 2, 2]] },
-                        { input: [[1, 1, 1, "b"], ["a", 2, 2]] }
-                    ]
+                    "combineTwoArrays": [[1, 1, 1, 1], [2, 2, 2, 2]],
+                    "combineTwoArrays2": [[1, 1, 1, "b"], ["a", 2, 2]]
                 },
                 "btn5": {
-                    "name": "sumEveryOther",
-                    "tests": [
-                        { input: [1, 4, 2, 4] },
-                        { input: [1, 4, 2, 4, 4] }
-                    ]
+                    "sumEveryOther": [1, 4, 2, 4],
+                    "sumEveryOther2": [1, 4, 2, 4, 4]
                 },
                 "btn6": {
-                    "name": "divisible",
-                    "tests": [
-                        { input: [6] },
-                        { input: [7] }
-                    ]
+                    "divisible": [6],
+                    "divisible2": [7]
                 },
                 "btn7": {
-                    "name": "divisibleEntre",
-                    "tests": [
-                        { input: [6, 2] },
-                        { input: [7, 3] }
-                    ]
+                    "divisibleEntre": [6, 2],
+                    "divisibleEntre2": [7, 3]
                 },
                 "btn8": {
-                    "name": "rango",
-                    "tests": [
-                        { input: [6, 2, 9] },
-                        { input: [2, 0, 1] }
-                    ]
+                    "rango": [6, 2, 9],
+                    "rango2": [2, 0, 1]
                 },
                 "btn9": {
-                    "name": "tieneTresDigitos",
-                    "tests": [
-                        { input: [620] },
-                        { input: [2] }
-                    ]
+                    "tieneTresDigitos": [620],
+                    "tieneTresDigitos2": [2]
                 },
                 "btn10": {
-                    "name": "areaRectangulo",
-                    "tests": [
-                        { input: [20, 2] },
-                        { input: [5, 1] }
-                    ]
+                    "areaRectangulo": [20, 2],
+                    "areaRectangulo2": [5, 1]
                 },
                 "btn11": {
-                    "name": "imc",
-                    "tests": [
-                        { input: [70, 1.82] },
-                        { input: [45, 1.54] }
-                    ]
+                    "imc": [70, 1.82],
+                    "imc2": [45, 1.54]
                 },
                 "btn12": {
-                    "name": "precioFinal",
-                    "tests": [
-                        { input: [100, 20] },
-                        { input: [50, 50] }
-                    ]
+                    "precioFinal": [100, 20],
+                    "precioFinal2": [50, 50]
                 },
                 "btn13": {
-                    "name": "calularFactorial",
-                    "tests": [
-                        { input: [5] },
-                        { input: [170] },
-                        { input: [171] }
-                    ]
+                    "calularFactorial": [5],
+                    "calularFactorial2": [170],
+                    "calularFactorial3": [171]
                 }
-            }
+            };
 
             //ejecutamos la funcion correspondiente
             PRE.textContent = funcionesQueDebeMostrarCadaBoton[BTN_ID].toString();
 
-            addButtonsFOrTest(testDeCadaFuncion[BTN_ID], funcionesQueDebeMostrarCadaBoton[BTN_ID]);
-
+            addTestExamples(testDeCadaFuncion[BTN_ID], funcionesQueDebeMostrarCadaBoton[BTN_ID]);
         });
     });
 
     /**
-     * funcion que ejecuta añade los botones al DOM con las propiedades necesarias para poder ejecutar dichos metodos
+     * función que muestra los ejemplos de prueba y sus resultados
      * @param {*} funcionesTests 
-     * @param {*} funcionAEjecutar le pasamos una funcion para asi poderle dar el atributo al boton para ejecutarla
+     * @param {*} funcionAEjecutar 
      */
-    function addButtonsFOrTest(funcionesTests, funcionAEjecutar) {
-        const H3 = document.querySelector('h3');
+    function addTestExamples(funcionesTests, funcionAEjecutar) {
+        const ZONA_DE_TEST = document.querySelector('.zonaDeTest');
 
-        const { name, tests } = funcionesTests;
+        // Limpiamos el contenido previo de resultados
+        ZONA_DE_TEST.innerHTML = '';
 
-        //recorremos todos los tests que tenemos almacenados
-        tests.forEach(test => {
-            const { input } = test;
-            const BUTTON = document.createElement('BUTTON');
-            BUTTON.textContent = `${name}(${input})`;
+        // Recorremos todos los tests y mostramos el resultado
+        Object.keys(funcionesTests).forEach(funcName => {
+            //buscamos la funcion con la que debamos trabajar en este caso para tomar sus argumentos
+            const args = funcionesTests[funcName];
 
-            //añadimos a cada boton un evento que ejecute la funcion necesaria
-            BUTTON.onclick = () => {
-                const result = funcionAEjecutar(...input);
-                console.log(result);
-                alert(result);
-            };
+            //le pasamos los parametros necesarios
+            const result = funcionAEjecutar(...args);
 
-            H3.append(BUTTON);
+            //dar formato a como mostramos los elemntos p
+            const resultText = document.createElement('p');
+            resultText.textContent = `${funcName}(${args}) => Resultado: ${result}`;
+
+            //añadir al DOM
+            ZONA_DE_TEST.appendChild(resultText);
         });
-
     }
 
 });
