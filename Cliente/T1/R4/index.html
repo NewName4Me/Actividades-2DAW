@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Ejercicios Erik</title>
+    <title>Ejercicios T1 - R3</title>
     <style>
         section {
             display: grid;
@@ -24,25 +24,28 @@
 </head>
 
 <body>
-    <h1>Lista de ejercicios Erik TR 2ºDAW - Tema 1</h1>
+    <h1>Lista de ejercicios T1 - R4</h1>
     <section>
         <div>
-            <h2>Redacción 1</h2>
-            <a href="./R1/">Ver lista de ejercicios</a>
-        </div>
-        <div>
-            <h2>Redacción 2</h2>
-            <a href="./R2/">Ver lista de ejercicios</a>
-        </div>
-        <div>
-            <h2>Redacción 3</h2>
-            <a href="./R3/">Ver lista de ejercicios</a>
-        </div>
-        <div>
-            <h2>Redacción 4</h2>
-            <a href="./R4/">Ver lista de ejercicios</a>
+            <h2>Ejercicio 1</h2>
+            <p></p>
+            <button id="btn1">Test</button>
         </div>
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const BUTTONS = document.querySelectorAll('BUTTON');
+
+            BUTTONS.forEach(button => {
+                button.addEventListener('click', e => {
+                    const BTN_ID = e.target.id;
+
+                    console.log(BTN_ID);
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
