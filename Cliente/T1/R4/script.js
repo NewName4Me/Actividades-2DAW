@@ -126,7 +126,7 @@ export function areaRectangulo(base, altura) {
  * @param {*} height 
  * @returns 
  */
-export function IMC(weight, height) {
+export function imc(weight, height) {
     return weight / (Math.pow(height, 2));
 }
 
@@ -173,7 +173,7 @@ console.log(divisibleEntre(7, 2));
 console.log(rango(6, 2, 9));
 console.log(tieneTresDigitos(602));
 console.log(areaRectangulo(2, 10));
-console.log(IMC(70, 182));
+console.log(imc(70, 182));
 console.log(precioFinal(100, 20));
 console.log(calularFactorial(170));
 console.log(calularFactorialSinRecursividad(170)); */

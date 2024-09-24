@@ -2,7 +2,7 @@ import {
     sum, sumOfAll, countTheArgs,
     combineTwoArrays, sumEveryOther,
     divisible, divisibleEntre, rango,
-    tieneTresDigitos, areaRectangulo, IMC,
+    tieneTresDigitos, areaRectangulo, imc,
     precioFinal, calularFactorial
 } from "./script.js";
 
@@ -14,14 +14,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     BUTTONS.forEach(button => {
         button.addEventListener('click', e => {
+            //tomamos el id del boton pulsado
             const BTN_ID = e.target.id;
+
+            //mostramos el contenido con el codigo y las pruebas
+            const CONTENEDOR_TEST = document.querySelector('.contenedorTest');
+            CONTENEDOR_TEST.style.display = 'block';
+
             const PRE = document.querySelector('PRE');
 
             //Limpiar el contenido innecesario
             const SECTION = document.querySelector('SECTION');
             SECTION.innerHTML = '';
 
-            const functionsQueDebeEjecutarCadaBoton = {
+            const funcioensQueDebeMostrarCadaBoton = {
                 "btn1": sum,
                 "btn2": sumOfAll,
                 "btn3": countTheArgs,
@@ -32,13 +38,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 "btn8": rango,
                 "btn9": tieneTresDigitos,
                 "btn10": areaRectangulo,
-                "btn11": IMC,
+                "btn11": imc,
                 "btn12": precioFinal,
                 "btn13": calularFactorial,
             }
 
             //ejecutamos la funcion correspondiente
-            PRE.textContent = functionsQueDebeEjecutarCadaBoton[BTN_ID].toString();
+            PRE.textContent = funcioensQueDebeMostrarCadaBoton[BTN_ID].toString();
 
         });
     });
