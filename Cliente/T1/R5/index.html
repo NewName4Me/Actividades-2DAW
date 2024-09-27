@@ -1,29 +1,32 @@
 <!DOCTYPE html>
-<html lang="en<|start_header|>head>
-    <meta charset=" UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ejercicios T1 - R4</title>
-<style>
-    section {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-        padding: 20px;
-        margin: 0;
-    }
+<html lang="en">
 
-    div {
-        border: 1px solid #ddd;
-        padding: 10px;
-        border-radius: 5px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios T1 - R4</title>
+    <title>Ejercicios T1 - R4</title>
+    <style>
+        section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+            margin: 0;
+        }
 
-    pre {
-        font-size: 1rem;
-    }
-</style>
-<script src="./script.js"></script>
+        div {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        pre {
+            font-size: 1rem;
+        }
+    </style>
+    <script src="./script.js"></script>
 </head>
 
 <body>
@@ -58,6 +61,7 @@
                 //creamos los elemento PRE viendo todas las funciones que debe mostrar
                 const PREs = FUNCIONES_QUE_DEBE_MOSRAR_CADA_BOTON[BTN_ID].map(func => {
                     const PRE = document.createElement('PRE');
+                    PRE.remove();
                     PRE.innerHTML = func.toString() + "<br>";
                     return PRE;
                 });
