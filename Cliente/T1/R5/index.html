@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios T1 - R4</title>
+    <style>
+        section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+            margin: 0;
+        }
+
+        div {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        pre {
+            font-size: 1rem;
+        }
+    </style>
+    <script src="./script.js"></script>
+</head>
+
+<body>
+    <h1>Lista de ejercicios T1 - R4</h1>
+    <section>
+        <div>
+            <h2>Ejercicio 1</h2>
+            <p>Dado un numero indefinido de parametros devuelve un array con los valores unicos</p>
+            <button id="btn1">Ver código</button>
+        </div>
+        <div>
+            <h2>Ejercicio 2</h2>
+            <p>Dado un numero indefinido de parametros la suma de todos estos al cuadrado</p>
+            <button id="btn2">Ver código</button>
+        </div>
+    </section>
+
+    <script>
+        const BUTTONS = document.querySelectorAll('button');
+        BUTTONS.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const BTN_ID = e.target.id;
+
+                
+            });
+        });
+    </script>
+</body>
+
+</html>
