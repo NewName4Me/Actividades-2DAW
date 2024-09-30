@@ -1,0 +1,173 @@
+#mainHero h1 {
+    margin: 0 auto;
+    font-family: 'Orelega One', serif;
+    width: 26ch;
+    font-size: 3rem;
+}
+
+#mainHero h1+p {
+    color: rgb(47, 46, 46);
+    font-size: large;
+    width: 56ch;
+    margin: 0rem auto;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+#mainHero .comenzar {
+    background: var(--naranja);
+    border-radius: 32px;
+    color: white;
+    padding: 0.5rem;
+    padding-left: 0.7rem;
+    font-size: small;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    border: none;
+    cursor: pointer;
+}
+
+#mainHero .comenzar>span {
+    background: white;
+    color: var(--naranja);
+    border-radius: 50%;
+    padding-inline: 0.4rem;
+    margin-left: 0.8rem;
+    font-size: x-large;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+#mainHero section {
+    position: relative;
+}
+
+#mainHero section figure .mockUpPhone {
+    width: 20%;
+    height: auto;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+}
+
+#mainHero .numOfUsers {
+    position: absolute;
+    left: 22%;
+    top: 12%;
+    background: white;
+    display: flex;
+    align-items: center;
+    padding: 0.2rem;
+    padding-left: 0.4rem;
+    padding-right: 0rem;
+    border-radius: 16px;
+    box-shadow: 2px 2px 5px 0px lightslategray;
+}
+
+#mainHero .numOfUsers div {
+    margin-right: -1.5rem;
+    margin-left: 1rem;
+}
+
+#mainHero .numOfUsers h3 {
+    color: var(--naranja);
+    font-weight: bolder;
+}
+
+#mainHero .numOfUsers p {
+    font-size: x-small;
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+    color: rgb(47, 46, 46);
+}
+
+#mainHero .numOfUsers img {
+    width: 32px;
+    border-radius: 50%;
+    height: 30px;
+    margin-right: -0.8rem;
+    border: 2.5px solid white;
+}
+
+#mainHero .chart {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 15%;
+    height: 70px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    position: absolute;
+    top: 10%;
+    padding-top: 3rem;
+    left: 62%;
+    box-shadow: 2px 2px 5px 0px lightslategray;
+
+}
+
+#mainHero .chart section {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    top: -2%;
+    left: 0%;
+}
+
+#mainHero .chart section p {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(47, 46, 46);
+    font-size: small;
+    margin-top: 1.2rem;
+}
+
+#mainHero .chart section button {
+    cursor: pointer;
+    height: 20px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 16px;
+}
+
+#mainHero .bar-container {
+    position: relative;
+    width: 8%;
+    height: 100%;
+    margin: 0 5px;
+    background-color: #fbd7d1;
+    /* Color del espacio por encima de la barra */
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#mainHero .bar {
+    cursor: pointer;
+    width: 100%;
+    background-color: #f23226;
+    position: absolute;
+    bottom: 0;
+    border-radius: 5px 5px 0 0;
+    transition: background-color 0.3s ease;
+}
+
+#mainHero .bar:hover {
+    background-color: red;
+    scale: 1.1;
+}
+
+#mainHero .informacionBasica {
+    margin-top: 10rem;
+}
+
+#mainHero .informacionBasica>div:first-of-type {
+    display: flex;
+    justify-content: center;
+}
+
+#mainHero .informacionBasica article {
+    border: 2px solid black;
+    display: flex;
+
+}

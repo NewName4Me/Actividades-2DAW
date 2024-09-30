@@ -1,0 +1,43 @@
+TRELLO Version Gratuita:(me gusta que es facil usar el premium sin pagar)
+    * Colaboradores limitados 
+    * No tenemos dispoibles todas las funcionalidades de vista (calendario, cronograma, panel, tabla)
+    * Puedes crear cuentas muy facilmente y activar la version de prueba de 2 semanas sin usar tarjeta
+    * Utilizando temp-mail puedes estar infinitamente usando la version premium dado que solo piden una verificacion
+        muchas plantillas comodas, calendario y cronologia(me encanta como se ve) intuitivo para los empleados con secciones de comentarios, y un panel que indica el progreso
+    * facil monitorear actividad de cada usuario con tan solo pulsar "ver actividad"
+    * informes de correo electrónico de forma automatica 
+    * crear reglas que realicen acciones de forma automatica, crear fechas de vencimiento de una tarjeta de trello etc
+    * de primera instancia la interfaz es un poco confusa
+    * para prevenir perder el tablero le damos perimisos a la otra cuenta de tomar todo el espacio de trabajo (esto teoricamente subira la factura), factura que nunca llegara, y luego ademas esa cuenta hace una copia de los tableros en su propia cuenta
+    * problema de este hackeo, tener que reinvitar a todas las cuentas cada 14 dias 
+    * super facil de usar
+
+JIRA:
+    * conexion con bitbucket (ojala fuera github)
+    * capacidad de crear sprints de trabajo siguiendo asi el ciclo de SCRUM muy popularizado 
+    * interfaz menos estetica pero funciona igual
+    * en el plan Gratuita cuando compartes todos son administradores y limite de 10 usuarios
+    * plan premium accesible sin tarjeta pero no tan hackeable como trello
+    * más orientado a proyectos a gran escala que trello
+
+MONDAY.COM:(me gusta poder indicar quien hace cada tarea de forma tan clara)
+    * puedes asignar personas para cada tarea(revisar si se puede en jira) 
+    * integracion con slack
+    * envia correos automativamente
+    * no tiene plan gratuito pero puedes usar cualquier plan gratis por 14 dias
+    * integracion con gitlab y github, drive, gmail,dropbox,facebook,asana,jira,slack,outlook,linkedlin,stripe,zoom,survey monkey y más
+
+ASANA/WRIKE:
+    * cuenta asignada a numero de telefono
+    * como trello pero sin plan gratuito y con una interfaz mejor organizada para agrupar todo de forma lógica
+    * 100% de pago con 14 dias de prueba
+    * requiere tarjeta obligatorio
+
+SLACK:
+    * plan gratis 
+    * demasiado trabajo manual , es más como un discord para el trabajo
+
+CLICKUP:
+    + integration con figmae, slack, teams,notion, ia incorporada
+    + tableros con diagramas de flujo comodos, integracion con monday, slack,jira
+    + github, smartsheet
