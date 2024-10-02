@@ -124,7 +124,49 @@ function howManyTimesDoesAppear(text) {
     return text.length - text.replace(/a/g, "").length;
 }
 
+/**
+ * una funcion que dado un  texto nos dice cuantas vocales tiene
+ */
+function howManyVowelsInText(text) {
+    const VOCALES = ["a", "e", "i", "o", "u"];
+    let counter = 0;
+
+    for (let i = 0; i < text.length; i++) {
+        if (VOCALES.includes(text[i])) counter++;
+    }
+
+    return counter;
+}
+
+/**
+ * una funcion que nos dice cuantas veces se repite cada vocal
+ * @param {*} text 
+ */
+function howManyTimesEachVowel(text) {
+    const VOWELS_COUNTER = new Map();
+
+    for (let i = 0; i < text.length; i++) {
+        const char = text[i].toLowerCase();
+
+        if (["a", "e", "i", "o", "u"].includes(char)) {
+            VOWELS_COUNTER.set(char, (VOWELS_COUNTER.get(char) || 0) + 1);
+        }
+    }
+
+    return VOWELS_COUNTER;
+}
+
+/**
+ * una funcion que nos da la vuelta a una cadena de texto
+ */
+function reverseString(text) {
+    return text.split("").reverse().join("");
+}
+
 console.log(daysUntilHolidays());
 console.log(everyYearMyBirthdayTookOnSunday());
 console.log(countTimeToAnswer());
 console.log(howManyTimesDoesAppear("aweaaabo"));
+console.log(howManyVowelsInText("anoche"));
+console.log(howManyTimesEachVowel("anoche a"));
+console.log(reverseString("hole"));
