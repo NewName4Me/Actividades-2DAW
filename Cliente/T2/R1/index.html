@@ -22,12 +22,195 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 </style>
+<script src="./script.js"></script>
 
 <body>
     <h1>Lista de ejercicios T2 - R1</h1>
     <section>
-
+        <div>
+            <h1>Ejercicio 1</h1>
+            <p>Mostrar el número de días que faltan hasta las vacaciones de Navidad (19 diciembre)</p>
+            <button id="btn1">Ver codigo</button>
+            <input type="button" value="Probar" id="input1">
+        </div>
+        <div>
+            <h1>Ejercicio 2</h1>
+            <p>Introduce tu cumpleaños y muestra cuántas veces tu cumpleaños tocó en domingo</p>
+            <button id="btn2">Ver codigo</button>
+            <input type="button" value="Probar" id="input2">
+        </div>
+        <div>
+            <h1>Ejercicio 3</h1>
+            <p>Mostrar la hora actual en dos formatos (detallado y no detallado)</p>
+            <button id="btn3">Ver codigo</button>
+            <input type="button" value="Probar" id="input3">
+        </div>
+        <div>
+            <h1>Ejercicio 4</h1>
+            <p>Medir el tiempo que te toma escribir tu nombre y apellidos</p>
+            <button id="btn4">Ver codigo</button>
+            <input type="button" value="Probar" id="input4">
+        </div>
+        <div>
+            <h1>Ejercicio 5</h1>
+            <p>Varias operaciones matemáticas (potencia, raíz cuadrada, redondeo, trigonometría)</p>
+            <button id="btn5">Ver codigo</button>
+            <input type="button" value="Probar" id="input5">
+        </div>
+        <div>
+            <h1>Ejercicio 6</h1>
+            <p>Operaciones con strings (longitud, mayúsculas/minúsculas, división)</p>
+            <button id="btn6">Ver codigo</button>
+            <input type="button" value="Probar" id="input6">
+        </div>
+        <div>
+            <h1>Ejercicio 7</h1>
+            <p>Devolver el número más alto entre un grupo de números</p>
+            <button id="btn7">Ver codigo</button>
+            <input type="button" value="Probar" id="input7">
+        </div>
+        <div>
+            <h1>Ejercicio 8</h1>
+            <p>Contar cuántas veces aparece la letra 'a' en un texto</p>
+            <button id="btn8">Ver codigo</button>
+            <input type="button" value="Probar" id="input8">
+        </div>
+        <div>
+            <h1>Ejercicio 9</h1>
+            <p>Contar cuántas vocales hay en un texto</p>
+            <button id="btn9">Ver codigo</button>
+            <input type="button" value="Probar" id="input9">
+        </div>
+        <div>
+            <h1>Ejercicio 10</h1>
+            <p>Contar cuántas veces aparece cada vocal en un texto</p>
+            <button id="btn10">Ver codigo</button>
+            <input type="button" value="Probar" id="input10">
+        </div>
+        <div>
+            <h1>Ejercicio 11</h1>
+            <p>Invertir una cadena de texto</p>
+            <button id="btn11">Ver codigo</button>
+            <input type="button" value="Probar" id="input11">
+        </div>
     </section>
+
+    <script>
+        const BUTTONS = document.querySelectorAll('button');
+        BUTTONS.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const BTN_ID = e.target.id;
+                showCode(BTN_ID);
+            });
+        });
+
+        const INPUTS = document.querySelectorAll('input[type="button"]');
+        INPUTS.forEach(input => {
+            input.addEventListener('click', (e) => {
+                const INPUT_ID = e.target.id;
+
+                switch (INPUT_ID) {
+                    case "input1":
+                        alert(`${daysUntilHolidays()} días hasta las vacaciones`);
+                        break;
+                    case "input2":
+                        const BIRTHDAY = prompt("Introduce tu cumpleaños en formato YYYY-MM-DD");
+                        alert(`Tu cumpleaños fue ${everyYearMyBirthdayTookOnSunday(BIRTHDAY)} veces en domingo`);
+                        break;
+                    case "input3":
+                        const timeInfo = displayTime();
+                        alert(`Hora detallada: ${timeInfo.detallada} \nHora no detallada: ${timeInfo.noDetallada}`);
+                        break;
+                    case "input4":
+                        alert(countTimeToAnswer());
+                        break;
+                    case "input5":
+                        const option = prompt("Elige una operación: \n 1. Potencia \n 2. Raíz cuadrada \n 3. Redondeo \n 4. Trigonometría");
+                        const operations = variousOperation();
+                        switch (option) {
+                            case "1":
+                                const base = Number(prompt("Dame la base"));
+                                const power = Number(prompt("Dame la potencia"));
+                                alert(operations.powerOf(base, power));
+                                break;
+                            case "2":
+                                const number = Number(prompt("Dame un número para la raíz cuadrada"));
+                                try {
+                                    alert(operations.sqrtOf(number));
+                                } catch (error) {
+                                    alert(error.message);
+                                }
+                                break;
+                            case "3":
+                                const numToRound = Number(prompt("Dame un número para redondear"));
+                                const roundResult = operations.roundCeilAndFloorOf(numToRound);
+                                alert(`Redondeado: ${roundResult.round}, Piso: ${roundResult.floor}, Techo: ${roundResult.ceil}`);
+                                break;
+                            case "4":
+                                const angle = Number(prompt("Dame un ángulo en radianes para trigonometría"));
+                                const trigResults = operations.sinCosAndTanOf(angle);
+                                alert(`Seno: ${trigResults.sin}, Coseno: ${trigResults.cos}, Tangente: ${trigResults.tan}`);
+                                break;
+                            default:
+                                alert("Opción no válida");
+                        }
+                        break;
+                    case "input6":
+                        const fullName = prompt("Introduce tu nombre completo");
+                        const stringOps = variosOperationsWithString();
+                        const length = stringOps.fullNameLength(fullName);
+                        const cases = stringOps.lowerAndUpperCase(fullName);
+                        const divided = stringOps.divideFullName(fullName);
+                        alert(`Longitud: ${length}, Mayúsculas: ${cases.upper}, Minúsculas: ${cases.lower}, Dividido: ${divided}`);
+                        break;
+                    case "input7":
+                        const nums = prompt("Introduce números separados por comas").split(",").map(Number);
+                        alert(`El número más alto es: ${returnHighest(...nums)}`);
+                        break;
+                    case "input8":
+                        const textForA = prompt("Introduce un texto");
+                        alert(`La letra 'a' aparece ${howManyTimesDoesAppear(textForA)} veces`);
+                        break;
+                    case "input9":
+                        const textForVowels = prompt("Introduce un texto");
+                        alert(`El texto tiene ${howManyVowelsInText(textForVowels)} vocales`);
+                        break;
+                    case "input10":
+                        const textForEachVowel = prompt("Introduce un texto");
+                        const vowelCounts = howManyTimesEachVowel(textForEachVowel);
+                        alert(`Vocales y sus repeticiones: ${Array.from(vowelCounts.entries()).map(([vowel, count]) => `${vowel}: ${count}`).join(", ")}`);
+                        break;
+                    case "input11":
+                        const textToReverse = prompt("Introduce un texto para invertir");
+                        alert(`Texto invertido: ${reverseString(textToReverse)}`);
+                        break;
+                    default:
+                        alert("Opción no válida");
+                }
+            });
+        });
+
+        function showCode(id) {
+            const CODE_FOR_EACH_BTN = {
+                "btn1": daysUntilHolidays,
+                "btn2": everyYearMyBirthdayTookOnSunday,
+                "btn3": displayTime,
+                "btn4": countTimeToAnswer,
+                "btn5": variousOperation,
+                "btn6": variosOperationsWithString,
+                "btn7": returnHighest,
+                "btn8": howManyTimesDoesAppear,
+                "btn9": howManyVowelsInText,
+                "btn10": howManyTimesEachVowel,
+                "btn11": reverseString,
+            };
+
+            const FUNCTION_TO_SHOW = CODE_FOR_EACH_BTN[id].toString();
+            const PRE = document.createElement('pre');
+            PRE.textContent = FUNCTION_TO_SHOW;
+            document.querySelector(`#${id}`).after(PRE);
+        }
+    </script>
 </body>
 
 </html>

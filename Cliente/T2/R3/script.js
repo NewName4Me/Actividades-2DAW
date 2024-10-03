@@ -64,8 +64,9 @@ console.log(filtrarPalabrasMasLargas("hola que tal amigo", 3));
  * @returns {string} - El string formateado
  */
 const cadenaBienFormada = (cad_arg = '') => {
-    const PRIMERA_LETRA_MAYUSCULA = cad_arg.trim().charAt(0).toUpperCase();
-    const RESTO_DE_LA_PALABRA = cad_arg.trim().slice(1);
+    cad_arg = cad_arg.trim();
+    const PRIMERA_LETRA_MAYUSCULA = cad_arg.charAt(0).toUpperCase();
+    const RESTO_DE_LA_PALABRA = cad_arg.slice(1);
 
     return PRIMERA_LETRA_MAYUSCULA + RESTO_DE_LA_PALABRA;
 };
