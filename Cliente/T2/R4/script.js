@@ -2,19 +2,19 @@
 function getRandomBetween0And1() {
     return Math.random();
 }
-console.log(getRandomBetween0And1());
-
+/* console.log(getRandomBetween0And1());
+ */
 function getRandomBetween100and200() {
     return Math.random() * (200 - 100) + 100;
 }
-console.log(getRandomBetween100and200());
-
+/* console.log(getRandomBetween100and200());
+ */
 function getRandomBetweenTwoValues(max, min) {
     //previene que si los ponen del reves tambien lo haga correctamente
     return Math.random() * (Math.abs(max - min)) + Math.min(max, min);
 }
-console.log(getRandomBetweenTwoValues(3, 2));
-
+/* console.log(getRandomBetweenTwoValues(3, 2));
+ */
 //#region Act 2
 function calculateSinCosAndTan(angle) {
     return {
@@ -23,22 +23,26 @@ function calculateSinCosAndTan(angle) {
         "tan": Math.tan(angle)
     }
 }
-console.log(calculateSinCosAndTan(20));
-
+/* console.log(calculateSinCosAndTan(20));
+ */
 //#region Act 3
 function calculateHypotenus(cat1, cat2) {
     return Math.sqrt(Math.pow(cat1, 2) + Math.pow(cat2, 2));
 }
-console.log(calculateHypotenus(6, 8));
-
+/* console.log(calculateHypotenus(6, 8));
+ */
 //#region Act 4
 function askValuesForTriangle() {
     do {
-        const CAT1 = Number(prompt("Primer cateto, inserta 0 para salir"));
-        const CAT2 = Number(prompt("Segundo cateto, inserta 0 para salir"));
+        const CAT1 = prompt("Primer cateto");
+        const CAT2 = prompt("Segundo cateto");
 
-        alert(calculateHypotenus(CAT1, CAT2))
-    } while (CAT1 != 0 || CAT2 != 0);
+        if (CAT1 === "" || CAT2 === "") {
+            break;
+        }
+
+        alert(calculateHypotenus(Number(CAT1), Number(CAT2)))
+    } while (true);
 }
 
 //#region Act 5
@@ -56,15 +60,15 @@ function solveSecondGradeEcuation(coeficienteCuadratico = 0, coeficienteLineal =
         "SegundaSolucion": (-coeficienteLineal - raizCuadrada) / (2 * coeficienteCuadratico)
     }
 }
-console.log(solveSecondGradeEcuation(2, 1, 1)); //sin solucion real
+/* console.log(solveSecondGradeEcuation(2, 1, 1)); //sin solucion real
 console.log(solveSecondGradeEcuation(2, 3, 1)); //sin solucion real
-
+ */
 //#region Act 6
 function calcularPotencias(base, potencia) {
     return Math.pow(base, potencia);
 }
-console.log(calcularPotencias(2, 3));
-
+/* console.log(calcularPotencias(2, 3));
+ */
 //#region Act 7
 function numeroAscendenteConSuSeno(start, finish) {
     const TABLE = [];
@@ -77,19 +81,21 @@ function numeroAscendenteConSuSeno(start, finish) {
     }
 
     console.table(TABLE);
+    return TABLE;
 }
-numeroAscendenteConSuSeno(1, 10);
-
+/* numeroAscendenteConSuSeno(1, 10);
+ */
 //#region Act 8
 function loadRandomImg() {
     const URL_OF_IMG = [
-        "./public/img/img1.jpg",
-        "./public/img/img2.jpg",
-        "./public/img/img3.jpg",
+        "./public/img1.png",
+        "./public/img2.png",
+        "./public/img3.png",
     ];
 
     const RANDOM_NUMBER = Math.floor(Math.random() * URL_OF_IMG.length);
 
     return URL_OF_IMG[RANDOM_NUMBER];
 }
-console.log(loadRandomImg());
+/* console.log(loadRandomImg());
+ */

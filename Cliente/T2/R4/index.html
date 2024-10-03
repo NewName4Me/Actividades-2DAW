@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Ejercicios Erik</title>
+    <style>
+        section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+            margin: 0;
+        }
+
+        div {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+
+    <script src="./script.js"></script>
+</head>
+
+<body>
+    <h1>Lista de ejercicios Erik TR 2ºDAW</h1>
+    <section>
+        <div>
+            <h2>Ejercicio 1a</h2>
+            <p>Numero aleatorio entre 0 y 1</p>
+            <button id="btn1a">Ver código</button>
+            <input type="button" value="Probar código" id="input1a">
+        </div>
+        <div>
+            <h2>Ejercicio 1b</h2>
+            <p>Numero aleatorio entre 100 y 200</p>
+            <button id="btn1b">Ver código</button>
+            <input type="button" value="Probar código" id="input1b">
+        </div>
+        <div>
+            <h2>Ejercicio 1c</h2>
+            <p>Numero aleatorio entre dos limites</p>
+            <button id="btn1c">Ver código</button>
+            <input type="button" value="Probar código" id="input1c">
+        </div>
+        <div>
+            <h2>Ejercicio 2</h2>
+            <p>Dado un angulo devolver seno, coseno y tg</p>
+            <button id="btn2">Ver código</button>
+            <input type="button" value="Probar código" id="input2">
+        </div>
+        <div>
+            <h2>Ejercicio 3</h2>
+            <p>Calcular la hipotenusa</p>
+            <button id="btn3">Ver código</button>
+            <input type="button" value="Probar código" id="input3">
+        </div>
+        <div>
+            <h2>Ejercicio 4</h2>
+            <p>Calcular la hipotenusa sin fin </p>
+            <button id="btn4">Ver código</button>
+            <input type="button" value="Probar código" id="input4">
+        </div>
+        <div>
+            <h2>Ejercicio 5</h2>
+            <p>Resolver ecuaciones de segundos grado</p>
+            <button id="btn5">Ver código</button>
+            <input type="button" value="Probar código" id="input5">
+        </div>
+        <div>
+            <h2>Ejercicio 6</h2>
+            <p>Calcular potencias</p>
+            <button id="btn6">Ver código</button>
+            <input type="button" value="Probar código" id="input6">
+        </div>
+        <div>
+            <h2>Ejercicio 7</h2>
+            <p>Dos columnas con un numero y su seno al lado </p>
+            <button id="btn7">Ver código</button>
+            <input type="button" value="Probar código" id="input7">
+        </div>
+        <div>
+            <h2>Ejercicio 8</h2>
+            <p>Cada vez que pulses un boton se muestra una imagen diferente</p>
+            <button id="btn8">Ver código</button>
+            <input type="button" value="Probar código" id="input8">
+        </div>
+    </section>
+
+
+    <script>
+        const BUTTONS = document.querySelectorAll('BUTTON');
+        BUTTONS.forEach(button => {
+            button.addEventListener('click', e => {
+                const BTN_ID = e.target.id;
+
+                showCode(BTN_ID);
+            });
+        });
+
+        const INPUTS = document.querySelectorAll('INPUT');
+        INPUTS.forEach(input => {
+            input.addEventListener('click', e => {
+                const INPUT_ID = e.target.id;
+                showResult(INPUT_ID);
+
+            });
+        });
+
+        function showCode(id) {
+            const FUNCTION_FOR_ID = {
+                "btn1a": getRandomBetween0And1,
+                "btn1b": getRandomBetween100and200,
+                "btn1c": getRandomBetweenTwoValues,
+                "btn2": calculateSinCosAndTan,
+                "btn3": calculateHypotenus,
+                "btn4": askValuesForTriangle,
+                "btn5": solveSecondGradeEcuation,
+                "btn6": calcularPotencias,
+                "btn7": numeroAscendenteConSuSeno,
+                "btn8": loadRandomImg,
+            }
+
+            const PRE = document.createElement('PRE');
+            PRE.textContent = FUNCTION_FOR_ID[id].toString();
+
+            document.querySelector(`#${id}`).after(PRE);
+        }
+
+        function showResult(id) {
+            switch (id) {
+                case "input1a": alert(getRandomBetween0And1()); break;
+                case "input1b": alert(getRandomBetween100and200()); break;
+                case "input1c":
+                    const n1 = Number(prompt('Primer numero'));
+                    const n2 = Number(prompt('Segundo numero'));
+                    alert(getRandomBetweenTwoValues(n1, n2)); break;
+                case "input2":
+                    const angle = Number(prompt('Dame un angulo'));
+                    alert(`Cos: ${calculateSinCosAndTan(angle).cos} \n Sin ${calculateSinCosAndTan(angle).sin} \n Tg ${calculateSinCosAndTan(angle).tan}`);
+                    break;
+                case "input3":
+                    const cat1 = Number(prompt("Cateto 1"));
+                    const cat2 = Number(prompt("Cateto 2"));
+                    alert(calculateHypotenus(cat1, cat2));
+                    break;
+                case "input4":
+                    askValuesForTriangle();
+                    break;
+                case "input5":
+                    const cuadratico = Number(prompt("Dame el Valor cuadratico?"));
+                    const lineal = Number(prompt("Dame el Valor lienal?"));
+                    const constante = Number(prompt("Dame el Valor constante?"));
+                    alert(solveSecondGradeEcuation(cuadratico, lineal, constante).PrimeraSolucion ?? 'Sin solucion real');
+                    alert(solveSecondGradeEcuation(cuadratico, lineal, constante).SegundaSolucion ?? 'Sin solucion real');
+                    break;
+                case "input6":
+                    const base = Number(prompt("Dame la base"));
+                    const potencia = Number(prompt("Dame la potencia"));
+                    alert(calcularPotencias(base, potencia));
+                    break;
+                case "input7":
+                    const numeroInicial = Number(prompt("Dame el valor del numero al comienzo"));
+                    const numeroFinal = Number(prompt("Dame el valor del numero al final"));
+                    alert("Mira la consola");
+                    numeroAscendenteConSuSeno(numeroInicial, numeroFinal);
+                    break;
+                case "input8":
+                    const img = document.createElement('IMG');
+                    img.src = `${loadRandomImg()}`;
+                    img.width = '200';
+                    document.querySelector(`#${id}`).after(img);
+            }
+        }
+
+    </script>
+</body>
+
+</html>
