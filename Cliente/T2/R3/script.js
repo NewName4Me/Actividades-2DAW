@@ -4,26 +4,30 @@
  * @param {*} cad_arg 
  * @returns 
  */
-const invierteCadena = (cad_arg) => cad_arg.split("").reverse().join("");
-console.log(invierteCadena("hola que tal"));
+function invierteCadena(cad_arg) {
+    return cad_arg.split("").reverse().join("");
+}
+/* console.log(invierteCadena("hola que tal")); */
 
 /**
  * funcion que nos revierte cada palabra de un texto
  * @param {*} cad_arg 
  * @returns 
  */
-const inviertePalabras = (cad_arg) => cad_arg
-    .split(" ")
-    .map(palabra => palabra.split("").reverse().join(""))
-    .join(" ");
-console.log(inviertePalabras("hola que tal"));
+function inviertePalabras(cad_arg) {
+    return cad_arg
+        .split(" ")
+        .map(palabra => palabra.split("").reverse().join(""))
+        .join(" ");
+}
+/* console.log(inviertePalabras("hola que tal")); */
 
 /**
  * funcion que encuentra la palarba más larga dentro de una cadena
  * @param {*} card_arg 
  * @returns 
  */
-const encuentraPalabraMasLarga = (card_arg) => {
+function encuentraPalabraMasLarga(card_arg) {
     let palabraMasLarga = '';
 
     card_arg
@@ -36,7 +40,7 @@ const encuentraPalabraMasLarga = (card_arg) => {
 
     return palabraMasLarga;
 }
-console.log(encuentraPalabraMasLarga("hola que tal amigo"));
+/* console.log(encuentraPalabraMasLarga("hola que tal amigo")); */
 
 /**
  * funcion que nos dice cuantas palabras tienen más de 'i' caracteres
@@ -44,7 +48,7 @@ console.log(encuentraPalabraMasLarga("hola que tal amigo"));
  * @param {*} i 
  * @returns 
  */
-const filtrarPalabrasMasLargas = (cad_args, i) => {
+function filtrarPalabrasMasLargas(cad_args, i) {
     let counter = 0;
 
     cad_args
@@ -55,7 +59,7 @@ const filtrarPalabrasMasLargas = (cad_args, i) => {
 
     return counter;
 }
-console.log(filtrarPalabrasMasLargas("hola que tal amigo", 3));
+/* console.log(filtrarPalabrasMasLargas("hola que tal amigo", 3)); */
 
 /**
  * Funcion que formatea un string para que la primera letra sea en mayuscula
@@ -63,14 +67,14 @@ console.log(filtrarPalabrasMasLargas("hola que tal amigo", 3));
  * @param {string} [cad_arg=''] - El string que queremos formatear
  * @returns {string} - El string formateado
  */
-const cadenaBienFormada = (cad_arg = '') => {
+function cadenaBienFormada(cad_arg = '') {
     cad_arg = cad_arg.trim();
     const PRIMERA_LETRA_MAYUSCULA = cad_arg.charAt(0).toUpperCase();
     const RESTO_DE_LA_PALABRA = cad_arg.slice(1);
 
     return PRIMERA_LETRA_MAYUSCULA + RESTO_DE_LA_PALABRA;
 };
-console.log(cadenaBienFormada("   programando cadena bien formada"));
+/* console.log(cadenaBienFormada("   programando cadena bien formada")); */
 
 //#region Act 2
 /**
@@ -87,9 +91,9 @@ function comoEstaFormadaEstaCadena(cad_arg = '') {
     if (CADENA_A_MINUSCULA === cad_arg) return "Todo minusculas";
     return "Una combinacion de mayusuclas y minusculas";
 }
-console.log(comoEstaFormadaEstaCadena("AWEBO"));
+/* console.log(comoEstaFormadaEstaCadena("AWEBO"));
 console.log(comoEstaFormadaEstaCadena("awebo"));
-console.log(comoEstaFormadaEstaCadena("Awebo"));
+console.log(comoEstaFormadaEstaCadena("Awebo")); */
 
 //#region Act 3
 /**
@@ -105,7 +109,7 @@ function localizarSubcadenaEnCadena(cadena = '', subcadena = '') {
     const CALCULAR_VECES_EN_CADENA = (cadena.length - cadena.replace(regex, '').length) / subcadena.length;
     return CALCULAR_VECES_EN_CADENA;
 }
-console.log(localizarSubcadenaEnCadena("mi mama se llama luisa", "a"));//5
+/* console.log(localizarSubcadenaEnCadena("mi mama se llama luisa", "a"));//5 */
 
 //#region Act 4
 /**
@@ -143,7 +147,7 @@ function reorganizarTextoPorTipoDeLetraPrimeroConsonantesLuegoVocales(cad_args) 
     //lo devolvemos eliminando las comas que genera por defecto el metodo toString() al convertir un array
     return CONSONANTES_CON_VOCALES.replace(/,/g, '');
 }
-console.log(reorganizarTextoPorTipoDeLetraPrimeroConsonantesLuegoVocales("esto es un texto muy chachi"));
+/* console.log(reorganizarTextoPorTipoDeLetraPrimeroConsonantesLuegoVocales("esto es un texto muy chachi")); */
 
 //#region Act 5
 /**
@@ -164,7 +168,7 @@ function eliminarCaracteresRepetidos(cad_arg) {
 
     return ARRAY_CADENA_SIN_CARACTERES_REPETIDOS_NI_ESPACIOS.join().replace(/[, ]/g, '');
 }
-console.log(eliminarCaracteresRepetidos("esto es un texto largo con caracteres repetidos y espacios"));
+/* console.log(eliminarCaracteresRepetidos("esto es un texto largo con caracteres repetidos y espacios")); */
 
 //#region Act 6
 /**
@@ -176,8 +180,8 @@ console.log(eliminarCaracteresRepetidos("esto es un texto largo con caracteres r
 function esSubcadenaDeOtra(cadena = '', subcadena = '') {
     return cadena.indexOf(subcadena);
 }
-console.log(esSubcadenaDeOtra("hola como estas", "como")); //5
-console.log(esSubcadenaDeOtra("hola como estas", "comida")); //-1
+/* console.log(esSubcadenaDeOtra("hola como estas", "como")); //5
+console.log(esSubcadenaDeOtra("hola como estas", "comida")); //-1 */
 
 //#region Act 7
 /**
@@ -189,15 +193,30 @@ function esPalindromo(cad_args) {
     let left = 0;
     let right = cad_args.length - 1;
 
+    // Función para verificar si el carácter es una letra
+    function isLetter(char) {
+        return /^[a-zA-Z]$/.test(char);
+    }
+
     while (left < right) {
-        if (cad_args[left] !== cad_args[right]) return false;
+        while (left < right && !isLetter(cad_args[left])) {
+            left++;
+        }
+        while (left < right && !isLetter(cad_args[right])) {
+            right--;
+        }
+
+        // Compara los caracteres de izquierda y derecha (en minúsculas)
+        if (cad_args[left].toLowerCase() !== cad_args[right].toLowerCase()) {
+            return false;
+        }
         left++;
         right--;
     }
     return true;
 }
-console.log(esPalindromo("holiwi")); //false
-console.log(esPalindromo("aojoa")); //true
+/* console.log(esPalindromo("holiwi")); //false
+console.log(esPalindromo("aojoa")); //true */
 
 //#region Act 8
 /**
@@ -208,8 +227,8 @@ console.log(esPalindromo("aojoa")); //true
 function getNumeroDePalabrasEnTexto(cad_args = '') {
     return cad_args.trim().split(" ").length
 }
-console.log(getNumeroDePalabrasEnTexto("   un texto larguisimo aqui metido buah que pasada de texto nene   "));
-
+/* console.log(getNumeroDePalabrasEnTexto("   un texto larguisimo aqui metido buah que pasada de texto nene   "));
+ */
 //#region Act 9
 /**
  * funcion que devuelve true o false segun si la tarjeta de creadito es valida o no
@@ -229,12 +248,12 @@ function validateCreditCard(card) {
 
     return true;
 }
-console.log(validateCreditCard(9999777788880000));
+/* console.log(validateCreditCard(9999777788880000));
 console.log(validateCreditCard(6666666666661666));
 console.log(validateCreditCard("a92332119c011112"));
 console.log(validateCreditCard(4444444444444444));
 console.log(validateCreditCard(1111111111111110));
-console.log(validateCreditCard(6666666666666661));
+console.log(validateCreditCard(6666666666666661)); */
 
 //#region Act 10
 /**
@@ -252,9 +271,9 @@ function validateCreditCard2(card) {
 
     return true;
 }
-console.log(validateCreditCard2("9999-7777-8888-0000"));
+/* console.log(validateCreditCard2("9999-7777-8888-0000"));
 console.log(validateCreditCard2("6666-6666-6666-1666"));
 console.log(validateCreditCard2("a923-3211-9c01-1112"));
 console.log(validateCreditCard2("4444-4444-4444-4444"));
 console.log(validateCreditCard2("1111-1111-1111-1110"));
-console.log(validateCreditCard2("6666-6666-6666-6661"));
+console.log(validateCreditCard2("6666-6666-6666-6661")); */

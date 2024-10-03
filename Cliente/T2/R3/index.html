@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Ejercicios Erik</title>
+    <style>
+        section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+            margin: 0;
+        }
+
+        div {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+
+    <script src="./script.js"></script>
+</head>
+
+<body>
+    <h1>Lista de ejercicios Erik TR 2ºDAW</h1>
+    <section>
+        <div>
+            <h2>Ejercicio 1a</h2>
+            <p>Devuelve la cadena invertida del usuario</p>
+            <button id="btn1a">Ver codigo</button>
+            <input type="button" value="Probar codigo" id="input1a">
+        </div>
+        <div>
+            <h2>Ejercicio 1b</h2>
+            <p>Devuelve invertidas las palabras de una cadena</p>
+            <button id="btn1b">Ver codigo</button>
+            <input type="button" value="Probar codigo" id="input1b">
+        </div>
+        <div>
+            <h2>Ejercicio 1c</h2>
+            <p>Encuentra la palabra más larga en una frase</p>
+            <button id="btn1c">Ver codigo</button>
+            <input type="button" value="Probar codigo" id="input1c">
+        </div>
+        <div>
+            <h2>Ejercicio 1d</h2>
+            <p>Formatea la cadena para que la primera letra esté en mayúscula</p>
+            <button id="btn1d">Ver codigo</button>
+            <input type="button" value="Probar codigo" id="input1d">
+        </div>
+        <div>
+            <h2>Ejercicio 1e</h2>
+            <p>Formatea la cadena para que la primera letra esté en mayúscula</p>
+            <button id="btn1e">Ver codigo</button>
+            <input type="button" value="Probar codigo" id="input1e">
+        </div>
+        <div>
+            <h2>Ejercicio 2</h2>
+            <p>Indica como esta formada la frase, si solo por mayúsculas, solo minúsculas o ambas</p>
+            <button id="btn2">Ver codigo</button>
+            <input type="button" value="Probar codigo" id="input2">
+        </div>
+        <div>
+            <h2>Ejercicio 3</h2>
+            <p>Nos dice cuantas veces aparece una subcadena dentro de otra</p>
+            <button id="btn3">Ver codigo</button>
+            <input type="button" value="Probar codigo" id="input3">
+        </div>
+        <div>
+            <h2>Ejercicio 4</h2>
+            <p>Dada una cadena nos la devuelve teniendo al pricipio las consonantes y luego las vocales</p>
+            <button id="btn4">Ver codigo</button>
+            <input type="button" value="Probar codigo" id="input4">
+        </div>
+        <div>
+            <h2>Ejercicio 5</h2>
+            <p>Nos devuelve una cadena dada sin caracteres repetidos ni espacios en blanco</p>
+            <button id="btn5">Ver codigo</button>
+            <input type="button" value="Probar codigo" id="input5">
+        </div>
+        <div>
+            <h2>Ejercicio 6</h2>
+            <p>Dadas dos cadenas nos indica si la segunda es subcadena de la primera</p>
+            <button id="btn6">Ver codigo</button>
+            <input type="button" value="Probar codigo" id="input6">
+        </div>
+        <div>
+            <h2>Ejercicio 7</h2>
+            <p>Dada una cadena nos devuelve si esta es o no palindromo</p>
+            <button id="btn7">Ver codigo</button>
+            <input type="button" value="Probar codigo" id="input7">
+        </div>
+        <div>
+            <h2>Ejercicio 8</h2>
+            <p>Indica cuantas palabras hay en una frase</p>
+            <button id="btn8">Ver codigo</button>
+            <input type="button" value="Probar codigo" id="input8">
+        </div>
+        <div>
+            <h2>Ejercicio 9</h2>
+            <p>Validador de tarjetas de credito</p>
+            <button id="btn9">Ver codigo</button>
+            <input type="button" value="Probar codigo" id="input9">
+        </div>
+        <div>
+            <h2>Ejercicio 10</h2>
+            <p>Validador de tarjetas de credito 2.0</p>
+            <button id="btn10">Ver codigo</button>
+            <input type="button" value="Probar codigo" id="input10">
+        </div>
+    </section>
+
+    <script>
+        const BUTTONS = document.querySelectorAll('BUTTON');
+        BUTTONS.forEach(button => {
+            button.addEventListener('click', e => {
+                const BTN_ID = e.target.id;
+
+                showCode(BTN_ID);
+            });
+        });
+
+        const INPUTS = document.querySelectorAll('INPUT');
+        INPUTS.forEach(input => {
+            input.addEventListener('click', e => {
+                const INPUT_ID = e.target.id;
+
+                // Llamada a la función correspondiente y muestra los resultados
+                showResult(INPUT_ID);
+            });
+        });
+
+        function showResult(id) {
+            const FUNCTION_FOR_ID = {
+                "input1a": () => [
+                    { funcionMostrar: `invierteCadena("hola que tal")`, result: invierteCadena("hola que tal") },
+                    { funcionMostrar: `invierteCadena("javascript es genial")`, result: invierteCadena("javascript es genial") },
+                    { funcionMostrar: `invierteCadena("openAI ayuda")`, result: invierteCadena("openAI ayuda") }
+                ],
+                "input1b": () => [
+                    { funcionMostrar: `inviertePalabras("hola que tal")`, result: inviertePalabras("hola que tal") },
+                    { funcionMostrar: `inviertePalabras("javascript es genial")`, result: inviertePalabras("javascript es genial") }
+                ],
+                "input1c": () => [
+                    { funcionMostrar: `encuentraPalabraMasLarga("hola que tal amigo")`, result: encuentraPalabraMasLarga("hola que tal amigo") },
+                    { funcionMostrar: `encuentraPalabraMasLarga("openAI es muy útil para desarrolladores")`, result: encuentraPalabraMasLarga("openAI es muy útil para desarrolladores") }
+                ],
+                "input1d": () => [
+                    { funcionMostrar: `filtrarPalabrasMasLargas("hola que tal amigo", 3)`, result: filtrarPalabrasMasLargas("hola que tal amigo", 3) },
+                    { funcionMostrar: `filtrarPalabrasMasLargas("javascript es divertido", 5)`, result: filtrarPalabrasMasLargas("javascript es divertido", 5) }
+                ],
+                "input1e": () => [
+                    { funcionMostrar: `cadenaBienFormada("   programando cadena bien formada")`, result: cadenaBienFormada("   programando cadena bien formada") },
+                    { funcionMostrar: `cadenaBienFormada("   probando con otra cadena")`, result: cadenaBienFormada("   probando con otra cadena") }
+                ],
+                "input2": () => [
+                    { funcionMostrar: `comoEstaFormadaEstaCadena("AWEBO")`, result: comoEstaFormadaEstaCadena("AWEBO") },
+                    { funcionMostrar: `comoEstaFormadaEstaCadena("Hola Que Tal")`, result: comoEstaFormadaEstaCadena("Hola Que Tal") }
+                ],
+                "input3": () => [
+                    { funcionMostrar: `localizarSubcadenaEnCadena("mi mama se llama luisa", "a")`, result: localizarSubcadenaEnCadena("mi mama se llama luisa", "a") },
+                    { funcionMostrar: `localizarSubcadenaEnCadena("programando es divertido", "o")`, result: localizarSubcadenaEnCadena("programando es divertido", "o") }
+                ],
+                "input4": () => [
+                    { funcionMostrar: `reorganizarTextoPorTipoDeLetraPrimeroConsonantesLuegoVocales("esto es un texto muy chachi")`, result: reorganizarTextoPorTipoDeLetraPrimeroConsonantesLuegoVocales("esto es un texto muy chachi") },
+                    { funcionMostrar: `reorganizarTextoPorTipoDeLetraPrimeroConsonantesLuegoVocales("hola que tal")`, result: reorganizarTextoPorTipoDeLetraPrimeroConsonantesLuegoVocales("hola que tal") }
+                ],
+                "input5": () => [
+                    { funcionMostrar: `eliminarCaracteresRepetidos("esto es un texto largo con caracteres repetidos y espacios")`, result: eliminarCaracteresRepetidos("esto es un texto largo con caracteres repetidos y espacios") },
+                    { funcionMostrar: `eliminarCaracteresRepetidos("hola como estas")`, result: eliminarCaracteresRepetidos("hola como estas") }
+                ],
+                "input6": () => [
+                    { funcionMostrar: `esSubcadenaDeOtra("hola como estas", "como")`, result: esSubcadenaDeOtra("hola como estas", "como") },
+                    { funcionMostrar: `esSubcadenaDeOtra("hola como estas", "comida")`, result: esSubcadenaDeOtra("hola como estas", "comida") }
+                ],
+                "input7": () => [
+                    { funcionMostrar: `esPalindromo("aojoa")`, result: esPalindromo("aojoa") },
+                    { funcionMostrar: `esPalindromo("holiwi")`, result: esPalindromo("holiwi") }
+                ],
+                "input8": () => [
+                    { funcionMostrar: `getNumeroDePalabrasEnTexto("un texto larguisimo aqui metido")`, result: getNumeroDePalabrasEnTexto("un texto larguisimo aqui metido") },
+                    { funcionMostrar: `getNumeroDePalabrasEnTexto("hola como estas")`, result: getNumeroDePalabrasEnTexto("hola como estas") }
+                ],
+                "input9": () => [
+                    { funcionMostrar: `validateCreditCard(9999777788880000)`, result: validateCreditCard(9999777788880000) },
+                    { funcionMostrar: `validateCreditCard(6666666666661666)`, result: validateCreditCard(6666666666661666) }
+                ],
+                "input10": () => [
+                    { funcionMostrar: `validateCreditCard2("9999-7777-8888-0000")`, result: validateCreditCard2("9999-7777-8888-0000") },
+                    { funcionMostrar: `validateCreditCard2("6666-6666-6666-1666")`, result: validateCreditCard2("6666-6666-6666-1666") }
+                ]
+            };
+
+
+            // Obtenemos la lista de ejemplos y resultados para el input dado
+            const examples = FUNCTION_FOR_ID[id]();
+
+            // Creamos un nuevo elemento PRE que mostrará los resultados de cada ejemplo
+            const PRE = document.createElement('PRE');
+            examples.forEach(example => {
+                PRE.textContent += `${example.funcionMostrar} => ${example.result}\n`; // Agregamos cada ejemplo y su resultado
+            });
+
+            // Mostramos los resultados debajo del input correspondiente
+            document.querySelector(`#${id}`).after(PRE);
+        }
+
+
+
+        function showCode(id) {
+            const FUNCTION_FOR_ID = {
+                "btn1a": invierteCadena,
+                "btn1b": inviertePalabras,
+                "btn1c": encuentraPalabraMasLarga,
+                "btn1d": filtrarPalabrasMasLargas,
+                "btn1e": cadenaBienFormada,
+                "btn2": comoEstaFormadaEstaCadena,
+                "btn3": localizarSubcadenaEnCadena,
+                "btn4": reorganizarTextoPorTipoDeLetraPrimeroConsonantesLuegoVocales,
+                "btn5": eliminarCaracteresRepetidos,
+                "btn6": esSubcadenaDeOtra,
+                "btn7": esPalindromo,
+                "btn8": getNumeroDePalabrasEnTexto,
+                "btn9": validateCreditCard,
+                "btn10": validateCreditCard2,
+            }
+
+            const PRE = document.createElement('PRE');
+            PRE.textContent = FUNCTION_FOR_ID[id].toString();
+
+            document.querySelector(`#${id}`).after(PRE);
+        }
+    </script>
+</body>
+
+</html>
