@@ -175,11 +175,3 @@ function howManyTimesEachVowel(text) {
 function reverseString(text) {
     return text.split("").reverse().join("");
 }
-
-console.log(daysUntilHolidays());
-console.log(everyYearMyBirthdayTookOnSunday('2003-03-14'));
-/* console.log(countTimeToAnswer()); */
-console.log(howManyTimesDoesAppear("aweaaabo"));
-console.log(howManyVowelsInText("anoche"));
-console.log(howManyTimesEachVowel("anoche a"));
-console.log(reverseString("hole"));

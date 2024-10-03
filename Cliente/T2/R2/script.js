@@ -13,7 +13,7 @@ function counterBackwards(timeStart) {
         timeStart--;
     }, 1000);
 }
-counterBackwards(60);
+
 
 /**
  * una funcion que muestra cada segundo la hora actual
@@ -25,7 +25,6 @@ function clock() {
     }, 1000);
 }
 
-clock()
 
 function counterBackwardsRedirectAtZero(timeStart) {
     let finishTime = 0;
@@ -39,6 +38,6 @@ function counterBackwardsRedirectAtZero(timeStart) {
         timeStart--;
     }, 1000);
 }
-counterBackwardsRedirectAtZero(3);
+
 
 

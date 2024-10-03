@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Ejercicios Erik</title>
+    <style>
+        section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+            margin: 0;
+        }
+
+        div {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+
+    <script src="./script.js"></script>
+</head>
+
+<body>
+    <h1>Lista de ejercicios Erik TR 2ºDAW</h1>
+    <section>
+        <div>
+            <h2>Ejercicio 1</h2>
+            <p>Mostrar un contador marcha atrás que dura un minuto</p>
+            <button id="btn1">Ver codigo</button>
+            <input type="button" value="Probar codigo" id="input1">
+        </div>
+        <div>
+            <h2>Ejercicio 2</h2>
+            <p>Mostrar constantemente la hora actual</p>
+            <button id="btn2">Ver codigo</button>
+            <input type="button" value="Probar codigo" id="input2">
+        </div>
+        <div>
+            <h2>Ejercicio 3</h2>
+            <p>Tras unos segundos te redirijo a Google</p>
+            <button id="btn3">Ver codigo</button>
+            <input type="button" value="Probar codigo" id="input3">
+        </div>
+    </section>
+
+    <script>
+        const BUTTONS = document.querySelectorAll('BUTTON');
+        BUTTONS.forEach(button => {
+            button.addEventListener('click', e => {
+                const BTN_ID = e.target.id;
+
+                showCode(BTN_ID);
+            });
+        });
+
+        const INPUTS = document.querySelectorAll('INPUT');
+        INPUTS.forEach(input => {
+            input.addEventListener('click', e => {
+                const INPUT_ID = e.target.id;
+
+                switch (INPUT_ID) {
+                    case "input1":
+                        alert('Mira la consola');
+                        counterBackwards(60);
+                        break;
+                    case "input2":
+                        alert('Mira la consola');
+                        clock();
+                        break;
+                    case "input3":
+                        alert('Mira la consola y preparate para irte');
+                        counterBackwardsRedirectAtZero(3);
+                        break;
+                }
+            });
+        });
+
+        function showCode(id) {
+            const FUNCTION_FOR_ID = {
+                "btn1": counterBackwards,
+                "btn2": clock,
+                "btn3": counterBackwardsRedirectAtZero,
+            }
+
+            const PRE = document.createElement('PRE');
+            PRE.textContent = FUNCTION_FOR_ID[id].toString();
+
+            document.querySelector(`#${id}`).after(PRE);
+        }
+    </script>
+</body>
+
+</html>
