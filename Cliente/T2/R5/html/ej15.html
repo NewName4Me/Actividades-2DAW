@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" } <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+</head>
+
+<body>
+    <p>Hemos cambiado de ubicación esta página. En breves momentos será redireccionado <span id="counter">5</span>.</p>
+    <script>
+        let counter = 5;
+        const interval = setInterval(() => {
+            counter--;
+            document.getElementById("counter").innerHTML = counter;
+            if (counter === 0) {
+                clearInterval(interval);
+                window.location.href = "https://www.google.com";
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>

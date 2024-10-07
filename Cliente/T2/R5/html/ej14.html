@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generar Ventanas</title>
+</head>
+
+<body>
+    <button id="crearVentanasBtn">Generar Ventanas</button>
+    <div id="botonesLista"></div>
+
+    <script>
+        document.getElementById('crearVentanasBtn').addEventListener('click', generarVentanas);
+
+        const VENTANAS_ABIERTAS = [];
+        let contadorVentanas = 0;
+
+        function generarVentanas() {
+            const LISTA_DE_BOTONES = document.querySelector('#botonesLista');
+            const NUMERO_DE_VENTANAS_A_GENERAR = 5;
+
+            while (contadorVentanas < NUMERO_DE_VENTANAS_A_GENERAR) {
+                contadorVentanas++;
+
+                //crear una nueva ventana
+                const NUEVA_VENTANA = window.open('', `ventana${contadorVentanas}`, "width=350,height=350");
+                NUEVA_VENTANA.document.write(`<h1>Ventana ${contadorVentanas}</h1>`);
+
+                //almancenar la ventana en el array de ventanas identificandola con su id
+                VENTANAS_ABIERTAS.push({ id: contadorVentanas, ventana: NUEVA_VENTANA });
+
+                //crear un boton para eliminar la ventana
+                const BTN_ELIMINAR = document.createElement('BUTTON');
+                BTN_ELIMINAR.textContent = `Cerrar ventana ${contadorVentanas}`;
+                BTN_ELIMINAR.setAttribute('data-ventana-id', contadorVentanas);
+
+                BTN_ELIMINAR.addEventListener('click', (e) => {
+                    const ventanaId = Number(e.target.getAttribute('data-ventana-id'));
+                    cerrarVentana(ventanaId);
+                });
+
+                //añadimos el boton al dom
+                LISTA_DE_BOTONES.appendChild(BTN_ELIMINAR);
+            }
+
+        }
+
+        function cerrarVentana(ventanaId) {
+            const ventanaObj = VENTANAS_ABIERTAS.find(v => v.id === ventanaId);
+
+            if (ventanaObj) {
+                console.log(ventanaObj);
+                ventanaObj.ventana.close();
+
+                // Remover el botón correspondiente
+                const botonEliminar = document.querySelector(`button[data-ventana-id='${ventanaId}']`);
+                if (botonEliminar) {
+                    botonEliminar.remove();
+                }
+
+                VENTANAS_ABIERTAS = VENTANAS_ABIERTAS.filter(v => v.id !== ventanaId);
+            }
+        }
+
+    </script>
+</body>
+
+</html>

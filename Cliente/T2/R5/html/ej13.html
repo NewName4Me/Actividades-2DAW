@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="crearModal()">Crear modal</button>
+    <button onclick="eliminarModal()">Eliminar modal</button>
+    <script>
+        var nuevaVentana;
+
+        function crearModal() {
+            var title = prompt('Como quieres que se llame tu nueva pagina?');
+            nuevaVentana = window.open("", title, "width=400,height=500");
+            nuevaVentana.moveTo(window.outerWidth, 0);
+            nuevaVentana.document.write('<button onclick="window.close()">Cerrar</button>');
+        }
+
+        function eliminarModal() {
+            nuevaVentana.close();
+        }
+    </script>
+</body>
+
+</html>

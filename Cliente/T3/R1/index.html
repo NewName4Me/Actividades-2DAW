@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Mostrar coordenadas</h1>
+
+    <p></p>
+
+
+    <script>
+        const parrafo = document.querySelector('p');
+
+        function showCurrentPosition(position) {
+            const ejeX = position.coords.latitude;
+            const ejeY = position.coords.longitude;
+
+            parrafo.textContent = `Latitud= ${ejeX}, Longitud= ${ejeY}`;
+        }
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showCurrentPosition);
+        } else {
+            parrafo.textContent = "Geolocaclizacion no soportada";
+        }
+
+    </script>
+</body>
+
+</html>

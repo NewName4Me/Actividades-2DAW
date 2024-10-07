@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" """
+
+<head>
+    <meta charset=" UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+</head>
+
+<body>
+    <button onclick="crearModal()">Crear modal</button>
+    <button onclick="eliminarModal()">Eliminar modal</button>
+    <form id="form"></form>
+    <script>
+        var nuevaVentana;
+        const form = document.querySelector('#form');
+
+        function crearModal() {
+            var title = prompt('Como quieres que se llame tu nueva pagina?');
+            nuevaVentana = window.open("", title, "width=400,height=500");
+            nuevaVentana.moveTo(window.outerWidth, 0);
+
+            addFormToAppendText()
+        }
+
+        function addFormToAppendText() {
+            const input = document.createElement('INPUT');
+            const submit = document.createElement('INPUT');
+            input.type = 'text';
+            submit.type = 'submit';
+
+            form.appendChild(input);
+            form.appendChild(submit);
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const text = input.value;
+                nuevaVentana.document.write(`<li>${text}</li>`);
+                input.value = '';
+            })
+        }
+
+        function eliminarModal() {
+            nuevaVentana.close();
+            form.innerHTML = '';
+        }
+    </script>
+</body>
+
+</html>
