@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en>
+
+<head>
+    <meta charset=" UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+</head>
+
+<body>
+    <button onclick="abrirVentana()">Abrir ventana</button>
+    <div id="resultado"></div>
+    <script>
+        function abrirVentana() {
+            const ventana = window.open("", "titulo", "width=300,height=100,resizable=yes");
+            ventana.document.write(`
+                <form onsubmit="
+                    window.opener.document.getElementById('resultado').innerHTML+=
+                        '<p>' + this.texto.value + '</p>';
+                    return false;
+                ">
+                    <input type="text" name="texto">
+                    <button type="submit">Enviar</button>
+                </form>
+            `);
+        }
+    </script>
+</body>
+
+</html>

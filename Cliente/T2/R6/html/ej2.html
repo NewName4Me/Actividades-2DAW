@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Información del usuario</h1>
+    <table>
+        <tr>
+            <th>Propiedad</th>
+            <th>Valor</th>
+        </tr>
+        <tr>
+            <td>screen.width</td>
+            <td id="screenWidth"></td>
+        </tr>
+        <tr>
+            <td>screen.height</td>
+            <td id="screenHeight"></td>
+        </tr>
+        <tr>
+            <td>screen.availWidth</td>
+            <td id="availWidth"></td>
+        </tr>
+        <tr>
+            <td>screen.availHeight</td>
+            <td id="availHeight"></td>
+        </tr>
+        <tr>
+            <td>screen.colorDepth</td>
+            <td id="colorDepth"></td>
+        </tr>
+        <tr>
+            <td>screen.pixelDepth</td>
+            <td id="pixelDepth"></td>
+        </tr>
+    </table>
+    <script>
+        document.getElementById('screenWidth').textContent = screen.width;
+        document.getElementById('screenHeight').textContent = screen.height;
+        document.getElementById('availWidth').textContent = screen.availWidth;
+        document.getElementById('availHeight').textContent = screen.availHeight;
+        document.getElementById('colorDepth').textContent = screen.colorDepth;
+        document.getElementById('pixelDepth').textContent = screen.pixelDepth;
+    </script>
+</body>
+
+</html>

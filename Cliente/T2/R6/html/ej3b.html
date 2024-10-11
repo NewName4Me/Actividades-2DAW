@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="check-ventana">Esta abierta la ventana?</button>
+    <script>
+        const ventana = window.open("", "titulo", "width=400,height=500");
+        document.getElementById('check-ventana').addEventListener('click', () => {
+            if (ventana.closed) {
+                alert('La ventana no existe');
+            } else {
+                alert('La ventana existe');
+            }
+        });
+    </script>
+</body>
+
+</html>
