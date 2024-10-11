@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Información del usuario</h1>
+    <table>
+        <tr>
+            <th>Propiedad</th>
+            <th>Valor</th>
+        </tr>
+        <tr>
+            <td>appCodeName</td>
+            <td id="appCodeName"></td>
+        </tr>
+        <tr>
+            <td>appName</td>
+            <td id="appName"></td>
+        </tr>
+        <tr>
+            <td>appVersion</td>
+            <td id="appVersion"></td>
+        </tr>
+        <tr>
+            <td>cookieEnabled</td>
+            <td id="cookieEnabled"></td>
+        </tr>
+        <tr>
+            <td>language</td>
+            <td id="language"></td>
+        </tr>
+        <tr>
+            <td>onLine</td>
+            <td id="onLine"></td>
+        </tr>
+        <tr>
+            <td>platform</td>
+            <td id="platform"></td>
+        </tr>
+        <tr>
+            <td>product</td>
+            <td id="product"></td>
+        </tr>
+        <tr>
+            <td>userAgent</td>
+            <td id="userAgent"></td>
+        </tr>
+    </table>
+    <script>
+        document.getElementById('appCodeName').textContent = navigator.appCodeName;
+        document.getElementById('appName').textContent = navigator.appName;
+        document.getElementById('appVersion').textContent = navigator.appVersion;
+        document.getElementById('cookieEnabled').textContent = navigator.cookieEnabled;
+        document.getElementById('language').textContent = navigator.language;
+        document.getElementById('onLine').textContent = navigator.onLine;
+        document.getElementById('platform').textContent = navigator.platform;
+        document.getElementById('product').textContent = navigator.product;
+        document.getElementById('userAgent').textContent = navigator.userAgent;
+    </script>
+</body>
+
+</html>

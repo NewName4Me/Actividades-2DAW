@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de página</title>
+</head>
+
+<body>
+    <h1>Página de ejemplo</h1>
+
+    <!-- Anclas -->
+    <a href="#seccion1" id="ancla1">Ir a Sección 1</a>
+    <a href="#seccion2" id="ancla2">Ir a Sección 2</a>
+    <a href="#seccion3" id="ancla3">Ir a Sección 3</a>
+
+    <!-- Imágenes -->
+    <img src="http://via.placeholder.com/1280x720" id="imagen1" alt="Imagen 1">
+    <img src="http://via.placeholder.com/1280x720" id="imagen2" alt="Imagen 2">
+
+    <!-- Enlaces -->
+    <a href="https://google.com">Google</a>
+    <a href="https://youtube.com">YouTube</a>
+
+    <!-- Secciones -->
+    <div id="seccion1">
+        <h2>Sección 1</h2>
+        <p>Contenido de la sección 1.</p>
+    </div>
+    <div id="seccion2">
+        <h2>Sección 2</h2>
+        <p>Contenido de la sección 2.</p>
+    </div>
+    <div id="seccion3">
+        <h2>Sección 3</h2>
+        <p>Contenido de la sección 3.</p>
+    </div>
+
+    <!-- Botones para realizar acciones -->
+    <button onclick="mostrarNumeroAnclas()">Mostrar número de anclas</button>
+    <button onclick="mostrarTextoPrimeraAncla()">Mostrar texto de la primera ancla</button>
+    <button onclick="mostrarNumeroImagenes()">Mostrar número de imágenes</button>
+    <button onclick="mostrarIdPrimeraImagen()">Mostrar ID de la primera imagen</button>
+    <button onclick="mostrarNumeroEnlaces()">Mostrar número de enlaces</button>
+    <button onclick="cambiarTitulo()">Cambiar título del documento</button>
+
+    <script>
+        // a) Muestra el número de anclas en el documento
+        function mostrarNumeroAnclas() {
+            const anclas = document.querySelectorAll("a[href^='#']");
+            alert("Número de anclas: " + anclas.length);
+        }
+
+        // b) Muestra el texto dentro del tag del primer ancla
+        function mostrarTextoPrimeraAncla() {
+            const anclas = document.querySelectorAll("a[href^='#']");
+            if (anclas.length > 0) {
+                alert("Texto del primer ancla: " + anclas[0].innerHTML);
+            } else {
+                alert("No hay anclas en el documento.");
+            }
+        }
+
+        // c) Muestra el número de imágenes en el documento
+        function mostrarNumeroImagenes() {
+            alert("Número de imágenes: " + document.images.length);
+        }
+
+        // d) Muestra el id de la primera imagen
+        function mostrarIdPrimeraImagen() {
+            if (document.images.length > 0) {
+                alert("ID de la primera imagen: " + document.images[0].id);
+            } else {
+                alert("No hay imágenes en el documento.");
+            }
+        }
+
+        // e) Muestra el número de enlaces en el documento
+        function mostrarNumeroEnlaces() {
+            alert("Número de enlaces: " + document.links.length);
+        }
+
+        // f) Cambia el título del documento
+        function cambiarTitulo() {
+            document.title = "Nuevo Título de la Página";
+            alert("Título cambiado a: " + document.title);
+        }
+    </script>
+</body>
+
+</html>
