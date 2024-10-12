@@ -8,7 +8,7 @@ $_SESSION["usuarioValidado"] = false;
 $loginSolicitado = $_REQUEST["login"] ?? null;
 $registerSolicitado = $_REQUEST["register"] ?? null;
 
-//Vemos que ha solicitado el usuario
+//Comprobamos que accion a  realizado el usuario para saber a donde redirijirle
 if (isset($loginSolicitado)) {
     login();
 } else if (isset($registerSolicitado)) {
@@ -23,17 +23,11 @@ function login()
 {
     $name = $_POST["name"];
     $password = $_POST["password"];
-    $arrayDeUsuarios = tomarArchivoIni();
+    $arrayDeUsuarios = array_getArchivoUsuarios();
 
     //si el usuario no existe le redijimos a la pagina principal de vuelta
-    if (!boolUsuarioExiste($name, $arrayDeUsuarios)) {
+    if (!boolUsuarioExiste($name, $arrayDeUsuarios) || $arrayDeUsuarios[$name] != $password) {
         header('Location:..');
-        exit;
-    }
-
-    //si la contraseña introducida no es correcte se le redijire al indice
-    if ($arrayDeUsuarios[$name] != $password) {
-        header('Location: ..');
         exit;
     }
 
@@ -45,7 +39,31 @@ function login()
 
 function register()
 {
-    echo "register";
+    $name = $_POST['name'];
+    $password = $_POST['password'];
+    $passwordRep = $_POST['passwordRep'];
+    $arrayDeUsuarios = array_getArchivoUsuarios();
+
+    /* si ambas contraseñas introducidas no son iguales se devuelve al usuario 
+    lo suyo sería hacer esto con javascript*/
+    if ($password != $passwordRep) {
+        header('Location: ..');
+        exit;
+    }
+
+    //en caso de que el usuario ya exista debo mostrar un mensaje que lo indique
+    if (boolUsuarioExiste($name, $arrayDeUsuarios)) {
+        header('Location: ..');
+        exit;
+    }
+
+    //añadimos nuestro usuario al .ini
+    void_openAndAddUserArchivoUsuarios($name, $password);
+
+    //volvemos al indice diciendole al usuario que ahora rellene el login con los datos introducidos
+    $_SESSION["usuarioValidado"] = true;
+    header('Location: ..');
+    exit;
 }
 
 /**

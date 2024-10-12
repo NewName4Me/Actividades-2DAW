@@ -39,8 +39,8 @@
                     <input type="password" id="password-register" name="password" placeholder="Enter your password">
                 </div>
                 <div class="input-group">
-                    <label for="email-register">Repeat Password</label>
-                    <input type="email" id="email-register" name="email" placeholder="Confirm your password">
+                    <label for="passwordRep-register">Repeat Password</label>
+                    <input type="password" id="passwordRep-register" name="passwordRep" placeholder="Confirm your password">
                 </div>
                 <button type="submit" name="register">Register</button>
             </form>
