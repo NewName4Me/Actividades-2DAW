@@ -15,8 +15,8 @@
             <h2>Login</h2>
             <form action="./controller/loginRegisterController.php" method="POST">
                 <div class="input-group">
-                    <label for="email-login">Name</label>
-                    <input type="email" id="email-login" name="email" placeholder="Enter your name">
+                    <label for="name-login">Name</label>
+                    <input type="text" id="name-login" name="name" placeholder="Enter your name">
                 </div>
                 <div class="input-group">
                     <label for="password-login">Password</label>

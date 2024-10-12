@@ -6,5 +6,5 @@ function tomarArchivoIni()
         return [];
     }
 
-    return $arrayDeUsuarios = parse_ini_file($archivo) ?? [];
+    return parse_ini_file($archivo) ?? [];
 }
