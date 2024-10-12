@@ -1,3 +1,7 @@
+<?php
+session_start();
+$mensajeError = $_SESSION["mensaje"] ?? '';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,6 +13,7 @@
 </head>
 
 <body>
+    <h1><?php echo $mensajeError; ?></h1>
     <div class="container">
         <!-- Login Form -->
         <div class="form-container">

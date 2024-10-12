@@ -1,9 +1,10 @@
 <?php
 session_start();
-require_once("../helpers/tomarArchivoIni.php");
+require_once("../helpers/helperTomarArchivoIni.php");
 
-//variables de session
+//variables de session con valores predeterminados
 $_SESSION["usuarioValidado"] = false;
+$_SESSION["mensaje"] = '';
 
 $loginSolicitado = $_REQUEST["login"] ?? null;
 $registerSolicitado = $_REQUEST["register"] ?? null;
@@ -17,7 +18,7 @@ if (isset($loginSolicitado)) {
 
 /**
  * funcion que comprueba que el usuario insertado es el correcto comprobando la contraseña 
- * y nombre, en caso de no serlo de redirijimos al indice y mostramos un error
+ * y nombre, en caso de no serlo de redirijimos al indice y mostramos un mensaje
  */
 function login()
 {
@@ -27,6 +28,7 @@ function login()
 
     //si el usuario no existe le redijimos a la pagina principal de vuelta
     if (!boolUsuarioExiste($name, $arrayDeUsuarios) || $arrayDeUsuarios[$name] != $password) {
+        $_SESSION["mensaje"] = "Nombre de Usuario o Contraseña Incorrectos";
         header('Location:..');
         exit;
     }
@@ -37,6 +39,11 @@ function login()
     exit;
 }
 
+/**
+ * funcion que nos registra nuestro nuevo usuario en nuestra BD
+ * confirmando que las contraseñas introducidas sean iguales y que el 
+ * usuario no exista ya previamente
+ */
 function register()
 {
     $name = $_POST['name'];
@@ -47,12 +54,14 @@ function register()
     /* si ambas contraseñas introducidas no son iguales se devuelve al usuario 
     lo suyo sería hacer esto con javascript*/
     if ($password != $passwordRep) {
+        $_SESSION["mensaje"] = "Ambas contraseñas deben ser iguales";
         header('Location: ..');
         exit;
     }
 
     //en caso de que el usuario ya exista debo mostrar un mensaje que lo indique
     if (boolUsuarioExiste($name, $arrayDeUsuarios)) {
+        $_SESSION["mensaje"] = "Usuario ya existente prueba otro nombre";
         header('Location: ..');
         exit;
     }
@@ -62,6 +71,7 @@ function register()
 
     //volvemos al indice diciendole al usuario que ahora rellene el login con los datos introducidos
     $_SESSION["usuarioValidado"] = true;
+    $_SESSION["mensaje"] = "Perfecto, ahora realiza el Login con los mismos credenciales para entrar a tu pagina de usuario";
     header('Location: ..');
     exit;
 }
