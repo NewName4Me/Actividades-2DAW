@@ -38,12 +38,10 @@ function subirArchivoTxt()
     $carpetaSeleccionada = $_REQUEST['carpetaSeleccionada'] ?? '';
     $rutaArchivo = '../uploads/' . $name . '/' . $carpetaSeleccionada . '/' . $nombreArchivo . '.txt';
 
-    //si el archivo existe lo reescribe
-    if (file_exists($rutaArchivo)) {
-        $file = fopen($rutaArchivo, "w");
-        fwrite($file, $contenidoArchivo);
-        fclose($file);
-    }
+    $file = fopen($rutaArchivo, "w");
+    fwrite($file, $contenidoArchivo);
+    fclose($file);
+
 
     header("Location: ../view/userPage.php");
     exit;
