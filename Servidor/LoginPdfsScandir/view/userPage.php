@@ -33,6 +33,9 @@
                 </div>
             </fieldset>
         </form>
+        <form action="../controller/UserPageController.php" method="GET">
+            <button type="submit" name="cerrarSesion">Cerrar sesión</h3>
+        </form>
     </section>
     <section>
         <h2>Ver directorios</h2>

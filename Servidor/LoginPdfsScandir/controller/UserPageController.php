@@ -3,12 +3,15 @@ session_start();
 
 $crearDirectorio = $_REQUEST["crearDirectorio"] ?? null;
 $subirArchivoTxt = $_REQUEST["subirArchivoTxt"] ?? null;
+$cerrarSesion = $_REQUEST["cerrarSesion"] ?? null;
 $name = $_SESSION["name"] ?? 'Error';
 
 if (isset($crearDirectorio)) {
     crearDirectorio();
 } else if (isset($subirArchivoTxt)) {
     subirArchivoTxt();
+} else if (isset($cerrarSesion)) {
+    cerrarSesion();
 }
 
 function crearDirectorio()
@@ -43,5 +46,13 @@ function subirArchivoTxt()
     }
 
     header("Location: ../view/userPage.php");
+    exit;
+}
+
+function cerrarSesion()
+{
+    session_unset();
+    session_destroy();
+    header('Location: ..');
     exit;
 }
