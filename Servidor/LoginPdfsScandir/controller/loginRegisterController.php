@@ -35,6 +35,7 @@ function login()
 
     //esta parte del codigo solo se ejecutara si el usuario es valido
     $_SESSION["usuarioValidado"] = true;
+    $_SESSION["name"] = $name;
     header('Location: ../view/userPage.php');
     exit;
 }
@@ -71,7 +72,7 @@ function register()
 
     //volvemos al indice diciendole al usuario que ahora rellene el login con los datos introducidos
     $_SESSION["usuarioValidado"] = true;
-    $_SESSION["mensaje"] = "Perfecto, ahora realiza el Login con los mismos credenciales para entrar a tu pagina de usuario";
+    $_SESSION["mensaje"] = "Usuario Registrado Correctamente";
     header('Location: ..');
     exit;
 }
