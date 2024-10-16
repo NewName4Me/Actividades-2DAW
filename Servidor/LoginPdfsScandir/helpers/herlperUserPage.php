@@ -9,21 +9,21 @@ function iniciarApp()
 }
 
 /**
- * cuando iniciamos sesion con nuestro usuario se dijie a la carpeta uploads y comprueba si
- * tenemos un carpeta creada para nuestros archivos y directorios, si no exite la crea
+ * cuando iniciamos sesión con nuestro usuario se dirige a la carpeta uploads y comprueba si
+ * tenemos una carpeta creada para nuestros archivos y directorios. Si no existe, la crea.
  */
 function crearCarpetasParaCadaUsuarioSiNoEstaCreada()
 {
     global $name;
 
-    //compruebo la existencia de la carpeta y otorgo los permisos necesarios
+    // Compruebo la existencia de la carpeta y otorgo los permisos necesarios
     if (!file_exists('../uploads/' . $name)) {
         mkdir('../uploads/' . $name, 0777, true);
     }
 }
 
 /**
- * añade al DOM la lista de archivos y directorios disponibles para el usuario
+ * Añade al DOM la lista de archivos y directorios disponibles para el usuario
  */
 function mostrarArchivosYCarpetasDelUsuario()
 {
@@ -43,8 +43,8 @@ function mostrarArchivosYCarpetasDelUsuario()
 }
 
 /**
- * se dirije a la carpeta de nuestro usuario y mira todos los archivos y directorios 
- * que esta contiene, agregandolos a una lista
+ * Se dirige a la carpeta del usuario y revisa todos los archivos y directorios 
+ * que contiene, agregándolos a una lista.
  */
 function listarArchivosRecursivamente($directorio)
 {
@@ -53,20 +53,26 @@ function listarArchivosRecursivamente($directorio)
     foreach ($archivos as $archivo) {
         if ($archivo != '.' && $archivo != '..') {
             $rutaCompleta = $directorio . '/' . $archivo;
-            echo '<li>' . $archivo;
 
-            if (is_dir($rutaCompleta)) {
-                // Si es un directorio, hago una lista recursiva
-                echo '<ul>';
-                listarArchivosRecursivamente($rutaCompleta);
-                echo '</ul>';
+            // Si es un archivo .txt, lo mostramos como un enlace
+            if (is_file($rutaCompleta) && pathinfo($archivo, PATHINFO_EXTENSION) == 'txt') {
+                echo '<li><a href="' . $rutaCompleta . '" target="_blank">' . $archivo . '</a></li>';
+            } else {
+                echo '<li>' . $archivo;
+
+                // Si es un directorio, hacemos una lista recursiva
+                if (is_dir($rutaCompleta)) {
+                    echo '<ul>';
+                    listarArchivosRecursivamente($rutaCompleta);
+                    echo '</ul>';
+                }
+                echo '</li>';
             }
-
-            echo '</li>';
         }
     }
 }
 
+/* Esta es la parte de crear carpetas */
 function mostrarCarpetasDelUsuario()
 {
     global $name;
