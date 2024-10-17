@@ -1,6 +1,8 @@
 <?php
 session_start();
+require('./helpers/contadorVisitas.php');
 $mensajeError = $_SESSION["mensaje"] ?? '';
+$numVisitas = $_SESSION['numVisitas'] ?? '';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +16,7 @@ $mensajeError = $_SESSION["mensaje"] ?? '';
 
 <body>
     <h1><?php echo $mensajeError; ?></h1>
+    <h1><?php echo 'Visita nº: ' . $numVisitas; ?></h1>
     <div class="container">
         <!-- Login Form -->
         <div class="form-container">
