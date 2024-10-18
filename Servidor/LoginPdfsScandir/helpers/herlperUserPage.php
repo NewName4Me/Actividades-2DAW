@@ -56,7 +56,15 @@ function listarArchivosRecursivamente($directorio)
 
             // Si es un archivo .txt, lo mostramos como un enlace
             if (is_file($rutaCompleta) && pathinfo($archivo, PATHINFO_EXTENSION) == 'txt') {
-                echo '<li><a href="' . $rutaCompleta . '" target="_blank">' . $archivo . '</a></li>';
+                echo
+                '<li>
+                    <a href="' . $rutaCompleta . '" target="_blank">' . $archivo . '</a>
+                    <form method="POST" action="../controller/controllerDownloadPDF.php" style="display:inline;">
+                        <input type="hidden" name="rutaCompleta" value="' . $rutaCompleta . '">
+                        <input type="hidden" name="fileName" value="' . $archivo . '">
+                        <input type="submit" value="Descargar en PDF" name="descargarPDF">
+                    </form>
+                </li>';
             } else {
                 echo '<li>' . $archivo;
 

@@ -1,8 +1,9 @@
 <?php
 
+require('./vendor/autoload.php');
+
 use Dompdf\Dompdf;
 
-require('./vendor/autoload.php');
 $formEnviado = $_REQUEST["dompdf"] ?? null;
 
 if (isset($formEnviado)) {
