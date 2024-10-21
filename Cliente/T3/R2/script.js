@@ -73,10 +73,10 @@ function interseccionUnionDiferencia(primerArray = [], segundoArray = []) {
  * una funcion que toma un numero de valores aleatorios y nos devuelve el maximo minimo y media de estos
  * @returns 
  */
-function llenarArrayDeValoresYDevolverInfo() {
-    const iteraciones = 20;
+function llenarArrayDeValoresYDevolverInfo(i, min, max) {
 
-    const valores = llenarArrayDeValoresAleatorios(iteraciones);
+
+    const valores = llenarArrayDeValoresAleatorios(i, max, min);
     return maximoMinimoValorMedio(...valores);
 }
 //console.log(llenarArrayDeValoresYDevolverInfo());
