@@ -40,7 +40,7 @@ function llenarArrayDeValoresAleatorios(numIteraciones, maximo = 1, minimo = 0) 
     const arrayDeValores = [];
 
     for (let i = 0; i < numIteraciones; i++) {
-        const randomNum = (Math.random() * maximo) + minimo;
+        const randomNum = Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
 
         arrayDeValores.push(randomNum);
     }
@@ -97,30 +97,87 @@ function tomarArrayDeNumerosAleatorios() {
 
     const listaDeNumerosOriginal = llenarArrayDeValoresAleatorios(numeroDeDatos, valorMaximo, valorMinimo);
     const listaDeNumerosSinDuplicados = eliminarDuplicados(listaDeNumerosOriginal);
-    const listaDeNumerosSinDuplicadosOrdenada = ordenarArray(listaDeNumerosSinDuplicados);
+    const listaDeNumerosSinDuplicadosOrdenada = ordenarArrayBurbuja(listaDeNumerosSinDuplicados);
+
+    return {
+        "Original": listaDeNumerosOriginal,
+        "Ordeandos": listaDeNumerosSinDuplicadosOrdenada
+    }
 }
 
 function eliminarDuplicados(array = []) {
     return [...new Set(array)];
 }
 
-function ordenarArray(array = []) {
-    const arrayOrdenado = [];
-
-    while (arrayOrdenado.length < array.length) {
-        const maximoValor = getMaxValueAndPopIt(array);
-
-        arrayOrdenado.push(maximoValor);
+function ordenarArrayBurbuja(array) {
+    for (let i = 0; i < array.length; i++) {
+        for (let j = 0; j < array.length - i - 1; j++) {
+            if (array[j] > array[j + 1]) {
+                [array[j], array[j + 1]] = [array[j + 1], array[j]];
+            }
+        }
     }
-
-    return arrayOrdenado;
-}
-
-function getMaxValueAndPopIt(array = []) {
-    const maxValue = Math.max(...array);
-    array.pop(maxValue);
-
     return array;
 }
 
-console.log(tomarArrayDeNumerosAleatorios());
+//console.log(tomarArrayDeNumerosAleatorios());
+
+/**
+ * dado un string con palabras separadas por coma, nos devuelve este strgin como un array 
+ * ordenado
+ * @param {String} listaDeStringsSeparadosPorComa 
+ * @returns {Array}
+ */
+function ordenarStrings(listaDeStringsSeparadosPorComa = '') {
+    return listaDeStringsSeparadosPorComa
+        .split(",")
+        .filter(string => string.trim() !== "") //me aseguro de eliminar los strins vacios
+        .sort((a, b) => a.localeCompare(b));
+}
+
+//console.log(ordenarStrings("erik,pablo,carmne,eliseo, , felipe"));
+
+function funcionesVariasConCadenasDeTexto(cadenaDeTexto = '') {
+    const cadenaComoArray = cadenaDeTexto.trim().split(",").filter(string => string.trim() !== "");
+
+    function numeroDePalabras() {
+        return cadenaComoArray.length;
+    }
+
+    function primeraPalabra() {
+        return cadenaComoArray[0];
+    }
+
+    function ultimaPalabra() {
+        return cadenaComoArray[cadenaComoArray.length - 1];
+    }
+
+    function palabrasOrdenadasEnOrdenInversoAlIntroducido() {
+        const cadenaAlReves = [];
+
+        cadenaComoArray.forEach(palabra => {
+            cadenaAlReves.unshift(palabra);
+        });
+
+        return cadenaAlReves;
+    }
+
+    function palabrasOrdenadasAtoZ() {
+        return [...cadenaComoArray].sort((a, b) => a.localeCompare(b));
+    }
+
+    function palabrasOrdenadasZtoA() {
+        return [...cadenaComoArray].sort((a, b) => b.localeCompare(a));
+    }
+
+    return {
+        "NumeroDePalabras": numeroDePalabras(),
+        "PrimeraPalabra": primeraPalabra(),
+        "UltimaPalabra": ultimaPalabra(),
+        "CadenaAlReves": palabrasOrdenadasEnOrdenInversoAlIntroducido(),
+        "PalabrasOrdenadas": palabrasOrdenadasAtoZ(),
+        "PalabrasOrdenadasAlReves": palabrasOrdenadasZtoA()
+    }
+}
+
+//console.log(funcionesVariasConCadenasDeTexto("erik,hola,awebo,buenos,dias,,weon"));
