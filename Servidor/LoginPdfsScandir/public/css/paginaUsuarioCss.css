@@ -54,7 +54,7 @@ form:last-of-type {
 input[type=submit] {
     width: min-content;
     height: 2rem;
-    padding: 0;
+    padding: 0.5rem;
 }
 
 li {
