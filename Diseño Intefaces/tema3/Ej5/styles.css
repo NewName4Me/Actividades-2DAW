@@ -1,0 +1,144 @@
+body {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+section {
+    width: 70px;
+    height: 70px;
+    display: grid;
+    place-content: center;
+    color: white;
+    padding: 0.3rem;
+}
+
+section:nth-of-type(1) {
+    background: red;
+    cursor: crosshair;
+}
+
+section:nth-of-type(2) {
+    background: orange;
+    cursor: help;
+}
+
+section:nth-of-type(3) {
+    background: yellow;
+    cursor: move;
+}
+
+section:nth-of-type(4) {
+    background: green;
+    cursor: pointer;
+}
+
+section:nth-of-type(5) {
+    background: blue;
+    cursor: progress;
+}
+
+section:nth-of-type(6) {
+    background: indigo;
+    cursor: text;
+}
+
+section:nth-of-type(7) {
+    background: violet;
+    cursor: wait;
+}
+
+section:nth-of-type(8) {
+    background: pink;
+    cursor: vertical-text;
+}
+
+section:nth-of-type(9) {
+    background: brown;
+    cursor: alias;
+}
+
+section:nth-of-type(10) {
+    background: gray;
+    cursor: no-drop;
+}
+
+section:nth-of-type(11) {
+    background: black;
+    cursor: grab;
+}
+
+section:nth-of-type(12) {
+    background: silver;
+    cursor: grabbing;
+}
+
+section:nth-of-type(13) {
+    background: turquoise;
+    cursor: zoom-in;
+}
+
+section:nth-of-type(14) {
+    background: teal;
+    cursor: zoom-out;
+}
+
+section:nth-of-type(15) {
+    background: aqua;
+    cursor: not-allowed;
+}
+
+section:nth-of-type(16) {
+    background: cyan;
+    cursor: no-drop;
+}
+
+section:nth-of-type(17) {
+    background: magenta;
+    cursor: copy;
+}
+
+section:nth-of-type(18) {
+    background: lime;
+    cursor: ew-resize;
+}
+
+section:nth-of-type(19) {
+    background: maroon;
+    cursor: ns-resize;
+}
+
+section:nth-of-type(20) {
+    background: navy;
+    cursor: nwse-resize;
+}
+
+section:nth-of-type(21) {
+    background: olive;
+    cursor: nesw-resize;
+}
+
+section:nth-of-type(22) {
+    background: purple;
+    cursor: col-resize;
+}
+
+section:nth-of-type(23) {
+    background: red;
+    cursor: row-resize;
+}
+
+section:nth-of-type(24) {
+    background: yellowgreen;
+    cursor: context-menu;
+}
+
+section:nth-of-type(25) {
+    background: darkorchid;
+    cursor: none;
+}
+
+section:nth-of-type(26) {
+    background: darkred;
+    cursor: url('./mycurso.png'), pointer;
+}

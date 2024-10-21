@@ -1,0 +1,31 @@
+body {
+    box-sizing: border-box;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+section:nth-of-type(1) {
+    width: 300px;
+    height: 150px;
+    background: lightblue;
+    overflow: hidden;
+}
+
+section:nth-of-type(2) {
+    width: 300px;
+    height: 100px;
+    background: lightgreen;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+section:nth-of-type(3) {
+    width: 150px;
+    height: 200px;
+    background: lightcoral;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    /* redundante */
+}

@@ -1,0 +1,48 @@
+* {
+    margin-inline: 2rem;
+}
+
+body {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    background: #333333;
+    color: white;
+    text-align: center;
+    font-weight: bolder;
+}
+
+h1 {
+    padding: 2rem;
+}
+
+nav>a {
+    color: inherit;
+    text-decoration: inherit;
+    font-size: large;
+}
+
+h3 {
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+h3:first-letter {
+    color: blue;
+}
+
+h3+p::before {
+    content: "*.👌";
+}
+
+h3+p::after {
+    content: "-Aloja mora don 👌";
+    color: red;
+}
+
+h3+p::first-line {
+    color: green;
+}

@@ -1,0 +1,17 @@
+section {
+    counter-set: contTitulos 0;
+}
+
+article {
+    counter-set: contSubtitulos 0;
+}
+
+h2::before {
+    content: 'Capitulo ' counter(contTitulos) ' ';
+    counter-increment: contTitulos;
+}
+
+h3::before {
+    content: counter(contTitulos)'.' counter(contSubtitulos) ') ';
+    counter-increment: contSubtitulos;
+}

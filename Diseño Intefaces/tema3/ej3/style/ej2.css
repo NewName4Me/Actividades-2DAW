@@ -1,0 +1,11 @@
+a:visited {
+    color: lightgreen;
+}
+
+h2:target {
+    color: green;
+}
+
+h2:target::before {
+    content: '➣';
+}

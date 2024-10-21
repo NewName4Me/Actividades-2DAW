@@ -1,0 +1,37 @@
+body {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+section {
+    width: 100px;
+    height: 50px;
+    background: darkslategray;
+    margin: 1rem;
+}
+
+section:nth-of-type(1) {
+    border-radius: 0 0 50px 0;
+}
+
+section:nth-of-type(2) {
+    border-radius: 0 0 50px/25px 0;
+}
+
+section:nth-of-type(3) {
+    border-radius: 0 0 25px/50px 0;
+}
+
+section:nth-of-type(4) {
+    border-radius: 16px 80px;
+}
+
+section:nth-of-type(5) {
+    border-radius: 15px/7px 2px;
+}
+
+
+section:nth-of-type(6) {
+    border-radius: 50%;
+    width: 50px;
+}

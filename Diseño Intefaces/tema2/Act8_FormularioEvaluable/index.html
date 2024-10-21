@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios Evaluable</title>
+
+    <style>
+        fieldset,
+        legend {
+            border: 1px solid black;
+            color: black;
+        }
+
+        fieldset:first-of-type {
+            color: white;
+        }
+
+        fieldset:first-of-type section:first-of-type {
+            display: grid;
+            grid-template-columns: repeat(3, 12%);
+
+        }
+
+        fieldset:first-of-type section:last-of-type {
+            display: grid;
+            grid-template-columns: repeat(2, 12%);
+            column-gap: 6rem;
+        }
+
+        fieldset:first-of-type section:last-of-type input {
+            width: 140%;
+        }
+
+        fieldset:nth-of-type(4) input,
+        fieldset:nth-of-type(4) select {
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="#">
+        <fieldset style="background: #63594D;">
+            <legend style="background: #EAE3D1;">Datos Personales</legend>
+            <section>
+                <div>
+                    <label for="name">Nombre (*)</label><br>
+                    <input type="text" required>
+                </div>
+                <div>
+                    <label for="surname">Apellidos (*)</label><br>
+                    <input type="text" required>
+                </div>
+                <div>
+                    <label for="dni">DNI (*)</label><br>
+                    <input type="text" required>
+                </div>
+                <div>
+                    <label for="localidad">Localidad de Nacimiento</label><br>
+                    <input type="text">
+                </div>
+                <div>
+                    <label for="provincia">Provincia</label><br>
+                    <select name="" id="">
+                        <optgroup label="Andalucía">
+                            <option value="">Huelva</option>
+                            <option value="">Sevilla</option>
+                            <option value="">Cádiz</option>
+                            <option value="">Córdoba</option>
+                            <option value="">Jaén</option>
+                            <option value="">Granada</option>
+                            <option value="">Málaga</option>
+                            <option value="">Almería</option>
+                        </optgroup>
+                        <optgroup label="Castilla">
+                            <option value="">Ávila</option>
+                            <option value="">Burgos</option>
+                            <option value="">León</option>
+                            <option value="">Palencia</option>
+                            <option value="">Salamanca</option>
+                            <option value="">Segovia</option>
+                            <option value="">Soria</option>
+                            <option value="">Valladolid</option>
+                            <option value="">Zamora</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div>
+                    <label for="">Fecha de Nacimiento</label><br>
+                    <input type="date">
+                </div>
+            </section>
+            <section>
+                <div>
+                    <label for="direccion">Direccion (*)</label><br>
+                    <input type="text" required>
+                </div>
+                <div>
+                    <label for="codigoPostal">Código Postal</label><br>
+                    <input type="text" minlength="5" maxlength="5">
+                </div>
+                <div>
+                    <label for="email">E-mail (*)</label><br>
+                    <input type="email" required pattern="[a-z0-9._%+-]+@iesiliberis\.com">
+                </div>
+                <div>
+                    <label for="telefono">Telefono (*)</label><br>
+                    <input type="tel" minlength="9" required>
+                </div>
+            </section>
+        </fieldset>
+
+        <fieldset style="background: #B18272;">
+            <legend style="background: #EAE3D1;">Forma de Acceso</legend>
+            <input type="radio" id="radio1" name="access" value="internet">
+            <label for="radio1">Directo</label>
+            <div style="margin-left: 2rem;">
+                <input type="radio" id="radio3" name="access" value="fibra">
+                <label for="radio3">Bachillerato Log Modalidad</label>
+                <input type="text" name="" id=""><br>
+                <input type="radio" id="radio4" name="access" value="movil">
+                <label for="radio4">Experimental</label><br>
+                <input type="radio" id="radio5" name="access" value="satelite">
+                <label for="radio5">Cou opción</label>
+                <input type="text" name="" id=""><br>
+                <input type="radio" id="radio6" name="access" value="linea">
+                <label for="radio6">FP2</label><br>
+                <input type="radio" id="radio7" name="access" value="otro">
+                <label for="radio7">Otros (especifique)</label>
+                <input type="text" name="" id=""><br>
+            </div>
+            <input type="radio" id="radio2" name="access" value="rediris">
+            <label for="radio2">Prueba Libre</label>
+        </fieldset>
+        <fieldset style="background: #C2B291;">
+            <legend style="background: #EAE3D1;">Documentos Adjuntados</legend>
+            <input type="checkbox">
+            <label>Fotocopia DNI</label>
+            <input type="checkbox">
+            <label>Certificado Académico</label><br>
+            <input type="checkbox">
+            <label>Otros documentos (especifique)</label><br>
+            <input type="text" name="" id="">
+            <span>Adjuntar documentos (puedes subir más de un documento)<input type="file" name=""></span>
+        </fieldset>
+        <fieldset style="background: #D6E4C3;">
+            <legend style="background: #EAE3D1;">Personaliza</legend>
+            <label for="">Código Personalizado:</label>
+            <input type="text" pattern="[A-Z]{2}-\d{4}"><br>
+            <label for="">Grupo del curso:</label>
+            <input type="text" name="" id="" pattern="A|B|AA|BB|ABA"><br>
+            <label for="">Idioma Certificado:</label>
+            <select name="" id="">
+                <option value="">Inglés</option>
+                <option value="">Francés</option>
+                <option value="">Alemán</option>
+                <option value="">Portugués</option>
+                <option value="">Italiano</option>
+                <option value="">Japonés</option>
+            </select><br>
+            <label for="">Certificación de idiomas:</label>
+            <input type="text" name="" id="" pattern="A1|A2|B1|B2|C1|C2">
+        </fieldset>
+        <fieldset style="background: #EAE3D1;">
+            <legend style="background: #EAE3D1;">Otros datos</legend>
+            <label for="">Indique cualquier otra cosa a tener en cuenta</label><br>
+            <textarea style="text-align: center;" name="" id="" placeholder="Déjanos tu comentario" rows="7"
+                cols="40"></textarea>
+        </fieldset>
+
+        <input style="margin-left: 2rem;margin-top: 1rem;" type="submit" value="Enviar Solicitud">
+        <input type="reset" value="Resetear">
+    </form>
+</body>
+
+</html>
