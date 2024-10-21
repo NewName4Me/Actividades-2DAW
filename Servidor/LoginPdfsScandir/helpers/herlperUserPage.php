@@ -59,10 +59,13 @@ function listarArchivosRecursivamente($directorio)
                 echo
                 '<li>
                     <a href="' . $rutaCompleta . '" target="_blank">' . $archivo . '</a>
-                    <form method="POST" action="../controller/controllerDownloadPDF.php" style="display:inline;">
+                    <form method="POST" action="../controller/accionesDirectorios.php" style="display:inline;">
                         <input type="hidden" name="rutaCompleta" value="' . $rutaCompleta . '">
                         <input type="hidden" name="fileName" value="' . $archivo . '">
-                        <input type="submit" value="Descargar en PDF" name="descargarPDF">
+                        <input type="submit" value="Dowwload" name="descargarOriginal">
+                        <input type="submit" value="Down.PDF" name="descargarPDF">
+                        <input type="submit" value="Copy" name="hacerUnaCopia">
+                        <input type="submit" value="Delete" name="eliminar">
                     </form>
                 </li>';
             } else {

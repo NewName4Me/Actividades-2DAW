@@ -50,3 +50,17 @@ form:last-of-type {
     background: lightcoral;
     padding: 1rem;
 }
+
+input[type=submit] {
+    width: min-content;
+    height: 2rem;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 1rem;
+}
+
+ul form {
+    background: white !important;
+}
