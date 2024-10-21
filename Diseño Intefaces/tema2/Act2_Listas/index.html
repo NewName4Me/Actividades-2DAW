@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listas</title>
+
+    <style>
+        .puntito {
+            list-style: disc;
+        }
+
+        .romano {
+            list-style: lower-roman;
+        }
+
+        .letra {
+            list-style: lower-alpha;
+        }
+
+        .cuadrado {
+            list-style-type: square;
+        }
+    </style>
+
+<body>
+    <main>
+        <section>
+            <ol class="romano">
+                <li>
+                    General Aviaition
+                    <ol class="letra">
+                        <li>
+                            Single Aviation Aircraft
+                        </li>
+                        <li>
+                            Dual Engine Aircraft
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Comencial Aviationgine
+                    <ol class="puntito">
+                        <li>Dual Engine</li>
+                        <li>Tri-Engine</li>
+                    </ol>
+                </li>
+            </ol>
+        </section>
+        <section>
+            <ul class="cuadrado">
+                <li>
+                    A
+                    <ul class="puntito">
+                        <li>
+                            B
+                            <ol>
+                                <li>C</li>
+                                <li>D</li>
+                            </ol>
+                        </li>
+                        <li>
+                            E
+                            <ul class="cuadrado">
+                                <li>F</li>
+                                <li>G</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    B
+                </li>
+            </ul>
+        </section>
+    </main>
+
+
+
+</body>
+
+</html>

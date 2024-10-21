@@ -1,0 +1,24 @@
+input[type=text]:hover {
+    background: yellow !important;
+}
+
+input[type=text]:disabled {
+    background: red !important;
+}
+
+input[type=text]:focus {
+    background: blue !important;
+}
+
+input[type=text]:enabled {
+    background: green;
+}
+
+input[type=radio]:checked+label {
+    font-style: italic;
+}
+
+input[type=checkbox]:checked+label {
+    background: yellow;
+    font-weight: bold;
+}

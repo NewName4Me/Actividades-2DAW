@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Ejercicios Arrays</title>
+    <style>
+        section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+            margin: 0;
+        }
+
+        div {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Lista de Ejercicios Arrays</h1>
+    <section>
+        <div>
+            <h2>Ejercicio 1: Array de Números</h2>
+            <p>Realiza un script que solicite 5 números al usuario, almacenarlos en
+                un array y luego mostrar el valor mínimo, máximo y medio.</p>
+            <button id="1">Ver Ejercicio</button>
+        </div>
+
+        <div>
+            <h2>Ejercicio 2: Comprobar Color en Array</h2>
+            <p>Determina si un color introducido por el usuario está dentro del array
+                ["azul", "amarillo", "rojo", "verde", "café", "rosa"].</p>
+            <button id="2">Ver Ejercicio</button>
+        </div>
+
+        <div>
+            <h2>Ejercicio 3: Generar Números Aleatorios</h2>
+            <p>Genera 20 números aleatorios y guárdalos en un array. N es introducido
+                por el usuario.</p>
+            <button id="3">Ver Ejercicio</button>
+        </div>
+
+        <div>
+            <h2>Ejercicio 4: Operaciones con Arrays</h2>
+            <p>Genera los arrays de Intersección, Unión y Diferencia entre dos arrays
+                de 5 palabras cada uno.</p>
+            <button id="4">Ver Ejercicio</button>
+        </div>
+
+        <div>
+            <h2>Ejercicio 5: Array Aleatorio y Estadísticas</h2>
+            <p>Genera un array con 20 números aleatorios entre 0 y 100, muestra los
+                valores, el mínimo, máximo y promedio.</p>
+            <button id="5">Ver Ejercicio</button>
+        </div>
+
+        <div>
+            <h2>Ejercicio 6: Buscar Texto en Documento</h2>
+            <p>Crea una web con varios párrafos. Un botón solicitará una palabra y
+                mostrará si existe en el documento.</p>
+            <button id="6">Ver Ejercicio</button>
+        </div>
+
+        <div>
+            <h2>Ejercicio 7: Ordenar Array con Algoritmo</h2>
+            <p>Genera un array con 20 números aleatorios, muestra los valores sin
+                ordenar, ordenados y sin duplicados utilizando un algoritmo de ordenación como el de burbuja.</p>
+            <button id="7">Ver Ejercicio</button>
+        </div>
+
+        <div>
+            <h2>Ejercicio 8: Ordenar Nombres</h2>
+            <p>Solicita nombres separados por comas, luego muestra los nombres
+                ordenados utilizando split.</p>
+            <button id="8">Ver Ejercicio</button>
+        </div>
+
+        <div>
+            <h2>Ejercicio 9: Análisis de Cadena de Texto</h2>
+            <p>Leer una cadena y mostrar: número de palabras, primera y última
+                palabra, palabras en orden inverso, de la A a la Z y de la Z a la A.</p>
+            <button id="9">Ver Ejercicio</button>
+        </div>
+    </section>
+
+    <script src="./script.js"></script>
+    <script>
+        const buttons = document.querySelectorAll('BUTTON');
+        buttons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const btnId = e.target.id;
+
+                switch (btnId) {
+                    case "1":
+                        const valores = [];
+                        for (let i = 0; i < 5; i++) {
+                            valores.push(Number(prompt(`Introduce el valor ${i + 1}:`)));
+                        }
+                        const result = maximoMinimoValorMedio(...valores);
+                        alert(`Máximo: ${result.maximo}, Mínimo: ${result.minimo}, Medio: ${result.medio}`);
+                        break;
+
+                    case "2":
+                        const color = prompt("Introduce un color:");
+                        if (colorDentroDeNuestraDB(color)) {
+                            alert("El color está en la lista.");
+                        } else {
+                            alert("El color no está en la lista.");
+                        }
+                        break;
+
+                    case "3":
+                        const numIteraciones = Number(prompt("Introduce el número de iteraciones:"));
+                        const arrayDeValores = llenarArrayDeValoresAleatorios(numIteraciones);
+                        alert(`Los ${numIteraciones} números aleatorios generados son: ${arrayDeValores.join(", ")}`);
+                        break;
+
+                    case "4": {
+                        const array1 = [1, 2, 3, 4, 5];
+                        const array2 = [4, 5, 6, 7, 8];
+                        const { union, interseccion, diferencia } = interseccionUnionDiferencia(array1, array2);
+                        alert(`El array 1 es: ${array1.join(", ")}, el array 2 es: ${array2.join(", ")}`);
+                        alert(`El resultado de la unión es: ${union.join(", ")}`);
+                        alert(`El resultado de la intersección es: ${interseccion.join(", ")}`);
+                        alert(`El resultado de la diferencia es: ${diferencia.join(", ")}`);
+                        break;
+                    }
+
+                    case "5":
+                        const resultado = llenarArrayDeValoresYDevolverInfo(20, 100, 0);
+                        alert(`Máximo: ${resultado.maximo}, Mínimo: ${resultado.minimo}, Media: ${resultado.medio}`);
+                        break;
+
+                    case "6":
+                        const palabra = prompt("Introduce una palabra:");
+                        if (palabraEnElDom(palabra)) {
+                            alert(`La palabra "${palabra}" se encuentra en el documento.`);
+                        } else {
+                            alert(`La palabra "${palabra}" no se encuentra en el documento.`);
+                        }
+                        break;
+
+                    case "7":
+                        const numerosAleatorios = tomarArrayDeNumerosAleatorios();
+                        alert(`Array original: ${numerosAleatorios.Original.join(", ")}`);
+                        alert(`Array ordenado y sin duplicados: ${numerosAleatorios.Ordeandos.join(", ")}`);
+                        break;
+
+                    case "8":
+                        const nombres = prompt("Introduce una lista de nombres separados por comas:");
+                        const nombresOrdenados = ordenarStrings(nombres);
+                        alert(`Nombres ordenados: ${nombresOrdenados.join(", ")}`);
+                        break;
+
+                    case "9":
+                        const texto = prompt("Introduce una cadena de texto separada por comas:");
+                        const resultadoTexto = funcionesVariasConCadenasDeTexto(texto);
+                        alert(`Número de palabras: ${resultadoTexto.NumeroDePalabras}`);
+                        alert(`Primera palabra: ${resultadoTexto.PrimeraPalabra}`);
+                        alert(`Última palabra: ${resultadoTexto.UltimaPalabra}`);
+                        alert(`Palabras en orden inverso: ${resultadoTexto.CadenaAlReves.join(", ")}`);
+                        alert(`Palabras ordenadas (A-Z): ${resultadoTexto.PalabrasOrdenadas.join(", ")}`);
+                        alert(`Palabras ordenadas (Z-A): ${resultadoTexto.PalabrasOrdenadasAlReves.join(", ")}`);
+                        break;
+
+                    default:
+                        alert("Ejercicio no encontrado");
+                        break;
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

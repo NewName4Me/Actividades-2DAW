@@ -39,7 +39,7 @@ function multiplesTiradas(funcion, numeroDeEjecuciones) {
     return ocurrenciasDeCadaSituacion;
 }
 
-console.log(multiplesTiradas(lanzamiento, 6000));
+//console.log(multiplesTiradas(lanzamiento, 6000));
 
 function calcularVolumenEsfera(radio) {
     return 4 / 3 * Math.PI * Math.pow(radio, 3);
@@ -54,7 +54,7 @@ function calcularVolumenEsferaYAreCirculo(radio) {
         "areaCirculo": areaCirculo
     }
 }
-console.log(calcularVolumenEsferaYAreCirculo(2));
+//console.log(calcularVolumenEsferaYAreCirculo(2));
 
 /**
  * una funcion que calcula la potencia de un numero de manera recursiva
@@ -81,5 +81,5 @@ function calcularFactorial(numero) {
     return numero * calcularFactorial(numero - 1);
 }
 
-console.log(calcularFactorial(170));
-console.log(calcularFactorial(171));
+//console.log(calcularFactorial(170));
+//console.log(calcularFactorial(171));

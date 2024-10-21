@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Ejercicios Erik</title>
+    <style>
+        section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+            margin: 0;
+        }
+
+        div {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Lista de ejercicios Erik TR 2ºDAW</h1>
+    <section>
+        <div>
+            <h2>Ejercicio 1: Función Máximo</h2>
+            <p>Define una función máximo que dados 4 valores devuelva el máximo de ellos. Llámala con un ejemplo
+                pidiendo los 4 valores al usuario.</p>
+            <button id="1">Ver Ejercicio</button>
+        </div>
+
+        <div>
+            <h2>Ejercicio 2: Lanzamiento de Dado</h2>
+            <p>Crea una web desde la que se simule el lanzamiento de un dado de 6 caras. Para ello define una función
+                "lanzamiento" que devuelva un número aleatorio entre 1 y 6.</p>
+            <button id="2">Ver Ejercicio</button>
+        </div>
+
+        <div>
+            <h2>Ejercicio 3: Simulación de 6000 Tiradas</h2>
+            <p>Mejora la web anterior para generar una simulación de 6000 tiradas, mostrando al final el número de
+                ocurrencias de cada valor.</p>
+            <button id="3">Ver Ejercicio</button>
+        </div>
+
+        <div>
+            <h2>Ejercicio 4: Volumen de una Esfera</h2>
+            <p>Crea una web para calcular el volumen de una esfera. Diseña una función que dado el radio de ésta
+                devuelva el volumen.</p>
+            <button id="4">Ver Ejercicio</button>
+        </div>
+
+        <div>
+            <h2>Ejercicio 5: Área de un Círculo</h2>
+            <p>Mejora el ejercicio anterior permitiendo calcular también el área de un círculo.</p>
+            <button id="5">Ver Ejercicio</button>
+        </div>
+
+        <div>
+            <h2>Ejercicio 6: Potencias Recursivas</h2>
+            <p>Crea una función para calcular potencias de un modo recursivo.</p>
+            <button id="6">Ver Ejercicio</button>
+        </div>
+
+        <div>
+            <h2>Ejercicio 7: Factorial de Números</h2>
+            <p>Crea una función que calcule el factorial de un número dado. Diseña una web que muestre en forma de tabla
+                el factorial para los valores de 1 a 10.</p>
+            <button id="7">Ver Ejercicio</button>
+        </div>
+    </section>
+
+    <script src="./script.js"></script>
+    <script>
+        const buttons = document.querySelectorAll('BUTTON');
+        buttons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const btnId = e.target.id;
+
+                switch (btnId) {
+                    case "1": {
+                        const valores = [];
+                        for (let i = 0; i < 4; i++) {
+                            valores.push(Number(prompt(`Introduce el valor ${i + 1}:`)));
+                        }
+
+                        alert(`El máximo es ${maximo(...valores)}`);
+                        break;
+                    }
+                    case "2": {
+                        const numeroAleatorio = lanzamiento();
+                        alert(`El número aleatorio es: ${numeroAleatorio}`);
+                        break;
+                    }
+
+                    case "3": {
+                        const tiradas = multiplesTiradas(lanzamiento, 6000);
+                        let mensaje = 'El resultado de 6000 tiradas es:\n';
+                        for (const [key, value] of tiradas.entries()) {
+                            mensaje += `El número ${key} ha salido ${value} veces.\n`
+                        }
+                        alert(mensaje);
+                        break;
+                    }
+
+                    case "4": {
+                        const radio = Number(prompt("Introduce el radio de la esfera:"));
+                        alert(`El volumen de la esfera es: ${calcularVolumenEsfera(radio)}`);
+                        break;
+                    }
+
+                    case "5": {
+                        const radio = Number(prompt("Introduce el radio de la esfera y del círculo:"));
+                        const { volumenEsfera, areaCirculo } = calcularVolumenEsferaYAreCirculo(radio);
+                        alert(`El volumen de la esfera es: ${volumenEsfera} y el área del circulo es: ${areaCirculo}`);
+                        break;
+                    }
+
+                    case "6": {
+                        const base = Number(prompt("Introduce la base:"));
+                        const exponente = Number(prompt("Introduce el exponente:"));
+                        alert(`El resultado de la potencia recursiva es: ${calcularPotenciasRecursividad(base, exponente)}`);
+                        break;
+                    }
+
+                    case "7": {
+                        const numero = Number(prompt("Introduce un número:"));
+                        alert(`El factorial de ${numero} es: ${calcularFactorial(numero)}`);
+                        break;
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

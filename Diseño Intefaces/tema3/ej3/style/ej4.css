@@ -1,0 +1,19 @@
+body {
+    counter-set: contTitulos 0;
+}
+
+main {
+    counter-set: contSubtitulos 0;
+}
+
+h2::before {
+    content: 'Capitulo ' counter(contTitulos) ' ';
+    counter-increment: contTitulos;
+    color: blue;
+}
+
+h3::after {
+    content: ' - Subseccion ' counter(contTitulos) '.' counter(contSubtitulos);
+    counter-increment: contSubtitulos;
+    color: green;
+}

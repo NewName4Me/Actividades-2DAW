@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .mainTable {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 300px;
+            height: 200px;
+        }
+
+        .mainTable table td {
+            background: yellow;
+        }
+
+        .mainTable table {
+            border-spacing: 0;
+            border-collapse: collapse;
+            width: 100%;
+            height: 100%;
+        }
+
+        table td {
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <table class="mainTable">
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td colspan="2">
+                    </>
+            </tr>
+            <tr>
+                <td></td>
+                <td colspan="2"></td>
+                <td rowspan="2"></td>
+            </tr>
+            <tr>
+                <td rowspan="3"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="3"></td>
+            </tr>
+            <tr>
+                <td colspan="3"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <table class="mainTable">
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>
+                    <table style="width: 100%; height: 100%;">
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <table style="width: 100%; height: 100%">
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <table style="width: 100%; height: 100%">
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

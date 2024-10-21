@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo Counter</title>
+    <style>
+        body {
+            counter-set: numeroCapitulo 0;
+        }
+
+        h2::before {
+            content: 'Capitulo ' counter(numeroCapitulo) ' ';
+            counter-increment: numeroCapitulo;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <section>
+            <h2>Hola</h2>
+            <article>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, expedita.</p>
+            </article>
+            <article>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, expedita.</p>
+            </article>
+        </section>
+        <section>
+            <h2>Buenos tardes</h2>
+            <article>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, expedita.</p>
+            </article>
+            <article>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, expedita.</p>
+            </article>
+        </section>
+        <section>
+            <h2>Buenas noches</h2>
+            <article>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, expedita.</p>
+            </article>
+            <article>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, expedita.</p>
+            </article>
+        </section>
+    </main>
+
+</body>
+
+</html>

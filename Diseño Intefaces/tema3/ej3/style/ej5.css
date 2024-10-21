@@ -1,0 +1,74 @@
+body {
+    counter-set: tarea 0;
+}
+
+section::before {
+    content: 'Actividad ' counter(tarea);
+    font-size: xx-large;
+    font-weight: bolder;
+    counter-increment: tarea;
+}
+
+/* ACT 1 */
+section:nth-child(1) li:first-of-type {
+    background: green;
+}
+
+section:nth-child(1) li:last-of-type {
+    background: red;
+}
+
+/* ACT 2 */
+
+section:nth-child(2) p:first-child {
+    border-top: 1px solid black;
+}
+
+section:nth-child(2) p:last-child {
+    border-bottom: 1px solid black;
+}
+
+/* ACT 3 */
+section:nth-child(3) ol:first-of-type li:nth-of-type(even) {
+    text-decoration: underline;
+}
+
+section:nth-child(3) ol:first-of-type li:nth-of-type(odd) {
+    text-decoration: line-through;
+}
+
+section:nth-child(3) ol:last-of-type li:nth-child(4n) {
+    color: green;
+}
+
+
+/* ACT 5 */
+
+section:nth-child(4) h2:nth-of-type(odd) {
+    text-decoration: underline;
+}
+
+/* ACT 6 */
+section:nth-child(5) strong:first-of-type {
+    font-size: xx-large;
+}
+
+/* ACT 7 */
+section:nth-child(6) li::first-letter {
+    text-decoration: underline;
+}
+
+/* ACT 8 */
+section:nth-child(7) strong::before {
+    content: '¡';
+}
+
+section:nth-child(7) strong::after {
+    content: '!';
+}
+
+/* ACT 9 */
+section:nth-child(8) p::before {
+    content: '- ❤️';
+    color: red;
+}
