@@ -14,5 +14,46 @@ section:nth-of-type(2) {
 }
 
 section:nth-of-type(3) {
-    background: radial-gradient(yellow, orange, orangered, red, black);
+    background: radial-gradient(yellow, orange, orangered, red, darkred, black);
+}
+
+section:nth-of-type(4) {
+    background: radial-gradient(yellow 0% 40%, orange, orangered, red, darkred, black 80% 100%);
+}
+
+section:nth-of-type(5) {
+    background: radial-gradient(circle, yellow 0% 50%, orange, orangered, red, darkred, black 90% 100%);
+}
+
+section:nth-of-type(6) {
+    background: radial-gradient(circle at left, yellow 0% 50%, orange, orangered, red, darkred, black 90% 100%);
+}
+
+section:nth-of-type(7) {
+    background: radial-gradient(circle, blue, purple, red, orangered, orange, yellow);
+}
+
+section:nth-of-type(8) {
+    background: radial-gradient(blue, purple, red, orangered, orange, yellow 80% 100%);
+}
+
+section:nth-of-type(9) {
+    background: radial-gradient(circle, blue, purple, red, orangered, orange, yellow);
+}
+
+section:nth-of-type(10) {
+    background: repeating-radial-gradient(circle, #ff4444 0% 10%, #ff0000 10% 20%, #8b0000 20% 30%)
+}
+
+section:nth-of-type(11) {
+    background: conic-gradient(at 50% 0%, #069AF3, #045A8D, #032B44, #011724);
+}
+
+section:nth-of-type(12) {
+    height: 600px;
+    margin-bottom: 5rem;
+    background: repeating-conic-gradient(from 180deg, blue 0%,
+            yellow 10%,
+            orange 15%,
+            red 20%);
 }
