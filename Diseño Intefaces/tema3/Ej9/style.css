@@ -1,3 +1,9 @@
+h1 {
+    background: linear-gradient(purple, violet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 section {
     margin: 1rem auto;
     width: 90%;
