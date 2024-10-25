@@ -1,7 +1,7 @@
 /**
  * una funcion que dados un numero indefinido de numeros, nos devuelve un Objeto
  * que contiene el valor maximo,minimo y valor medio
- * @param  {...Number} arrayDeNumerosParaAnalizar 
+ * @param  {...Number} arrayDeNumerosParaAnalizar  -arrayDeNumerosParaAnalizar
  * @returns {Object}
  */
 function maximoMinimoValorMedio(...arrayDeNumerosParaAnalizar) {
@@ -18,7 +18,7 @@ function maximoMinimoValorMedio(...arrayDeNumerosParaAnalizar) {
 /**
  * dado un color cualquiera devolvemos true o false en funcion de si este color
  * esta includo en nuestra lista de colores
- * @param {String} color 
+ * @param {String} color - color 
  * @returns {Boolean}
  */
 function colorDentroDeNuestraDB(color = '') {
