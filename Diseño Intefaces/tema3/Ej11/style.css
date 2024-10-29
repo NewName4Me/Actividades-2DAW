@@ -1,0 +1,141 @@
+* {
+    box-sizing: border-box;
+    transition: all 0.2 ease;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2 {
+    background: lightgray;
+    padding: 1rem;
+    color: orange;
+    border-bottom: 2px solid green;
+    margin: 0;
+}
+
+header section:first-of-type {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+main h1 {
+    text-align: center;
+}
+
+header section:nth-of-type(2) nav a {
+    text-decoration: none;
+    color: white;
+    padding: 5rem 2rem;
+}
+
+header section:nth-of-type(2) nav ul {
+    margin: 0;
+    height: 2rem;
+}
+
+header section:nth-of-type(2) nav li:hover {
+    background: black;
+}
+
+header section:nth-of-type(2) li {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+header section:nth-of-type(2) nav {
+    background: darkcyan;
+    width: fit-content;
+}
+
+header section:last-of-type nav {
+    background: lightblue;
+    width: fit-content;
+    border-right: 2px solid orange;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+header section:last-of-type nav li {
+    padding: 0.5rem 1rem;
+    list-style: none;
+}
+
+header section:last-of-type nav li::before {
+    content: '👉';
+    margin-right: 0.7rem;
+}
+
+header section:last-of-type nav a {
+    margin: 0;
+    text-decoration: none;
+}
+
+header section:last-of-type nav li:hover {
+    background: rgb(42, 113, 136);
+    cursor: pointer;
+}
+
+header section:last-of-type nav li:hover a {
+    color: white;
+}
+
+img {
+    width: 10vw;
+}
+
+main article {
+    text-align: center;
+    width: 60vw;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+
+main article figure {
+    float: left;
+    width: 12%;
+    text-align: center;
+    line-height: 50%;
+}
+
+main article figure:nth-child(3n+3)::after {
+    content: '';
+    display: block;
+}
+
+main article::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+
+
+footer {
+    background: black;
+    padding: 1rem;
+}
+
+footer a {
+    color: aqua;
+}
+
+footer a:first-of-type::before {
+    content: '<< ';
+}
+
+footer a:last-of-type::after {
+    content: ' >>';
+}
+
+footer a:last-of-type {
+    float: right;
+}

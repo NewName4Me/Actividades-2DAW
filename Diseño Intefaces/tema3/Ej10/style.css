@@ -1,0 +1,10 @@
+p {
+    background: lightblue;
+    padding: 1rem;
+    border-radius: 4px;
+    position: sticky;
+    top: 0;
+}
+li {
+    list-style: none;
+}

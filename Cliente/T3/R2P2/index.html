@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        section {
+            border: 2px solid grey;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-radius: 18px;
+        }
+
+        body {
+            counter-reset: ejercicio 0;
+        }
+
+        h3::before {
+            content: 'Ejercicio ' counter(ejercicio) ': ';
+            color: blue;
+            font-size: 1.5rem;
+            counter-increment: ejercicio;
+        }
+
+        input[type=text] {
+            display: block;
+        }
+
+        form {
+            display: none;
+        }
+
+        input[type=checkbox]:checked+form {
+            display: block;
+        }
+
+        #show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Clase</h1>
+    <section>
+        <h3>Mostrar lista de Alumnos</h3>
+        <table border="2px">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                    <th>Nota1</th>
+                    <th>Nota2</th>
+                    <th>Nota3</th>
+                </tr>
+            </thead>
+            <tbody id="clase-list">
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h3>
+            Dada la posicion del estudiante y el trimestre devuelve la nota, si trimes es undefined te
+            devolveré la media de los tres trimestres
+        </h3>
+        <button id="ej2">Insertar Datos</button>
+    </section>
+
+    <section>
+        <h3>
+            Una funcion que devuelve la edad media de los estudiantes</h3>
+        <button id="ej3">Ver media</button>
+    </section>
+
+    <section>
+        <h3>Seleccionar de forma aleatorio un nombre de estudiante</h3>
+        <button id="ej4">Seleccionar</button>
+    </section>
+
+    <section>
+        <h3>Crear una función llamado paresImpares que cree un array de 100 números aleatorios del 1
+            al 1000. Una vez creado, mostrar el contenido y después organizarlo de forma que estén
+            juntos los elementos pares y los impares. Después, volver a mostrar el array</h3>
+        <button id="ej5">Ver arrays</button>
+    </section>
+
+    <section>
+        <h3>Utiliza Arrays para resolver el siguiente problema: Una empresa paga a sus vendedores en
+            base a comisiones. Los vendedores reciben $ 200 por semana, más el 9% de sus ventas
+            brutas de esa semana. Por ejemplo, un vendedor que gana en total $ 5000 en ventas en una
+            semana recibe $ 200 más el 9 por ciento de $ 5000, o sea un total de $ 650.
+            Diseña una web que permita dar de alta a vendedores, introducir sus ventas e indique cual
+            sería su sueldo final</h3>
+        <div>
+            <label for="alta">Gestionar Ventas Vendedor</label>
+            <input type="checkbox" name="alta" id="alta">
+            <form id="sendData">
+                <label for="">Nombre vendedor</label>
+                <input type="text" name="ej6_name" id="ej6_name" placeholder="nombre...">
+                <label for="">Ventas realizadas esta semana</label>
+                <input type="text" name="ej6_sells" id="ej6_sells" placeholder="dinero...">
+                <input type="submit">
+            </form>
+        </div>
+        <div>
+            <table border="2px">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Ventas</th>
+                        <th>Sueldo</th>
+                    </tr>
+                </thead>
+                <tbody id="workers"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <section>
+        <h3>Ejercicios varios usando arrays:</h3>
+        <button id="ej7_a">Rellenar un array de 10</button><br>
+        <button id="ej7_b">Añadir 1 a cada elemento de un array</button><br>
+        <button id="ej7_c">Muestra los valores de un array separados por espacio</button>
+    </section>
+
+    <section>
+        <h3>Haciendo uso de un array unidimensional, escribir un script para simular el lanzamiento de
+            dos dados. El script debe simular el lanzamiento (aleatorio) de ambos dados. La suma de los
+            dos valores debe calcularse a continuación (la suma variará pues de 2 a 12, siendo éstos los
+            valores menos frecuentes así como 7 el más frecuente). Haz una simulación con 36.000
+            lanzamientos y muestra el número de veces que aparece cada una de las combinaciones.
+        </h3>
+        <button id="ej8">Ver resultados Simulacion</button>
+    </section>
+
+    <section>
+        <h3>Mejora el ejercicio anterior para además mostrar una tabla bidimensional que muestre las
+            combinaciones (no sólo la suma) que se han ido dando (ahora sí podemos usar arrays
+            bidimensionales).</h3>
+        <button id="ej9">Ver resultados Simulacion</button>
+        <div id="resultados"></div>
+    </section>
+
+    <section>
+        <h3>
+            Una pequeña aerolínea acaba de comprar un programa para su nuevo sistema de reservas.
+            Diseña la web encargada de asignar asientos en cada vuelo de avión de la aerolínea
+            (capacidad: 10 plazas). Se debe pedir en primer lugar el tipo de asiento: "First” (asientos 1 al
+            5) oy "Turista" (resto). Una vez escogido un asiento libre, se debe poder imprimir una
+            tarjeta de embarque que indique la persona, el número de asiento y clase de éste (en una
+            nueva ventana). Deben utilizarse arrays para solucionar el problema.
+        </h3>
+        <form id="show" class="flightForm" action="">
+            <label for="">Nombre persona</label>
+            <input type="text" placeholder="nombre" class="Ej10_name">
+            <label for="">Tipo de asiento</label>
+            <input type="text" placeholder="First o Turista" class="Ej10_type">
+            <button type="submit">Asignar asiento</button>
+        </form>
+        <div id="asientos"></div>
+    </section>
+
+    <section style="margin-bottom: 50rem;">
+        <h3>Utiliza una matriz de dos dimensiones para resolver el siguiente problema: Una empresa
+            tiene cuatro vendedores (1 a 4) que venden cinco productos diferentes (1 a 5). Una vez al
+            día, cada vendedor pasa en un estadillo con las ventas realizadas por producto. Cada hoja
+            contiene
+            a) el número de vendedor,
+            b) el número de producto, y
+            c) el valor total de los productos vendidos ese día.
+            Así, cada vendedor pasa entre cero y cinco hojas de ventas por día. Supón que disponemos
+            dee la información de todos los estadillos del último mes. Escribir un script que lee toda esta
+            información de las ventas del mes pasado y resumir el total de ventas por vendedor por
+            producto. Todos los totales deben estar almacenan en las ventas de matriz de dos
+            dimensiones. Después de procesar toda la información para el mes pasado, mostrar los
+            resultados en un formato de tabla XHTML, con cada una de las columnas que representan
+            un vendedor y cada una de las filas que representan un producto diferente. Además se
+            mostrará una última fila con las ventas acumuladas por vendedor, y una última columna con
+            las ventas acumuladas por producto.</h3>
+    </section>
+    <script src="./script.js"></script>
+</body>
+
+</html>
