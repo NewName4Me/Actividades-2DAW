@@ -22,6 +22,7 @@ const sortAllNamesThatStartWithLetterJ = (names = ['']) => {
         .sort();
 }
 const nombres = ["Juan Pérez", "José Martínez", "Ana Gómez", "Jorge López", "María Fernández", "Julián Torres", "Luis Sánchez", "Julia Rodríguez", "Carlos Díaz", "Jazmín Ortega"];
+console.log(sortAllNamesThatStartWithLetterJ(nombres));
 
 
 //#region Ej3
@@ -108,68 +109,64 @@ console.log(crearMapaDelTesoroValido(5, 5));
 //#region Ej5
 
 /**
- * una funcion que nos dice si en nuestro array bidiiensional hay un "saddle", un punto o más el cual es el mayor de su fila
- * y el menor de su columna y nos devuelve la lista de objetos que cumplen dichas condiciones 
- * @param {Array} arr 
- * @returns {Array[Object] || Error}
+ * Encuentra los puntos de silla en una matriz.
+ * @param {Array} arr - La matriz a evaluar.
+ * @returns {Array|Error} - Devuelve una lista de puntos de silla o un error si no hay.
  */
 const saddlePoints = (arr = []) => {
     const listOfSaddlePoints = [];
 
     for (const [indexFila, fila] of arr.entries()) {
-
-        const sumatoriaFila = sumatorioFila(fila);//tomo el elemento más grande de la fila
+        const maxInRowValue = maxInRow(fila); // Usar la nueva función para encontrar el máximo
 
         for (const [columnaIndex, elementoEnCelda] of fila.entries()) {
-
-            //si el elemento que estamos viendo ahora es el mas grande o igual que el mas grande de la fila => true
-            if (elementoEnCelda >= sumatoriaFila) {
-
-                //si ademas es el elemento mas peuqeño de la columna lo añadimos a la lista de saddles
-                if (esMenorOIgualEnColumna(arr, elementoEnCelda, columnaIndex)) {
+            // Si el elemento es el mayor en la fila
+            if (elementoEnCelda === maxInRowValue) {
+                // Si además es el elemento más pequeño de la columna, lo añadimos a la lista de saddle points
+                if (isMinInColumn(arr, elementoEnCelda, columnaIndex)) {
                     listOfSaddlePoints.push({ fila: indexFila, columna: columnaIndex });
                 }
             }
         }
     }
 
-    return listOfSaddlePoints.length != 0 ? listOfSaddlePoints : new Error('No hay saddle Points en esta lista');
+    return listOfSaddlePoints.length !== 0 ? listOfSaddlePoints : new Error('No hay saddle Points en esta lista');
 }
 
 /**
- * una funcion que nos dice cual es elemento mas grande de nuestro array
- * @param {Array} fila 
- * @returns {Number}
+ * Función que devuelve el elemento más grande de una fila.
+ * @param {Array} fila - La fila a evaluar.
+ * @returns {Number} - El valor máximo en la fila.
  */
-function sumatorioFila(fila) {
+function maxInRow(fila) {
     return Math.max(...fila);
 }
 
 /**
- * una funcion que nos dice si un elemento es el menor de su columna
- * @param {Array} arr 
- * @param {Number} valor 
- * @param {Number} colIndex 
- * @returns {Boolean}
+ * Comprueba si un elemento es el menor en su columna.
+ * @param {Array} arr - La matriz a evaluar.
+ * @param {Number} valor - El valor a comprobar.
+ * @param {Number} colIndex - El índice de la columna.
+ * @returns {Boolean} - Devuelve true si el valor es el menor, false de lo contrario.
  */
-function esMenorOIgualEnColumna(arr, valor, colIndex) {
+function isMinInColumn(arr, valor, colIndex) {
     for (let i = 0; i < arr.length; i++) {
-        if (arr[i][colIndex] >= valor) {
-            return false; // Si encuentra un elemento mayor, devuelve false
+        if (arr[i][colIndex] < valor) {
+            return false; // Si encuentra un elemento menor, devuelve false
         }
     }
-    return true; // Si todos son menores o iguales, devuelve true
+    return true; // Si todos son mayores o iguales, devuelve true
 }
 
+// Ejemplo de matriz
 const saddle = [
-    [34, 21, 32, 41, 25],
-    [14, 42, 43, 14, 31],
-    [54, 45, 52, 42, 23],
-    [33, 15, 51, 31, 35],
-    [21, 52, 33, 13, 23]
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 5, 8]
 ];
-console.log(saddlePoints(saddle));
 
+// Llamada a la función y muestra el resultado
+console.log(saddlePoints(saddle));
 
 //#region Ej6
 const squareCoder = (arr = []) => {

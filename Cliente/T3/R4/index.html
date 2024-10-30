@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		body {
+			counter-set: contEj 0;
+			font-family: Arial, sans-serif;
+		}
+
+		section {
+			background: lightgrey;
+			padding: 1rem;
+			border-radius: 16px;
+			margin-bottom: 3rem;
+			margin-top: 2rem;
+		}
+
+		h3 {
+			font-size: 1.5rem;
+			margin-bottom: 1rem;
+		}
+
+		h3::before {
+			content: 'Ejercicio ' counter(contEj) ': ';
+			counter-increment: contEj;
+			font-weight: bold;
+		}
+
+		article {
+			margin-bottom: 2rem;
+			padding: 1rem;
+			border: 2px solid #666;
+			border-radius: 5px;
+		}
+
+		pre {
+			background-color: #f9f9f9;
+			padding: 1rem;
+			padding-bottom: 0rem;
+			border-radius: 5px;
+			font-size: large;
+		}
+
+		.result {
+			font-weight: bold;
+		}
+
+		p {
+			margin-left: 2rem;
+		}
+
+		h1 {
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Para ver los comentarios y documentacion, leer el archivo original de código </h1>
+	<section>
+		<h3></h3>
+		<article>
+			<pre>const findLargestNumber = (arr = []) => Math.max(...arr);
+            </pre>
+			<p>findLargestNumber([5, 2, 8, 3, 1]) = <span class="result">8</span></p>
+		</article>
+		<article>
+			<pre>const findLongestString = (arr = ['']) => arr.reduce((a, b) => a.length > b.length ? a : b, '');
+            </pre>
+			<p>findLongestString(['hello', 'world', 'lorem', 'ipsum', 'dolor']) = <span class="result">lorem</span></p>
+		</article>
+		<article>
+			<pre>const findEvenNumbers = (arr = []) => arr.filter(n => n % 2 == 0);
+            </pre>
+			<p>findEvenNumbers([1, 3, 5, 7, 2, 4]) = <span class="result">[2, 4]</span></p>
+		</article>
+		<article>
+			<pre>const findOddNumbers = (arr = []) => arr.filter(n => n % 2 != 0);
+            </pre>
+			<p>findOddNumbers([1, 3, 5, 7, 2, 4]) = <span class="result">[1, 3, 5, 7]</span></p>
+		</article>
+		<article>
+			<pre>const findWordsThatContainIs = (arr = ['']) => arr.filter(s => s.indexOf('is') > -1);
+            </pre>
+			<p>findWordsThatContainIs(['this', 'is', 'a', 'test']) = <span class="result">['this', 'is']</span></p>
+		</article>
+		<article>
+			<pre>const assertAllNumbersDivisibleByThree = (arr = []) => arr.filter(n => n % 3 == 0);
+            </pre>
+			<p>assertAllNumbersDivisibleByThree([1, 3, 5, 7, 9]) = <span class="result">[3, 9]</span></p>
+		</article>
+		<article>
+			<pre>const zipTwoArray = (arr1 = [], arr2 = []) => [...arr1, ...arr2];
+            </pre>
+			<p>zipTwoArray([1, 2], [3, 4]) = <span class="result">[1, 2, 3, 4]</span></p>
+		</article>
+		<article>
+			<pre>const sortJoinedArrayFromSmallestToLargest = (arr1 = [], arr2 = []) => [...arr1, ...arr2].sort((a, b) => a - b);
+            </pre>
+			<p>sortJoinedArrayFromSmallestToLargest([1, 2], [3, 4]) = <span class="result">[1, 2, 3, 4]</span></p>
+		</article>
+		<article>
+			<pre>const removeFirstWordInTheArray = (arr = ['']) => arr.slice(1);
+            </pre>
+			<p>removeFirstWordInTheArray(['hello', 'world', 'lorem', 'ipsum', 'dolor']) = <span class="result">['world',
+					'lorem', 'ipsum', 'dolor']</span></p>
+		</article>
+		<article>
+			<pre>const placeNewWordAtTheStart = (arr = [''], word = '') => {
+    arr.unshift(word);
+    return arr;
+}
+            </pre>
+			<p>placeNewWordAtTheStart(['world', 'lorem', 'ipsum', 'dolor'], 'hello') = <span class="result">['hello',
+					'world', 'lorem', 'ipsum', 'dolor']</span></p>
+		</article>
+		<article>
+			<pre>const replaceSomeElements = (arr = [''], wordToReplace = '', wordThatReplaces = '') =>
+                 arr.map(v => v === wordToReplace ? wordThatReplaces : v);
+            </pre>
+			<p>replaceSomeElements(['hello', 'world', 'lorem', 'ipsum', 'dolor'], 'hello', 'hola') = <span
+					class="result">['hola', 'world', 'lorem', 'ipsum', 'dolor']</span></p>
+		</article>
+
+	</section>
+
+	<section>
+		<h3></h3>
+		<pre>
+const sortAllNamesThatStartWithLetterJ = (names = ['']) => {
+	return names
+		.filter(n => n.toLocaleLowerCase().startsWith('j')) //me devuelve los que empiezan por J
+		.map(n => n.split(' ').map(w => w.charAt(0)).join('')) //toma el primer caracter de cada palabra de su nombre
+		.sort();
+}
+const nombres = ["Juan Pérez", "José Martínez", "Ana Gómez", "Jorge López", "María Fernández", "Julián Torres", "Luis Sánchez", "Julia Rodríguez", "Carlos Díaz", "Jazmín Ortega"];</pre>
+		<p>sortAllNamesThatStartWithLetterJ(nombres)=<span class="result">[ 'JL', 'JM', 'JO', 'JP', 'JR', 'JT' ]
+			</span></p>
+	</section>
+
+	<section>
+		<h3></h3>
+		<pre>
+const findTreasure = (arr = []) => {
+    for (const [indexFila, fila] of arr.entries()) {
+        for (const [indexColumna, columna] of fila.entries()) {
+
+            const [decenas, unidades] = columna.toString().split('');
+
+            if (decenas == indexFila + 1 && unidades == indexColumna + 1) return [indexFila + 1, indexColumna + 1];
+        }
+    }
+
+    return new Error('No hay tesoro en este mapa ... nos engañaron capitán 😞. Esta semana, no podremos comer');
+}
+
+const map = [
+    [34, 21, 32, 41, 25],
+    [14, 42, 43, 14, 31],
+    [54, 45, 52, 42, 23],
+    [33, 15, 51, 31, 35],
+    [21, 52, 33, 13, 23]
+];
+        </pre>
+		<p>findTreasure(map)=<span class="result">[5,2]</span></p>
+	</section>
+
+	<section>
+		<h3></h3>
+		<pre>
+const crearMapaDelTesoroValido = (filas = 5, columnas = 5) => {
+let tesoroColocado = false;
+let mapa;
+
+while (!tesoroColocado) {
+    mapa = [];
+
+    for (let i = 0; i < filas; i++) {
+        const fila = [];
+
+        for (let j = 0; j < columnas; j++) {
+            const probarSiDeboSubirTesoro = probarSuerte();
+            const num = generarNumeroAleatorioEntre11Y55();
+
+            if (!tesoroColocado && probarSiDeboSubirTesoro < 5) {
+                fila.push(Number((i + 1).toString() + (j + 1).toString()));
+                tesoroColocado = true;
+
+            } else {
+                fila.push(num);
+            }
+        }
+        mapa.push(fila);
+    }
+}
+
+return mapa;
+}
+
+function generarNumeroAleatorioEntre11Y55() {
+return Math.floor(Math.random() * (55 - 11 + 1)) + 11;
+}
+
+function probarSuerte() {
+return Math.floor(Math.random() * (100));
+}
+</pre>
+		<p>crearMapaDelTesoroValido(5, 5)= <span class="result"> Hay miles de resultados posibles dado que es
+				aleatorio</span></p>
+	</section>
+
+	<section>
+		<h3></h3>
+		<pre>
+const saddlePoints = (arr = []) => {
+    const listOfSaddlePoints = [];
+
+    for (const [indexFila, fila] of arr.entries()) {
+
+        const sumatoriaFila = sumatorioFila(fila);
+
+        for (const [columnaIndex, elementoEnCelda] of fila.entries()) {
+
+                if (elementoEnCelda >= sumatoriaFila) {
+
+                if (esMenorOIgualEnColumna(arr, elementoEnCelda, columnaIndex)) {
+                    listOfSaddlePoints.push({ fila: indexFila, columna: columnaIndex });
+                }
+            }
+        }
+    }
+
+    return listOfSaddlePoints.length != 0 ? listOfSaddlePoints : new Error('No hay saddle Points en esta lista');
+}
+
+            
+function sumatorioFila(fila) {
+    return Math.max(...fila);
+}
+
+function esMenorOIgualEnColumna(arr, valor, colIndex) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i][colIndex] >= valor) {
+            return false; 
+        }
+    }
+    return true;  
+}
+
+const saddle = [
+	[1, 2, 3],
+	[4, 5, 6],
+	[7, 5, 8]
+];
+        </pre>
+		<p>saddlePoints(saddle)=<span class="result">[ { fila: 0, columna: 2 } ]</span></p>
+	</section>
+
+	<section>
+		<h3></h3>
+		<pre>
+const squareCoder = (arr = []) => {
+	const result = [];
+	for (let i = 0; i < arr[0].length; i++) {
+		let row = '';
+		for (let j = 0; j < arr.length; j++) {
+			row += arr[j][i];
+		}
+		result.push(row);
+		
+	}
+		return result.join(' ');
+}
+const code = [
+	["i", "f", "m", "a", "n", "w", "a", "s"],
+	["m", "e", "a", "n", "t", "t", "o", "s"],
+	["t", "a", "y", "o", "n", "t", "h", "e"],
+	["g", "r", "o", "u", "n", "d", "g", "o"],
+	["d", "w", "o", "u", "l", "d", "h", "a"],
+	["v", "e", "g", "i", "v", "e", "n", "u"],
+	["s", "r", "o", "o", "t", "s", "", ""]
+]</pre>
+<p>quareCoder(code)=<span class="result">imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghn sseoau</span></p>
+	</section>
+</body>
+
+</html>
