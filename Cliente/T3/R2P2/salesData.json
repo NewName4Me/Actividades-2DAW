@@ -1,0 +1,55 @@
+{
+    "salesData": [
+      {
+        "date": "2023-09-01",
+        "sales": [
+          { "sellerId": 1, "productId": 1, "total": 120 },
+          { "sellerId": 1, "productId": 2, "total": 80 },
+          { "sellerId": 2, "productId": 3, "total": 150 },
+          { "sellerId": 3, "productId": 4, "total": 200 },
+          { "sellerId": 4, "productId": 5, "total": 300 }
+        ]
+      },
+      {
+        "date": "2023-09-02",
+        "sales": [
+          { "sellerId": 1, "productId": 1, "total": 60 },
+          { "sellerId": 2, "productId": 2, "total": 90 },
+          { "sellerId": 2, "productId": 3, "total": 140 },
+          { "sellerId": 3, "productId": 4, "total": 210 },
+          { "sellerId": 4, "productId": 5, "total": 190 }
+        ]
+      },
+      {
+        "date": "2023-09-03",
+        "sales": [
+          { "sellerId": 1, "productId": 3, "total": 130 },
+          { "sellerId": 2, "productId": 1, "total": 110 },
+          { "sellerId": 3, "productId": 5, "total": 220 },
+          { "sellerId": 4, "productId": 4, "total": 180 },
+          { "sellerId": 4, "productId": 2, "total": 160 }
+        ]
+      },
+      {
+        "date": "2023-09-04",
+        "sales": [
+          { "sellerId": 1, "productId": 4, "total": 170 },
+          { "sellerId": 2, "productId": 5, "total": 130 },
+          { "sellerId": 3, "productId": 1, "total": 90 },
+          { "sellerId": 4, "productId": 3, "total": 160 },
+          { "sellerId": 2, "productId": 2, "total": 120 }
+        ]
+      },
+      {
+        "date": "2023-09-05",
+        "sales": [
+          { "sellerId": 1, "productId": 5, "total": 140 },
+          { "sellerId": 2, "productId": 4, "total": 150 },
+          { "sellerId": 3, "productId": 2, "total": 100 },
+          { "sellerId": 4, "productId": 1, "total": 130 },
+          { "sellerId": 3, "productId": 3, "total": 110 }
+        ]
+      }
+    ]
+  }
+  

@@ -370,3 +370,89 @@ const procesarFormularioVuel = document.querySelector('.flightForm').addEventLis
 
 
 //#region Ej11
+/**
+ * salesData[0] -> fecha
+ * salesData[1] -> idVendedor
+ * salesData[2] -> idProducto
+ * salesData[3] -> total
+ */
+const salesData = [
+    ["2023-09-01", 1, 1, 120],
+    ["2023-09-01", 1, 2, 80],
+    ["2023-09-01", 2, 3, 150],
+    ["2023-09-01", 3, 4, 200],
+    ["2023-09-01", 4, 5, 300],
+    ["2023-09-02", 1, 1, 60],
+    ["2023-09-02", 2, 2, 90],
+    ["2023-09-02", 2, 3, 140],
+    ["2023-09-02", 3, 4, 210],
+    ["2023-09-02", 4, 5, 190],
+    ["2023-09-03", 1, 3, 130],
+    ["2023-09-03", 2, 1, 110],
+    ["2023-09-03", 3, 5, 220],
+    ["2023-09-03", 4, 4, 180],
+    ["2023-09-03", 4, 2, 160],
+    ["2023-09-04", 1, 4, 170],
+    ["2023-09-04", 2, 5, 130],
+    ["2023-09-04", 3, 1, 90],
+    ["2023-09-04", 4, 3, 160],
+    ["2023-09-04", 2, 2, 120],
+    ["2023-09-05", 1, 5, 140],
+    ["2023-09-05", 2, 4, 150],
+    ["2023-09-05", 3, 2, 100],
+    ["2023-09-05", 4, 1, 130],
+    ["2023-09-05", 3, 3, 110]
+];
+
+/**
+ * The function creates a table with sales information by product and vendor, calculating totals and
+ * displaying the data in an HTML table.
+ */
+function crearTablaConInformacionDeVentas() {
+    // Inicializar matriz para acumular ventas por vendedor y producto
+    const vendedores = 4;
+    const productos = 5;
+    let ventas = Array.from({ length: productos }, () => Array(vendedores).fill(0));
+    let totalPorVendedor = Array(vendedores).fill(0);
+    let totalPorProducto = Array(productos).fill(0);
+
+    // Procesar los datos
+    salesData.forEach(([fecha, vendedor, producto, total]) => {
+        ventas[producto - 1][vendedor - 1] += total;
+        totalPorVendedor[vendedor - 1] += total;
+        totalPorProducto[producto - 1] += total;
+    });
+
+    // Crear la tabla HTML
+    let tablaHTML = "<table border='1'><tr><th>Producto\\Vendedor</th>";
+
+    // Encabezados de vendedor
+    for (let v = 1; v <= vendedores; v++) {
+        tablaHTML += `<th>Vendedor ${v}</th>`;
+    }
+    tablaHTML += "<th>Total Producto</th></tr>";
+
+    // Filas de productos con totales por producto
+    ventas.forEach((productoVentas, i) => {
+        tablaHTML += `<tr><td>Producto ${i + 1}</td>`;
+        productoVentas.forEach((venta) => {
+            tablaHTML += `<td>${venta}</td>`;
+        });
+        tablaHTML += `<td>${totalPorProducto[i]}</td></tr>`;
+    });
+
+    // Fila de totales por vendedor
+    tablaHTML += "<tr><td>Total Vendedor</td>";
+    totalPorVendedor.forEach((total) => {
+        tablaHTML += `<td>${total}</td>`;
+    });
+    tablaHTML += `<td>${totalPorVendedor.reduce((acc, curr) => acc + curr, 0)}</td></tr>`;
+
+    tablaHTML += "</table>";
+
+    // Insertar tabla en el HTML
+    document.getElementById("sellsTable").innerHTML = tablaHTML;
+}
+
+// Llamar a la función para crear e insertar la tabla
+crearTablaConInformacionDeVentas();
