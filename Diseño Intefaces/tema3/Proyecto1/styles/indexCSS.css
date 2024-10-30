@@ -1,0 +1,213 @@
+/* IMPORTAR FUENTES */
+@font-face {
+    font-family: 'nevis';
+    src:
+        url('../assets/fonts/nevis.eot') format('embedded-opentype'),
+        url('../assets/fonts/nevis.woff') format('woff'),
+        url('../assets/fonts/nevis.ttf') format('truetype'),
+        url('../assets/fonts/nevis.svg') format('svg'), ;
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ESTILOS GENERALES */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition: all 0.1s ease;
+}
+
+body {
+    background-image: url('../assets/img/paven.png');
+}
+
+/* CABECERA */
+
+#header {
+    min-width: 1024px;
+    width: 100%;
+    height: 250px;
+    margin: 0 auto;
+}
+
+#header a {
+    text-decoration: none;
+    color: #70b231;
+}
+
+#header .logotipo {
+    width: 720px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+#header .logotipo img {
+    display: block;
+    margin: 0 auto;
+    width: 140px;
+}
+
+#header h1 {
+    text-align: center;
+    font-size: 40px;
+    font-family: 'nevis';
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-top: 10px;
+    text-shadow: 0px 2px 1px #333;
+}
+
+#header h1:hover {
+    text-shadow: 0px 2px 1px #333, 0px 0px 7px #70b231;
+}
+
+/* BARRA DE NAVEGACION */
+#nav {
+    min-width: 100%;
+    height: 40px;
+    background: #333;
+    color: white;
+    font-family: sans-serif, Helvetica, Arial;
+    font-size: 14px;
+    box-shadow: 0px 0px 2px gray;
+}
+
+#nav ul {
+    list-style: none;
+    margin: 0px auto;
+    width: 1090px;
+}
+
+#nav>ul>li {
+    float: left;
+    line-height: 40px;
+    border-right: 1px solid gray;
+    position: relative;
+}
+
+#nav>ul>li:hover {
+    background: #70b231;
+    box-shadow: 0px 0px 4px green inset;
+}
+
+#nav>ul>li>a:first-of-type {
+    border-left: 1px solid gray;
+}
+
+#nav ul a {
+    text-decoration: none;
+    display: block;
+    color: white;
+    padding-inline: 20px;
+}
+
+/* DARLE ESTILOS MENU DESPLEGABLE */
+#nav>ul>li>ul {
+    display: none;
+    position: absolute;
+    width: 160px;
+    box-shadow: 0px 2px 2px gray;
+}
+
+#nav>ul>li:hover>ul {
+    display: block;
+}
+
+#nav>ul>li>ul>li {
+    background: #f2f1f0;
+    border-bottom: 1px solid #d6d6d6;
+    padding: 8px;
+    line-height: 25px;
+    font-size: 13px;
+}
+
+#nav>ul>li>ul>li>a {
+    color: #333;
+    text-decoration: none;
+}
+
+#nav>ul>li>ul>li:hover {
+    background: #ede7e7;
+    box-shadow: 0px 0px 6px #ccc inset;
+}
+
+/* BARRA LATERAL */
+#aside {
+    width: 200px;
+    background: white;
+    float: left;
+    margin: 30px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 2px 2px #ccc;
+}
+
+#aside .widget {
+    width: 180px;
+    margin: 0px auto;
+    padding: 8px;
+    padding-inline: 10px;
+    font-size: 14px;
+    border-bottom: 1px dashed #333;
+}
+
+#aside .widget:last-of-type {
+    margin-bottom: 20px;
+}
+
+#aside h3 {
+    width: 100%;
+    color: #333;
+    text-align: center;
+    padding-block: 2px;
+    margin-bottom: 15px;
+    background: #f2f3f2;
+    border: 1px solid #ccc;
+    border-inline: none;
+}
+
+/* FORMULARIO  */
+input[type=text],
+input[type=password] {
+    border: 1px solid #c9c9c9;
+    box-shadow: 0px 0px 2px #ccc inset;
+    background: white;
+    padding: 1px;
+    padding-block: 2px;
+}
+
+input[type=text]:focus,
+input[type=password]:focus {
+    outline: none;
+    border: 1px solid #70b231;
+    color: black;
+}
+
+input[type=submit] {
+    border-radius: 2px;
+    border: 1px solid green;
+    width: 60px;
+    color: white;
+    background: #70b231;
+    padding: 3px;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+
+input[type=submit]:hover {
+    box-shadow: 0px 0px 4px grey;
+}
+
+input[type=submit]:active {
+    box-shadow: 0px 0px 5px black inset;
+    text-shadow: 0px 0px 5px black;
+}
+
+#aside div a {
+    display: block;
+    width: 95%;
+    margin-block: 2px;
+    text-decoration: none;
+    color: #70b231;
+}

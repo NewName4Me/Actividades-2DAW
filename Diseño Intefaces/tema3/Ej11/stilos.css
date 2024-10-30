@@ -10,6 +10,10 @@ body {
     padding: 0;
 }
 
+h2 {
+    text-transform: uppercase;
+}
+
 h1,
 h2 {
     background: lightgray;
