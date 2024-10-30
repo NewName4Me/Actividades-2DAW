@@ -109,4 +109,4 @@ string sin las palabras removidas
 "This is a test"
 */
 const removeWords = (str = '', words = []) => str.split(' ').filter(w => !words.includes(w)).join(' ');
-console.log(removeWords("This is a really bad test", ["really", "bad"]));
+/* console.log(removeWords("This is a really bad test", ["really", "bad"])); */

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        section {
+            border: 2px solid grey;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-radius: 18px;
+        }
+
+        body {
+            counter-reset: ejercicio 0;
+        }
+
+        h3::before {
+            content: 'Ejercicio ' counter(ejercicio) ': ';
+            color: blue;
+            font-size: 1.5rem;
+            counter-increment: ejercicio;
+        }
+
+        input {
+            width: 300px;
+            display: block;
+            font-size: large;
+            padding: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h3>
+            Filtra los números de un array que sean mayor a cierto número
+            x dejando solo los que sean menores a este
+        </h3>
+        <input type="text" id="arrayInput1" style="width: 500px;" placeholder="array(separa por coma cada numero)">
+        <input type="text" id="filterInput1" placeholder="numero para filtrar">
+        <input type="button" value="Ver resultado" onclick="verResultadoEj1()">
+    </section>
+    <script>
+        function verResultadoEj1() {
+            const arrayInput = document.getElementById('arrayInput1').value;
+            const filterInput = parseFloat(document.getElementById('filterInput1').value);
+            const numbersArray = arrayInput.split(',').map(Number);
+            const result = filterNumbersGreaterThan(numbersArray, filterInput);
+            alert(result);
+        }
+    </script>
+
+    <section>
+        <h3>Convierte un string a "Hacker Speak". Para hacerlo, tiene que
+            transformar las "a" en 4, las "e" en 3, las "i"
+            * en 1, las "o" en 0 y las "s" en 5
+            *</h3>
+        <input type="text" placeholder="Dame tu texto" id="inputTextEj2">
+        <input type="button" value="Hackear texto" onclick="verResultadoEj2()">
+    </section>
+    <script>
+        function verResultadoEj2() {
+            const inputTextEj2 = document.getElementById('inputTextEj2').value;
+            const result = toHackerSpeak(inputTextEj2);
+            alert(result);
+        }
+    </script>
+
+    <section>
+        <h3>Obtiene la extensión de un archivo</h3>
+        <input type="text" placeholder="Dame el nombre del archivo" id="inputFileEj3">
+        <input type="button" value="Ver resultado" onclick="verResultadoEj3()">
+    </section>
+    <script>
+        function verResultadoEj3() {
+            const inputFileEj3 = document.getElementById('inputFileEj3').value;
+            const result = getFileExtension(inputFileEj3);
+            alert(result);
+        }
+    </script>
+
+    <section>
+        <h3>Dado un array 2D, devuelve un array 1D que contiene todos los
+            ítems</h3>
+        <input type="text" placeholder="Dame un array 2D" id="inputArrayEj4">
+        <input type="button" value="Ver resultado" onclick="verResultadoEj4()">
+    </section>
+    <script>
+        function verResultadoEj4() {
+            const inputArrayEj4 = document.getElementById('inputArrayEj4').value;
+            const inputArray = JSON.parse(inputArrayEj4);
+            const result = flatArray(inputArray);
+            alert(result);
+        }
+    </script>
+
+    <section>
+        <h3>Devuelve la cantidad de veces que una letra aparece en un str
+            ing</h3>
+        <input type="text" placeholder="Dame una letra" id="inputLetterEj5">
+        <input type="text" placeholder="Dame un texto" id="inputTextEj5">
+        <input type="button" value="Ver resultado" onclick="verResultadoEj5()">
+    </section>
+    <script>
+        function verResultadoEj5() {
+            const inputLetterEj5 = document.getElementById('inputLetterEj5').value;
+            const inputTextEj5 = document.getElementById('inputTextEj5').value;
+            const result = countLetter(inputLetterEj5, inputTextEj5);
+            alert(result);
+        }
+    </script>
+
+    <section>
+        <h3>Dado un string y un array de palabras a remover, devuelve el
+            string sin las palabras removidas</h3>
+        <input type="text" placeholder="Dame un string" id="inputStringEj6">
+        <input type="text" placeholder="Dame un array de palabras separadas por coma" id="inputWordsEj6">
+        <input type="button" value="Ver resultado" onclick="verResultadoEj6()">
+    </section>
+    <script>
+        function verResultadoEj6() {
+            const inputStringEj6 = document.getElementById('inputStringEj6').value;
+            const inputWordsEj6 = document.getElementById('inputWordsEj6').value;
+            const inputWords = inputWordsEj6.split(',');
+            const result = removeWords(inputStringEj6, inputWords);
+            alert(result);
+        }
+    </script>
+
+    <script src="./modAuxiliar.js"></script>
+</body>
+
+</html>
