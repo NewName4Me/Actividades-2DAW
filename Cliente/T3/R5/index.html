@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+            margin: 0;
+            counter-set: ej 0;
+        }
+
+        div {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2::before {
+            content: 'Ejercicio ' counter(ej) ': ';
+            counter-increment: ej;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div>
+            <h2>Dame dos números y doy la suma</h2>
+            <button id="sum">Ver código</button>
+            <input type="button" id="sum" value="Prueba">
+        </div>
+        <div>
+            <h2>Dame un texto y te digo la longitud de este</h2>
+            <button id="stringLenght">Ver código</button>
+            <input type="button" id="stringLenght" value="Prueba">
+        </div>
+        <div>
+            <h2>Dame otro texto y de nuevo te digo la longitud de este</h2>
+            <button id="stringLenghtV2">Ver código</button>
+            <input type="button" id="stringLenghtV2" value="Prueba">
+        </div>
+        <div>
+            <h2>Mostrar alerta</h2>
+            <button id="showAlert">Ver código</button>
+            <input type="button" id="showAlert" value="Prueba">
+        </div>
+        <div>
+            <h2>Dame tu nombre y edad y te saludo</h2>
+            <button id="saludarNombreEdad">Ver código</button>
+            <input type="button" id="saludarNombreEdad" value="Prueba">
+        </div>
+        <div>
+            <h2>Dame un array de enteros y te doy la suma de todos estos</h2>
+            <button id="sumOfIntegers">Ver código</button>
+            <input type="button" id="sumOfIntegers" value="Prueba">
+        </div>
+        <div>
+            <h2>Dispara</h2>
+            <button id="fire">Ver código</button>
+            <input type="button" id="fire" value="Prueba">
+        </div>
+        <div>
+            <h2>Dame un número y te devuelvo el número de Fibonacci de este</h2>
+            <button id="fibonacci">Ver código</button>
+            <input type="button" id="fibonacci" value="Prueba">
+        </div>
+    </section>
+    <script src="./script.js"></script>
+    <script>
+        const functions = {
+            sum,
+            stringLenght,
+            stringLenghtV2,
+            showAlert,
+            saludarNombreEdad,
+            sumOfIntegers,
+            fire,
+            fibonacci
+        };
+
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const btnId = e.target.id;
+                const pre = document.createElement('pre');
+
+                //tomo la funcion qeu corresponde con el id del boton
+                pre.textContent = functions[btnId];
+
+                //limpio el contenido paraque si pulsas el boton multiples veces solamente aparezca una vez ese codigo
+                const div = e.target.parentNode;
+                if (div.querySelector('pre')) {
+                    div.querySelector('pre').remove();
+                }
+                div.appendChild(pre);
+            });
+        });
+
+        document.querySelectorAll('input[type=button]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const inputId = e.target.id;
+                const p = document.createElement('p');
+
+                switch (inputId) {
+                    case "sum":
+                        p.textContent = `sum(2,4) es igual a ${sum(2, 4)}`;
+                        break;
+                    case "stringLenght":
+                        p.textContent = `stringLenght("buenas tardes") es igual a *mira en consola*`, stringLenght("buenas tardes");
+                        break;
+                    case "stringLenghtV2":
+                        p.textContent = `stringLenghtV2("buenas tardes") es igual a ${stringLenghtV2("buenas tardes")}`;
+                        break;
+                    case "showAlert":
+                        showAlert('Pepe');
+                        break;
+                    case "saludarNombreEdad":
+                        p.textContent = saludarNombreEdad('Pepe', 25);
+                        break;
+                    case "sumOfIntegers":
+                        p.textContent = `sumOfIntegers([1,2,3,4,5]) es igual a ${sumOfIntegers([1, 2, 3, 4, 5])}`;
+                        break;
+                    case "fire":
+                        p.textContent = fire();
+                        break;
+                    case "fibonacci":
+                        p.textContent = `fibonacci(5) es igual a ${fibonacci(5)}`;
+                        break;
+                }
+
+                btn.after(p)
+            });
+        });
+    </script>
+</body>
+
+</html>
