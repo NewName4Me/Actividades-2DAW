@@ -15,6 +15,6 @@ export class Tile {
     getXPosition() { return this.#xPosition; }
 
     toString() {
-        return this.getValue() !== null ? this.getValue().toString() : 'null';
+        return this.getValue() !== -1 ? this.getValue().toString() : '-1';
     }
 }

@@ -1,12 +1,13 @@
+//#region Imports
 import { Tile } from './Tile.js';
 import { Timer } from './Timer.js';
 import { DirectionEnum } from '../utils/enum/DirectionEnum.js';
 
 export class Puzzle {
+    //#region Contructror
     constructor(dimension) {
         this.dimension = dimension; // debe ser >= a 1
-        this.board = [];//2D array of Tiles
-        this.unSolvedBoard = [];
+        this.puzzleBoard = [];
         this.emptyPosition = { y: dimension - 1, x: dimension - 1 }; //empty tile at the start (bottom-right)
         this.moves = 0;
         this.timer = new Timer();
@@ -15,8 +16,9 @@ export class Puzzle {
         this.generateBoard();
     }
 
+    //#region Generate Board
     /**
-     * generates the 2D board filled with tiles inclluding for una Tile that is null
+     * generates the 2D board filled with tiles inclluding for una Tile that is -1
      */
     generateBoard() {
         const myBoard = [];//2d array filled with Tile Objects
@@ -33,14 +35,14 @@ export class Puzzle {
             }
         }
 
-        //changes the empty position to null
-        myBoard[this.emptyPosition.y][this.emptyPosition.x] = null;
+        //changes the empty position to -1
+        myBoard[this.emptyPosition.y][this.emptyPosition.x] = new Tile(-1, this.emptyPosition.y, this.emptyPosition.x);
 
         //makes the Puzzle board and unshelfed board equal to the one we just generated
-        this.board = myBoard;
-        this.unSolvedBoard = myBoard;
+        this.puzzleBoard = myBoard;
     }
 
+    //#region Shuffle Board
     /**
      * shuffles every piece of the board to make it random 
      */
@@ -61,12 +63,23 @@ export class Puzzle {
     }
 
 
+    //#region Is Solved
     /**
-     * checks if the board is perfectly solved
-     * @returns {Boolean}
+     * checks if the board is perfectly solved,to do it, it flattens the 2D board and sorts it, then 
+     * it checks if every value is in order, in that case is sorted
+     * @returns {Boolean} true if sorted, false is not
      */
-    isSolved() { }
+    isSolved() {
+        const arr = this.puzzleBoard.flatMap(row => row.map(tile => tile.getValue()));
+        arr.splice(arr.findIndex(tile => tile === -1), 1); //gets rid of the "empty" Tile
+        const sortedArr = [...arr].sort((a, b) => a - b); //sort the array 
 
+        //checks if every value of the array sorted is equal to the original (flatened)
+        return arr.every((value, index) => value === sortedArr[index]);
+    }
+
+
+    //#region Move Tile
     /**
      * 
      * @param {DirectionEnum} direction 
@@ -85,13 +98,14 @@ export class Puzzle {
             case DirectionEnum.LEFT: newX--; break;
         }
 
-        [this.unSolvedBoard[y][x], this.unSolvedBoard[newY][newX]] = [this.unSolvedBoard[newY][newX], this.unSolvedBoard[y][x]];
+        [this.puzzleBoard[y][x], this.puzzleBoard[newY][newX]] = [this.puzzleBoard[newY][newX], this.puzzleBoard[y][x]];
         this.emptyPosition = { y: newY, x: newX };
         this.moves++;
     }
 
+    //#region Is Valid Move
     /**
-     * based on the current position of the empty Tile(null) it tells us if the new position
+     * based on the current position of the empty Tile(-1) it tells us if the new position
      * is a valid position or not 
      * @param {DirectionEnum} direction 
      * @returns {Boolean} true if valid - false otherwise
@@ -108,18 +122,19 @@ export class Puzzle {
         }
     }
 
+    //#region Draw Board
     draw() {
-        this.unSolvedBoard.forEach(row => {
-            console.log(row.map(tile => tile ? tile.toString() : 'null').join(' | '));
+        this.puzzleBoard.forEach(row => {
+            console.log(row.map(tile => tile ? tile.toString() : '-1').join(' | '));
         });
     }
 
+    //#region Reset
     /**
      * reset the entire board back to the start, including the timer
      */
     reset() {
-        this.board = [];
-        this.unSolvedBoard = [];
+        this.puzzleBoard = [];
         this.emptyPosition = { y: this.dimension - 1, x: this.dimension - 1 };
         this.moves = 0;
         this.timer.reset();
@@ -129,16 +144,28 @@ export class Puzzle {
     }
 }
 
+//#region TEST
 console.log('\n---------------Crear tablero-----------------');
-const myPuzzle = new Puzzle(5);
+const myPuzzle = new Puzzle(3);
 myPuzzle.draw();
+
 console.log('\n--------------Mover manualmente la posicion------------------');
 myPuzzle.moveTile(DirectionEnum.UP);
 myPuzzle.moveTile(DirectionEnum.LEFT);
 myPuzzle.draw();
+
 console.log('\n--------------Mezclar el tablero------------------');
 myPuzzle.shuffleBoard();
 myPuzzle.draw();
+
+console.log('\n-------------Ver si el tablero esta o no bien resuelto tiene que dar false-------------------');
+console.log(myPuzzle.isSolved());
+myPuzzle.draw();
+
 console.log('\n-------------Reiniciar el tablero-------------------');
 myPuzzle.reset();
+myPuzzle.draw();
+
+console.log('\n-------------Ver si el tablero esta o no bien resuelto tiene que dar true-------------------');
+console.log(myPuzzle.isSolved());
 myPuzzle.draw();
