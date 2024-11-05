@@ -15,24 +15,12 @@ export class Timer {
     }
 
     /**
-     * this function get the time passed since it started 
-     * also, it sets the startTime back to null
-     */
-    stop() {
-        if (this.startTime) {
-            this.elapsedTime += Math.floor((Date.now() - this.startTime) / 1000);
-            this.startTime = null;
-        }
-    }
-
-    /**
      * this funcion resets all the passed time back to the initial point
      */
     reset() {
         this.startTime = null;
         this.elapsedTime = 0;
     }
-
 
     /**
      * if the startTime wasnt defined yet, it returns 0 as a default

@@ -34,7 +34,7 @@ export class Puzzle {
         }
 
         //changes the empty position to null
-        myBoard[this.emptyPosition.y][this.emptyPosition.x] = 'null';
+        myBoard[this.emptyPosition.y][this.emptyPosition.x] = null;
 
         //makes the Puzzle board and unshelfed board equal to the one we just generated
         this.board = myBoard;
@@ -54,22 +54,62 @@ export class Puzzle {
 
     /**
      * 
-     * @param {String} direction 
+     * @param {DirectionEnum} direction 
      */
-    moveTile(direction) { }
+    moveTile(direction) {
+        if (!this.isValidMove(direction)) throw new Error('Error: invalid move');
 
-    isValidMove(direction) { }
+        const { y, x } = this.emptyPosition;
+        let newY = y;
+        let newX = x;
+
+        switch (direction) {
+            case DirectionEnum.DOWN: newY++; break;
+            case DirectionEnum.UP: newY--; break;
+            case DirectionEnum.RIGHT: newX++; break;
+            case DirectionEnum.LEFT: newX--; break;
+        }
+
+        [this.unSolvedBoard[y][x], this.unSolvedBoard[newY][newX]] = [this.unSolvedBoard[newY][newX], this.unSolvedBoard[y][x]];
+        this.emptyPosition = { y: newY, x: newX };
+        this.moves++;
+    }
+
+    /**
+     * based on the current position of the empty Tile(null) it tells us if the new position
+     * is a valid position or not 
+     * @param {DirectionEnum} direction 
+     * @returns {Boolean} true if valid - false otherwise
+     */
+    isValidMove(direction) {
+        const { y, x } = this.emptyPosition;
+
+        switch (direction) {
+            case DirectionEnum.UP: return y > 0;
+            case DirectionEnum.DOWN: return y < this.dimension - 1;
+            case DirectionEnum.LEFT: return x > 0;
+            case DirectionEnum.RIGHT: return x < this.dimension - 1;
+            default: return false;
+        }
+    }
 
     draw() {
-        this.board.forEach(row => {
-            console.log(row.map(tile => tile.toString()).join(' | '));
+        this.unSolvedBoard.forEach(row => {
+            console.log(row.map(tile => tile ? tile.toString() : 'null').join(' | '));
         });
     }
 
-
-    reset() { }
+    reset() {
+        this.board = [];
+        this.unSolvedBoard = [];
+        this.moves = 0;
+        this.timer.reset();
+    }
 }
 
 
 const myPuzzle2 = new Puzzle(3);
+myPuzzle2.draw();
+console.log('------------------');
+myPuzzle2.moveTile(DirectionEnum.LEFT);
 myPuzzle2.draw();
