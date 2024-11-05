@@ -44,7 +44,22 @@ export class Puzzle {
     /**
      * shuffles every piece of the board to make it random 
      */
-    shuffleBoard() { }
+    shuffleBoard() {
+        const posibleDirectionsToMove = [DirectionEnum.DOWN, DirectionEnum.UP, DirectionEnum.LEFT, DirectionEnum.RIGHT];
+        let numberOfMovesToShuffleTheBoard = Math.pow(this.dimension, 2) * 5;
+
+        while (numberOfMovesToShuffleTheBoard > 0) {
+            const currentMove = posibleDirectionsToMove[Math.floor(Math.random() * posibleDirectionsToMove.length)];
+
+            if (this.isValidMove(currentMove)) {
+                this.moveTile(currentMove);
+                numberOfMovesToShuffleTheBoard--;
+            }
+        }
+
+        this.moves = 0;
+    }
+
 
     /**
      * checks if the board is perfectly solved
@@ -99,17 +114,31 @@ export class Puzzle {
         });
     }
 
+    /**
+     * reset the entire board back to the start, including the timer
+     */
     reset() {
         this.board = [];
         this.unSolvedBoard = [];
+        this.emptyPosition = { y: this.dimension - 1, x: this.dimension - 1 };
         this.moves = 0;
         this.timer.reset();
+        this.solved = false;
+
+        this.generateBoard();
     }
 }
 
-
-const myPuzzle2 = new Puzzle(3);
-myPuzzle2.draw();
-console.log('------------------');
-myPuzzle2.moveTile(DirectionEnum.LEFT);
-myPuzzle2.draw();
+console.log('\n---------------Crear tablero-----------------');
+const myPuzzle = new Puzzle(5);
+myPuzzle.draw();
+console.log('\n--------------Mover manualmente la posicion------------------');
+myPuzzle.moveTile(DirectionEnum.UP);
+myPuzzle.moveTile(DirectionEnum.LEFT);
+myPuzzle.draw();
+console.log('\n--------------Mezclar el tablero------------------');
+myPuzzle.shuffleBoard();
+myPuzzle.draw();
+console.log('\n-------------Reiniciar el tablero-------------------');
+myPuzzle.reset();
+myPuzzle.draw();
