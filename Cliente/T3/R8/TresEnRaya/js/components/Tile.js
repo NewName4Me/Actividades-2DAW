@@ -1,8 +1,8 @@
-import { PieceType } from '../utils/PieceType.js';
+import { PieceTypeEnum } from '../utils/PieceTypeEnum.js';
 
 export class Tile {
     constructor() {
-        this.piece = PieceType.EMPTY;/* At the start every piece must be empty */
+        this.piece = PieceTypeEnum.EMPTY;/* At the start every piece must be empty */
     }
 
     /* GETTER */
@@ -18,7 +18,7 @@ export class Tile {
      */
     setPiece(piece) {
         //if the tile isnt empty you cant change the piece
-        if (this.piece !== PieceType.EMPTY) return false;
+        if (this.piece !== PieceTypeEnum.EMPTY) return false;
 
         this.piece = piece;
         return true;
@@ -27,7 +27,7 @@ export class Tile {
     /* METHODS */
 
     isEmpty() {
-        return this.piece === PieceType.EMPTY;
+        return this.piece === PieceTypeEnum.EMPTY;
     }
 
 }

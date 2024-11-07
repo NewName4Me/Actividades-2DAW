@@ -1,4 +1,4 @@
-import { PieceType } from '../utils/PieceType.js';
+import { PieceTypeEnum } from '../utils/PieceTypeEnum.js';
 
 export class Player {
 
@@ -6,7 +6,7 @@ export class Player {
 
     constructor(name, piece) {
         //to ensure that the player is instanciated with a piece Objets (hate weaked typed languages)
-        if (![PieceType.O, PieceType.X].includes(piece)) {
+        if (![PieceTypeEnum.O, PieceTypeEnum.X].includes(piece)) {
             throw new Error('Invalid type Of Player. Use PieceType.X or PieceType.Y');
         }
 
