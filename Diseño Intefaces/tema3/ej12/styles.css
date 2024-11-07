@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+
+header {
+    background: #efefe7;
+    padding: 2rem;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+}
+
+header>nav {
+    float: left;
+}
+
+header>a {
+    float: right;
+}
+
+header>nav>ul>li:first-of-type {
+    background: #e25858;
+    color: white;
+}
+
+header>nav>ul>li:first-of-type:hover {
+    background: violet;
+    color: black;
+}
+
+header>nav>ul>li {
+    background: none;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    background: lime;
+    width: 10rem;
+    font-weight: bold;
+    padding: 0.5rem;
+}
+
+header>nav>ul:first-of-type>li {
+    width: fit-content;
+}
+
+li:hover {
+    background: violet;
+    cursor: pointer;
+}
+
+nav ul li {
+    position: relative;
+    display: inline-block;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+nav ul li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    /* Que se quede justo debajo */
+    left: 0;
+}
+
+nav ul li:hover>ul {
+    display: block;
+}
+
+nav ul li li {
+    display: inline-block;
+}
+
+nav ul li li ul {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+}
+
+nav ul li li:hover>ul {
+    display: block;
+}
+
+main {
+    padding-top: 10rem;
+    height: 100vh;
+}

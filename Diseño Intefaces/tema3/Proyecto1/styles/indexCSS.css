@@ -10,6 +10,28 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'icons';
+    src: url('../assets/fonts/websymbols-regular-webfont.eot') format('embedded-opentype');
+    src: url('../assets/fonts/websymbols-regular-webfont.svg') format('svg');
+    src: url('../assets/fonts/websymbols-regular-webfont.ttf') format('truetype');
+    src: url('../assets/fonts/websymbols-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'fajala';
+    src: url('../assets/fonts/FjallaOne-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+ul,
+li {
+    z-index: 5;
+}
+
 /* ESTILOS GENERALES */
 * {
     padding: 0;
@@ -133,13 +155,19 @@ body {
 }
 
 /* BARRA LATERAL */
-#aside {
+#aside,
+#frase {
     width: 200px;
     background: white;
     float: left;
     margin: 30px;
     border: 1px solid #ccc;
     box-shadow: 0px 2px 2px #ccc;
+}
+
+#frase {
+    padding: 10px;
+    font-size: 14px;
 }
 
 #aside .widget {
@@ -184,6 +212,8 @@ input[type=password]:focus {
 }
 
 input[type=submit] {
+    display: block;
+    margin: 0 auto;
     border-radius: 2px;
     border: 1px solid green;
     width: 60px;
@@ -191,7 +221,7 @@ input[type=submit] {
     background: #70b231;
     padding: 3px;
     cursor: pointer;
-    margin-top: 8px;
+    margin-top: 10px;
 }
 
 
@@ -210,4 +240,102 @@ input[type=submit]:active {
     margin-block: 2px;
     text-decoration: none;
     color: #70b231;
+}
+
+#aside a:visited {
+    color: #529125 !important;
+}
+
+#aside a:hover {
+    color: #285616 !important;
+}
+
+#aside li {
+    list-style: square;
+    margin-left: 20px;
+}
+
+.red {
+    color: red !important;
+}
+
+.blue {
+    color: blue !important;
+}
+
+#sections {
+    float: right;
+    width: 75%;
+    font-family: sans-serif, Arial, Helvetica;
+    margin-right: 20px;
+}
+
+#sections .titulo {
+    font-family: 'fajala';
+    font-size: 32px;
+    font-weight: normal;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+#sections section {
+    margin-top: 40px;
+    background: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 4px #c9c9c9;
+    color: #333;
+    position: relative;
+}
+
+#sections section article {
+    margin: 20px 10px;
+}
+
+#sections section .date {
+    color: gray;
+    font-size: 14px;
+}
+
+#sections .stickerOne {
+    position: absolute;
+    top: -15px;
+    left: 15px;
+}
+
+#sections .stickerTwo {
+    position: absolute;
+    top: -15px;
+    right: 15px;
+}
+
+.icon {
+    font-family: 'icons';
+    float: left;
+    margin-right: 5px;
+    margin-top: -2px;
+}
+
+.clearfix {
+    float: none;
+    clear: both;
+}
+
+.history {
+    float: right;
+    margin-right: 20px;
+    margin-block: 20px;
+}
+
+#footer {
+    width: 100%;
+    background: #333;
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
+
+#footer a{
+    color: lime;
 }
