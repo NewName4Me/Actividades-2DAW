@@ -5,6 +5,10 @@
     transition: all 0.2s ease;
 }
 
+body {
+    height: 200rem;
+}
+
 header {
     background: #efefe7;
     padding: 2rem;
@@ -21,18 +25,32 @@ header>a {
     float: right;
 }
 
+header>a img {
+    margin: 0;
+    padding: 0;
+    width: 50%;
+    margin: -1.3rem;
+}
+
 header>nav>ul>li:first-of-type {
     background: #e25858;
+}
+
+header>nav>ul>li:first-of-type a {
     color: white;
 }
 
-header>nav>ul>li:first-of-type:hover {
-    background: violet;
+header>nav>ul>li:first-of-type a:hover {
     color: black;
+}
+
+header>nav>ul>li:first-of-type:hover {
+    background: palevioletred;
 }
 
 header>nav>ul>li {
     background: none;
+    margin-inline: 1rem;
 }
 
 nav ul {
@@ -42,7 +60,7 @@ nav ul {
 }
 
 li {
-    background: lime;
+    background: lightgreen;
     width: 10rem;
     font-weight: bold;
     padding: 0.5rem;
@@ -53,7 +71,7 @@ header>nav>ul:first-of-type>li {
 }
 
 li:hover {
-    background: violet;
+    background: palevioletred;
     cursor: pointer;
 }
 
@@ -97,4 +115,38 @@ nav ul li li:hover>ul {
 main {
     padding-top: 10rem;
     height: 100vh;
+}
+
+main section {
+    background-image: url("https://picsum.photos/1350/500");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 350px;
+    text-align: center;
+}
+
+main section article * {
+    color: white;
+    font-size: xx-large;
+    margin-block: 0.3rem;
+}
+
+main section article h1 {
+    font-weight: bolder;
+}
+
+main button {
+    background: lightsalmon;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+main section article {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
