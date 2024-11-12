@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>
+        Crea una página web con al menos tres párrafos de texto y dentro de ellos un número
+        indeterminado de enlaces (al menos uno debe enlazar a google). Haciendo tan sólo
+        uso del DOM muestra los siguientes datos:
+    </h3>
+    <ul>
+        <li>Número de enlaces de la página </li>
+        <li>Dirección a la que enlaza el penúltimo enlace</li>
+        <li>Numero de enlaces que enlazan a google </li>
+        <li>Número de enlaces del tercer párrafo </li>
+    </ul>
+    <section>
+        <div>
+            <p>
+                <a href="">a</a>
+                <a href="">b</a>
+                <a href="">c</a>
+                <a href="">d</a>
+                <a href="">e</a>
+                <a href="">f</a>
+                <a href="">g</a>
+            </p>
+
+            <p>
+                <a href="">h</a>
+                <a href="https://www.google.es">i</a>
+                <a href="">j</a>
+                <a href="">k</a>
+            </p>
+
+            <p>
+                <a href="">l</a>
+                <a href="">m</a>
+                <a href="">n</a>
+                <a href="">o</a>
+                <a href="soyElPenultimoEnlace">p</a>
+                <a href="">q</a>
+            </p>
+        </div>
+
+        <button onclick="alert(`${obtenerNumeroDeEnlaces()}`);">Ver numero de enlaces</button>
+        <button onclick="alert(`${obtenerHrefPenultimoEnlace()}`);">Ver direccion a la que enlaza el ultimo
+            enlace</button>
+        <button onclick="alert(`${obtenerNumeroDeEnlacesAGoogle()}`);">Ver numero de enlaces que apuntan a
+            google</button>
+        <button onclick="alert(`${obtenerNumeroDeEnlacesTercerParrafo()}`);">Ver numero de enlaces del tercer
+            parrafo</button>
+    </section>
+    <script src="../js/ej1.js"></script>
+</body>
+
+</html>

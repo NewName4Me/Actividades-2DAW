@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        img {
+            position: absolute;
+            top: 37%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        main {
+            background-color: darkslategray;
+            height: 100vh;
+            min-width: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: end;
+        }
+
+        button {
+            margin-bottom: 10rem;
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 1rem 2rem;
+            font-size: 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-inline: 0.5rem;
+        }
+
+        button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .invisible {
+            opacity: 0;
+        }
+
+        .visible {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+
+        <button id="prev">Prev</button>
+        <button id="next">Next</button>
+    </main>
+    <script src="../js/ej6.js"></script>
+</body>
+
+</html>
