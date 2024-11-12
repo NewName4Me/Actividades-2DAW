@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        section {
+            border: 1px solid black;
+            padding: 1rem;
+            margin: 1rem;
+            border-radius: 8px;
+            box-shadow: 0px 0px 3px grey;
+        }
+
+        .listOfClientsContainer {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .client {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0px 0px 3px grey;
+        }
+
+        .client>* {
+            margin: 0.5rem;
+        }
+
+        .listOfArticles {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .item {
+            border: 1px solid #ccc;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0px 0px 3px grey;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .item img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-top: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h2>Ejercicio 1</h2>
+
+        <div>
+            <p>
+                <a href="">a</a>
+                <a href="">b</a>
+                <a href="">c</a>
+                <a href="">d</a>
+                <a href="">e</a>
+                <a href="">f</a>
+                <a href="">g</a>
+            </p>
+
+            <p>
+                <a href="">h</a>
+                <a href="https://www.google.es">i</a>
+                <a href="">j</a>
+                <a href="">k</a>
+            </p>
+
+            <p>
+                <a href="">l</a>
+                <a href="">m</a>
+                <a href="">n</a>
+                <a href="">o</a>
+                <a href="soyElPenultimoEnlace">p</a>
+                <a href="">q</a>
+            </p>
+        </div>
+
+        <button onclick="alert(`${obtenerNumeroDeEnlaces()}`);">Ver numero de enlaces</button>
+        <button onclick="alert(`${obtenerHrefPenultimoEnlace()}`);">Ver direccion a la que enlaza el ultimo
+            enlace</button>
+        <button onclick="alert(`${obtenerNumeroDeEnlacesAGoogle()}`);">Ver numero de enlaces que apuntan a
+            google</button>
+        <button onclick="alert(`${obtenerNumeroDeEnlacesTercerParrafo()}`);">Ver numero de enlaces del tercer
+            parrafo</button>
+    </section>
+
+    <section>
+        <h2>Ejercicio 2</h2>
+        <div class="listOfClientsContainer">
+
+        </div>
+    </section>
+    <section>
+        <h2>Ejercicio 3 + 4</h2>
+        <div class="listOfArticles">
+
+        </div>
+    </section>
+
+    <script src="./js/ej1.js"></script>
+    <script src="./js/ej2.js" type="module"></script>
+    <script src="./js/ej3.js" type="module"></script>
+</body>
+
+</html>
