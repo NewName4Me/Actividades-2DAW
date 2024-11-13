@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle</title>
+    <style>
+        body {
+            background: #bbb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        main {
+            display: grid;
+            place-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        main * {
+            margin: 0 auto;
+        }
+
+        table {
+            border-spacing: 0.2rem;
+            background: burlywood;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 5px solid black;
+        }
+
+        td {
+            border: 1px solid black;
+            padding: 1rem;
+            font-size: xx-large;
+            border-radius: 4px;
+            box-shadow: 0px 0px 1px orange inset;
+            background: wheat;
+            width: 80px;
+            height: 80px;
+        }
+
+        button {
+            padding: 0.5rem 1rem;
+            font-size: 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-top: 1rem;
+            margin-inline: 1rem;
+        }
+
+        button:first-of-type {
+            background-color: #3498db;
+            color: white;
+        }
+
+        button:last-of-type {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        .last {
+            color: transparent;
+            background: grey;
+        }
+
+        h3{
+            font-size: xx-large;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h3 id="puzzle-state"></h3>
+        <div id="puzzle-board"></div>
+        <div>
+            <button id="shuffle-btn">Mezclar</button>
+            <button id="reset-btn">Reiniciar</button>
+        </div>
+    </main>
+
+    <script type="module" src="./js/main.js"></script>
+</body>
+
+</html>
