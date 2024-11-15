@@ -3,7 +3,7 @@ import { DirectionEnum } from './utils/enum/DirectionEnum.js';
 
 document.addEventListener('DOMContentLoaded', iniciarApp);
 
-const puzzle = new Puzzle(2);
+const puzzle = new Puzzle(3);
 
 function iniciarApp() {
     const shuffleBtn = document.getElementById('shuffle-btn');
