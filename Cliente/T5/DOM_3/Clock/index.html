@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StopWatch</title>
+    <style>
+        section {
+            background: orange;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        section>* {
+            margin-block: 1rem;
+        }
+
+        button {
+            color: white;
+            background: transparent;
+            border: 1px solid white;
+            padding: 0.5rem 1rem;
+            margin-inline: 0.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        h1,
+        h2 {
+            font-weight: lighter;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section>
+        <h1>STOPWATCH</h1>
+        <h2>VANILLA JAVASCRIPT STOPWATCH</h2>
+        <span id="currentTime">00:00</span>
+        <div>
+            <button id="start">Start</button>
+            <button id="stop">Stop</button>
+            <button id="reset">Reset</button>
+        </div>
+    </section>
+
+    <script src="./main.js" type="module"></script>
+</body>
+
+</html>

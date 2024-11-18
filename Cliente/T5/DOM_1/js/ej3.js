@@ -1,19 +1,24 @@
-import { arrArticulos } from '../modulos/articulos.mjs';
 
 document.addEventListener('DOMContentLoaded', () => {
-    fetchArrArticulosData(arrArticulos);
+    fetchArrArticulosData();
 });
 
-function fetchArrArticulosData(arr = []) {
+function fetchArrArticulosData() {
     const listOfArticles = document.querySelector('.listOfArticles');
 
     if (!listOfArticles) throw new Error('No se encontro el contenedor "Lista de Articulos"');
 
-    arr.forEach(item => appendItemToList(item, listOfArticles));
+    fetch('https://fakestoreapi.com/products')
+        .then(res => res.json())
+        .then(arr => {
+            arr.forEach(item => appendItemToList(item, listOfArticles));
+        });
 }
 
 function appendItemToList(item = {}, list) {
     const { id, title, price, description, category, image, rating: { rate, count } } = item;
+
+    const fragmento = document.createDocumentFragment();
 
     //creo el contenedor de cada articulo
     const article = document.createElement('ARTICLE');
@@ -57,6 +62,8 @@ function appendItemToList(item = {}, list) {
     article.appendChild(articleImg);
     article.appendChild(ratingContainer);
 
-    list.appendChild(article);
+    fragmento.appendChild(article);
+
+    list.appendChild(fragmento);
 }
 
