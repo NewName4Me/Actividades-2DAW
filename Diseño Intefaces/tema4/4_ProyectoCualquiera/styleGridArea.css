@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: serif;
+    text-align: center;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+#website {
+    width: 75%;
+    height: 100vh;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 150px 70px 1fr 70px;
+
+    grid-template-areas:
+        "cabecera cabecera cabecera cabecera cabecera"
+        "menu menu menu menu menu"
+        "contenido contenido contenido contenido lateral"
+        "pie-pagina pie-pagina pie-pagina pie-pagina pie-pagina"
+    ;
+}
+
+#cabecera {
+    background: blue;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    grid-area: cabecera;
+}
+
+#menu {
+    background: lightblue;
+    color: black;
+
+    line-height: 70px;
+    grid-area: menu;
+}
+
+#menu>ul {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+}
+
+#contenido {
+    background: #eee;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding: 20px;
+    grid-area: contenido;
+}
+
+#contenido article {
+    background: #ccc;
+    border: 1px solid #555;
+}
+
+#lateral {
+    grid-area: lateral;
+    background: orange;
+    color: white;
+}
+
+#pie-pagina {
+    background: black;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    grid-area: pie-pagina;
+}
