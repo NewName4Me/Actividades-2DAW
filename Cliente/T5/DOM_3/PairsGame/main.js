@@ -1,120 +1,106 @@
-//#region Imports
-import { List } from './components/List.js';
-import { Item } from './components/Item.js';
+import { Board } from './components/Board.js';
+import { TimerClass } from './components/TimerClass.js';
 
-//#region Global Vars
-const addItemForm = document.forms.addItem;
-const myList = new List();
-const clearListBtn = document.querySelector('button');
-
-//#region DOMContentLoaded
-/**
- * Se va a ejecutar el metodo startApp cuando
- * el DOM haya cargado
- */
 document.addEventListener('DOMContentLoaded', startApp);
+const myBoard = new Board(8);
+const myTimer = new TimerClass();
 
 //#region Start App
-/**
- * Inicializa el programa
- * y agrega los event listeners a los botones
- */
 function startApp() {
-    addItemForm.addEventListener('submit', (e) => addItemToList(e));
-    clearListBtn.addEventListener('click', cleanList);
-    loadListOfItems();
+    myTimer.startTimer();
+    getListOfCards();
+    addClickEventToEachCard();
+    updateTimer();
 }
 
-//#region Load List Of Items
-/**
- * Carga la lista de items y la renderiza
- * en el html
- */
-function loadListOfItems() {
-    const listOfItemsContainer = document.getElementById('listOfItems');
-    const list = myList.getAllItems();
+//#region Update Timer
+function updateTimer() {
+    const timeContainer = document.querySelector('#time');
+    const { minutes, seconds } = myTimer.displayTime();
 
-    cleanHTML(listOfItemsContainer);
+    timeContainer.textContent = `${minutes}:${seconds}`;
+    requestAnimationFrame(updateTimer);
+}
 
-    list.forEach(item => {
-        const $itemContainerDiv = document.createElement('DIV');
-        $itemContainerDiv.setAttribute('data-Idx', item.getItemID());
-        $itemContainerDiv.textContent = item.getName();
+//#region Get List Of Cards
+function getListOfCards() {
+    const boardContainer = document.querySelector('#boardContainer');
+    const board = myBoard.getBoard();
 
-        const $editIcon = document.createElement('IMG');
-        $editIcon.setAttribute('src', './assets/edit.svg');
-        $editIcon.addEventListener('click', e => editItemContent(e));
+    const boardContainerFragment = document.createDocumentFragment();
 
-        const $trashIcon = document.createElement('IMG');
-        $trashIcon.setAttribute('src', './assets/trash.svg');
-        $trashIcon.addEventListener('click', e => deleteItem(e));
+    board.forEach(card => {
+        boardContainerFragment.appendChild(drawCard(card));
+    });
 
-        $itemContainerDiv.appendChild($editIcon);
-        $itemContainerDiv.appendChild($trashIcon);
-        listOfItemsContainer.appendChild($itemContainerDiv);
+    boardContainer.appendChild(boardContainerFragment);
+}
+
+//#region Draw Card
+function drawCard(card) {
+    const cardContainer = document.createElement('DIV');
+    cardContainer.textContent = card.getValue();
+    cardContainer.setAttribute('data-id', card.getId());
+    cardContainer.classList.add(shouldBeVisible(card));
+
+    return cardContainer;
+}
+
+//#region Should Be Visible??
+const shouldBeVisible = (card) => !card.getFounded() ? 'visible' : 'not-visible';
+
+//#region Add Click Event
+function addClickEventToEachCard() {
+    const listOfCards = document.querySelectorAll('#boardContainer div');
+    listOfCards.forEach(card => {
+        card.addEventListener('click', e => cardClicked(e));
     });
 }
 
-//#region Add Item To List
-/**
- * Agrega un item a la lista
- * y lo renderiza en el html
- */
-function addItemToList(e) {
-    e.preventDefault();
+//#region Card Clicked
+function cardClicked(e) {
+    const card = e.target;
+    card.classList.add('clicked');
 
-    const itemName = addItemForm.itemName.value;
-    const newItem = new Item(itemName);
-    myList.addItem(newItem);
-    loadListOfItems();
-
-    addItemForm.reset();
+    checkPairCard();
 }
 
-//#region Clean List
-/**
- * Limpia la lista de items
- * y la renderiza en el html
- */
-function cleanList() {
-    myList.removeAllItems();
-    loadListOfItems();
+//#region Check Pair Card
+function checkPairCard() {
+    const cardsSelected = document.querySelectorAll('.clicked');
+
+    if (cardsSelected.length !== 2) return;
+
+    const areTheSameCards = myBoard.areTheyEquals(
+        myBoard.getCardById(cardsSelected[0].getAttribute('data-id')),
+        myBoard.getCardById(cardsSelected[1].getAttribute('data-id'))
+    );
+
+    if (areTheSameCards) {
+        cardsSelected.forEach(card => {
+            const cardInst = myBoard.getCardById(card.getAttribute('data-id'));
+            myBoard.cardFounded(cardInst);
+            card.classList.remove('visible');
+            card.classList.add('not-visible');
+        });
+        checkIfGameIsFinished();
+    }
+
+    setTimeout(() => {
+        cardsSelected.forEach(card => card.classList.remove('clicked'));
+    }, 500);
 }
 
-//#region Edit By Id
-/**
- * Edita el item con el id especificado
- * y lo renderiza en el html
- */
-function editItemContent(e) {
-    const itemId = Number(e.target.parentElement.getAttribute('data-Idx'));
-    const newName = prompt('Enter the new name for the item:');
-
-    if (newName) {
-        myList.editItem(itemId, newName);
-        loadListOfItems();
+//#region GameFinished??
+function checkIfGameIsFinished() {
+    if (myBoard.isGameFinished()) {
+        myTimer.stopTimer();
+        displayWinningMessage('Ganaste');
     }
 }
 
-//#region Delete By Id
-/**
- * Elimina el item con el id especificado
- * y lo renderiza en el html
- */
-function deleteItem(e) {
-    const itemId = Number(e.target.parentElement.getAttribute('data-Idx'));
-    console.log(itemId);
-    myList.removeItem(itemId);
-    loadListOfItems();
-}
-
-//#region Clean HTML
-/**
- * Limpia el html de un contenedor
- */
-function cleanHTML(father) {
-    while (father.firstChild) {
-        father.removeChild(father.firstChild);
-    }
+//#region Winning Message
+function displayWinningMessage(message) {
+    alert(message);
 }
 

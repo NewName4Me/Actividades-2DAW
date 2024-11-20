@@ -5,74 +5,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
     <style>
-        h1 {
-            text-align: center;
+        * {
+            transition: all 0.2s ease;
         }
 
-        form>div {
-            padding: 0.2rem;
-            background: lightblue;
-            width: 100%;
+        body {
+            background: #ccc;
+            overflow-x: hidden;
+        }
+
+        #boardContainer {
+            border-radius: 24px;
+            width: 30vw;
+            padding: 2rem;
+            background: #999;
+            margin: 5rem auto;
             display: grid;
-            grid-template-columns: 1fr 20%;
-        }
-
-        input {
-            padding: 0.5rem;
-            font-size: large;
-            cursor: pointer;
-        }
-
-        main {
-            box-shadow: 0px 0px 10px grey;
-            padding: 1rem;
-        }
-
-        button {
-            color: red;
-            background: transparent;
-            border: none;
-            font-size: large;
-            margin-left: 43%;
-            margin-top: 3rem;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        #listOfItems div {
-            font-size: larger;
-            margin: 1rem;
-            display: grid;
-            grid-template-columns: 1fr 5% 5%;
-            word-break: break-all;
+            grid-template-columns: repeat(4, 1fr);
             gap: 1rem;
         }
 
-        #listOfItems {
-            width: 100%;
+        div {
+            cursor: pointer;
+            border: 2px solid black;
+            display: grid;
+            place-content: center;
+            border-radius: 16px;
+            height: 7vw;
+            width: 5vw;
+            margin: 0 auto;
+            color: transparent;
         }
 
-        img {
-            cursor: pointer;
+        div:hover {
+            box-shadow: 0px 0px 10px white inset;
+        }
+
+        .clicked {
+            color: black;
+        }
+
+        .visible {
+            /*Pendiente de hacer cambios*/
+            color: auto;
+        }
+
+        .not-visible {
+            color: green;
+            background: wheat;
+            font-weight: bold;
+        }
+
+        #time{
+            text-align: center;
+            margin-top: 10rem;
+            margin-bottom: -4rem;
+            font-size: xx-large;
         }
     </style>
 </head>
 
 <body>
-    <main>
-        <form action="" name="addItem">
-            <h1>Grocery Bud</h1>
-            <div>
-                <input type="text" name="itemName" placeholder="item..." required>
-                <input type="submit" value="Submit">
-            </div>
-            <section id="listOfItems"></section>
-        </form>
-        <button>Clear Items</button>
-    </main>
-
+    <h3 id="time">00:00</h3>
+    <section id="boardContainer"></section>
     <script src="./main.js" type="module"></script>
 </body>
 
