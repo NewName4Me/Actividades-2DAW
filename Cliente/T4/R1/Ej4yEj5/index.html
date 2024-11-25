@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas con Eventos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow: hidden;
+            text-align: center;
+        }
+
+        h1 {
+            padding-block: 2rem 1rem;
+        }
+
+        button {
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+
+        .canvas {
+            border: 1px solid black;
+            display: grid;
+            grid-template-columns: repeat(100, 1fr);
+            grid-template-rows: repeat(100, 1fr);
+        }
+
+        .cell {
+            width: 20px;
+            height: 20px;
+            border: 1px solid gray;
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Control => Rojo - Shift => Azul - Click Derecho => Borrar</h1>
+    <button id="clearCanvas">Borrar Canvas</button>
+    <div class="canvas" id="canvas"></div>
+    <script src="script.js"></script>
+</body>
+
+</html>

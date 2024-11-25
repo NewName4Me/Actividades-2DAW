@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 20vw;
+            gap: 1rem;
+            border: 2px solid black;
+            border-radius: 16px;
+            padding: 1rem;
+        }
+
+        form * {
+            font-size: xx-large;
+            padding: 0.5rem;
+            border-radius: 8px;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form name="userForm" action="#">
+        <input type="text" placeholder="nombre" name="nombre">
+        <input type="email" placeholder="email" name="email">
+        <textarea placeholder="comentario" name="comentario"></textarea>
+
+        <input type="submit" value="Enviar" name="enviando">
+        <input type="reset" value="Resetear" name="reseteando">
+    </form>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

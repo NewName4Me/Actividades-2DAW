@@ -1,0 +1,43 @@
+/* @keyframes moveUpDown {
+
+    0%,
+    100% {
+        top: -20%;
+    }
+
+    50% {
+        top: -8%;
+    }
+} */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 1s ease-in-out;
+}
+
+header {
+    display: block;
+    background: black;
+    padding: 20px;
+    text-align: center;
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+#spiderman img {
+    z-index: 5;
+    width: 50%;
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    transform: rotate(-90deg) translate(-50%, -60%);
+}
+
+
+#spiderman img:hover {
+    top: -10%;
+}

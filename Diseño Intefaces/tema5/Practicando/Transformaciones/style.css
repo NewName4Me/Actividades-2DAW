@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    transition: all 0.5s ease;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 400vh;
+}
+
+.container {
+    outline: 2px solid crimson;
+    height: 500px;
+    width: 90%;
+    margin: 60px auto;
+}
+
+.element {
+    background: steelblue;
+    width: 150px;
+    height: 150px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 16px;
+
+    /* transform: translateX(60px);
+    transform: translateX(-60px);
+    transform: translateY(100%);
+    transform: translate(100px, 100%);
+    transform: rotate(20deg) translateX(20px); */
+}
+
+.container:hover .element {
+    transform: rotate(90deg) translate(300px) scale(-0.5) skewX(20deg);
+}

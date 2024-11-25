@@ -1,0 +1,39 @@
+* {
+    margin: 2rem;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #ccc;
+}
+
+main {
+    border: 2px solid black;
+    text-align: center;
+    background: white;
+}
+
+.clip {
+    background: hotpink;
+    width: 400px;
+    height: 400px;
+}
+
+.clip1 {
+    clip-path: circle(50% at 20% 70%);
+}
+
+.clip2 {
+    clip-path: inset(20% 20% 20% 30% round 20px);
+}
+
+.clip3 {
+    clip-path: ellipse(25% 40% at top);
+}
+
+.clip4 {
+    display: grid;
+    place-content: center;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
