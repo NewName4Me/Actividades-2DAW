@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    margin-left: 6rem;
+    background: aqua;
+}
+
+main {
+    padding: 1rem;
+    background: lightyellow;
+    height: 100vh;
+}
+
+.marco {
+    background: yellow;
+    border: 1px solid black;
+    padding: 0.5rem;
+}
+
+span {
+    font-weight: bolder;
+    display: block !important;
+}
+
+header {
+    border: 1px solid grey;
+    background: lightgray;
+    padding: 0.5rem;
+}
