@@ -1,0 +1,144 @@
+:root {
+    --bg-color: #1a1a1a;
+    --text-color: #eaeaea;
+    --border-color: #eaeaea;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    overflow: hidden;
+}
+
+header {
+    padding: 2rem;
+    text-align: center;
+    border-bottom: thick solid var(--border-color);
+}
+
+header h1{
+    position: relative;
+}
+
+header h1 span {
+    font-size: 4rem;
+    display: inline-block;
+    transition: transform 0.1s ease-in-out, opacity 0.1s ease;
+}
+
+header h1 span:first-of-type {
+    clip-path: polygon(0 0, 100% 0, 100% 51%, 0 88%);
+    background: linear-gradient(to right, #ff0066, #ff6600);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px #ff0066, 0 0 20px #ff6600;
+    margin-right: -0.5rem;
+    padding:1rem;
+}
+
+header h1 span:last-of-type {
+    clip-path: polygon(0 78%, 100% 16%, 100% 100%, 0 100%);
+    background: linear-gradient(to right, #ff6600, #ff0066);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px #ff6600, 0 0 20px #ff0066;
+    padding:1rem;   
+}
+header h1::after {
+    padding:1rem;   
+    content: 'Guapo y poderoso';
+    font-size: 4rem;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+    background: linear-gradient(to right, #ff0066, #ff6600);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+header h1:hover::after{
+    opacity: 1;
+}
+
+header h1:hover span:first-of-type {
+    transform: translateY(-200%) translateX(-200%);
+    opacity: 0;
+}
+
+header h1:hover span:last-of-type {
+    transform: translateY(200%) translateX(200%);
+    opacity: 0;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    background: rgba(30, 30, 30, 0.7);
+    padding: 2rem;
+}
+
+.card {
+    position: relative;
+    width: 15rem;
+    height: 15rem;
+    text-align: center;
+    line-height: 8rem;
+    border-radius: 0.8rem;
+    font-size: 1.2rem;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    color: white;
+}
+
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.8rem;
+    transition: transform 0.5s ease-in-out;
+    backface-visibility: hidden;
+    border: thick solid var(--border-color);
+}
+
+.face-back {
+    display: grid;
+    place-items: center;
+    height: 15rem;
+    transform: rotateY(180deg) rotateX(90deg);
+}
+
+.card:nth-child(1):hover .face-front {
+    transform: rotateY(-180deg) rotateX(-90deg);
+}
+
+.card:nth-child(2):hover .face-front {
+    transform: rotateX(-180deg) rotateY(-90deg);
+}
+
+.card:nth-child(3):hover .face-front {
+    transform: rotateZ(90deg) rotateX(180deg);
+}
+
+.card:nth-child(4):hover .face-front {
+    transform: rotateY(90deg) rotateX(180deg);
+}
+
+.card:nth-child(5):hover .face-front {
+    transform: rotateX(180deg);
+}
+
+.card:hover .face-back {
+    transform: rotateY(0deg) rotateX(0deg);
+}
