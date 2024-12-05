@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: #e88686;
+            display: grid;
+            place-content: center;
+            height: 80vh;
+        }
+
+        input {
+            border: none;
+            padding: 1rem;
+            border-bottom: thick solid white;
+            font-size: xx-large;
+            color: white;
+            background: none;
+            text-align: center;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        button {
+            color: #e88686;
+            width: fit-content;
+            margin: auto;
+            padding: 0.7rem 1.5rem;
+            margin-top: 2rem;
+            border-radius: 16px;
+            border: none;
+            background: white;
+            opacity: 0.7;
+        }
+
+        .error {
+            color: white;
+            opacity: 0.9;
+            font-size: x-large;
+            text-align: centers;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" placeholder="username" name="userNameInput" />
+    <button type="submit">Submit</button>
+
+    <script src="./script.js" type="module"></script>
+</body>
+
+</html>

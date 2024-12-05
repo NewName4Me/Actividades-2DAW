@@ -1,0 +1,253 @@
+
+.titulo-cuadro-r2{
+    font-family: 'Barmeno';
+    font-weight: 600;
+    font-size: 32px;
+    color: #fff;
+    border-radius: 15px;
+    margin: 0 auto;
+    margin-top: 26px;
+    width: 620px;
+    text-align: center;
+    background: #ad123c;
+}
+
+/* TIMELINE
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.timeline ul {
+    padding: 50px 0;
+}
+.timeline ul li {
+    list-style-type: none;
+    position: relative;
+    width: 5px;
+    color:red;
+    margin: 0 auto;
+    padding-top: 50px;
+    background: #ffd200;
+}
+.timeline ul li>div{
+    position: relative;
+    display: table;
+    vertical-align: middle;
+    width: 652px;
+    z-index: 2;
+}
+.img-elemento-r2{
+    transform: translateX(-56%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-table;
+    height: 200px;
+    width: 200px;
+}
+
+
+.timeline ul li:nth-child(odd) div.texto-elemento-r2 {
+    transform: translate3d(200px, 0, 0);
+    border: 2px dashed #fff;
+}
+.timeline ul li:nth-child(even) div.texto-elemento-r2 {
+    transform: translate3d(-200px, 0, 0);
+    border: 2px dashed #fff;
+    left: -800px;
+}
+
+/* primer elemento */
+#img-elemento1-r2{
+    background-image: url(http://frisby.sucerman.com/produccion-recursos/legado/leccion1/recurso2/img/foto1.png);
+}
+    
+/* segundo elemento */
+#img-elemento2-r2{
+    background-image: url(http://frisby.sucerman.com/produccion-recursos/legado/leccion1/recurso2/img/foto2.png);
+}
+
+/* tercer elemento */
+#img-elemento3-r2{
+    background-image: url(http://frisby.sucerman.com/produccion-recursos/legado/leccion1/recurso2/img/foto3.png);
+}
+
+/* cuarto elemento */
+#img-elemento4-r2{
+    background-image: url(http://frisby.sucerman.com/produccion-recursos/legado/leccion1/recurso2/img/foto4.png);
+}
+
+/* quinto elemento */
+#img-elemento5-r2{
+    background-image: url(http://frisby.sucerman.com/produccion-recursos/legado/leccion1/recurso2/img/foto5.png);
+}
+/* definicion general para los textos */
+.timeline ul li div.texto-elemento-r2{
+    text-align: justify;
+    display: inline-table;
+    vertical-align: middle;
+    border-radius: 10px;
+    position: relative;
+    color: #ffffff;
+    left: -80px;
+    width: 442px;
+    font-size: 19px;
+    visibility: hidden;
+    opacity: 0;
+    padding: 24px;
+    transition: all .5s ease-in-out;
+}
+
+.timeline ul li.in-view div.texto-elemento-r2 {
+    transform: none;
+    visibility: visible;
+    opacity: 1;
+    border: dashed #ffffff 1px;
+
+}
+/* // Small devices (landscape phones, 576px and up)
+@media (max-width: 576px) { 
+    .timeline ul li div.texto-elemento-r2{
+        left: -80px;
+        width: 250px;
+        font-size: 12px;
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (max-width: 768px) { 
+    .timeline ul li div.texto-elemento-r2{
+        left: -80px;
+        width: 310px;
+        font-size: 14px;
+    }
+
+} */
+.timeline ul li div.texto-elemento-r2::before {
+    top:50%;
+    margin-top: -14px;
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    width: 0;
+    height: 0;
+    border-style: solid;    
+}
+
+
+.timeline ul li:nth-child(3n+1) div.texto-elemento-r2 {
+    background: #49a5aa;
+    box-shadow: 0 0 0 5px #49a5aa; 
+}
+.timeline ul li:nth-child(3n+2) div.texto-elemento-r2 {
+    background: #ad123c;
+    box-shadow: 0 0 0 5px #ad123c;
+}
+.timeline ul li:nth-child(3n+3) div.texto-elemento-r2 {
+    background: #f47920;
+    box-shadow: 0 0 0 5px #f47920;
+}
+
+.timeline ul li:nth-child(odd) div::before {
+    left: -26px;
+    border-width: 15px 20px 15px 0;
+    border-color: transparent #000 transparent transparent;
+}
+
+.timeline ul li:nth-child(even) div::before {
+    right: -26px;
+    border-width: 15px 0 15px 20px;
+    border-color: transparent transparent transparent #000;
+}
+/* las flechas en los textos */
+.timeline ul li:nth-child(1) div.texto-elemento-r2::before {
+    border-right-color: #49a5aa 
+}
+.timeline ul li:nth-child(2) div.texto-elemento-r2::before {
+    border-left-color: #ad123c
+}
+.timeline ul li:nth-child(3) div.texto-elemento-r2::before {
+    border-right-color: #f47920 
+}
+.timeline ul li:nth-child(4) div.texto-elemento-r2::before {
+    border-left-color: #49a5aa
+}
+.timeline ul li:nth-child(5) div.texto-elemento-r2::before {
+    border-right-color: #ad123c
+}
+
+
+
+/* GENERAL MEDIA QUERIES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@media screen and (max-width: 900px) {
+
+    .timeline ul li div.texto-elemento-r2{
+        left: -64px;
+        width: 200px;
+        font-size: 10px;
+        padding: 8px
+    }
+    .timeline ul li:nth-child(n) div.texto-elemento-r2 {
+        border: 2px dashed #fff;
+        left: -64px;
+    }
+    .timeline ul li:nth-child(even) div::before {
+        left: -26px;
+        border-width: 15px 20px 15px 0;
+        border-color: transparent transparent transparent #000;
+
+    }
+    .timeline ul li:nth-child(1) div.texto-elemento-r2::before {
+        border-right-color: #49a5aa 
+    }
+    .timeline ul li:nth-child(2) div.texto-elemento-r2::before {
+        border-right-color: #ad123c
+    }
+    .timeline ul li:nth-child(3) div.texto-elemento-r2::before {
+        border-right-color: #f47920 
+    }
+    .timeline ul li:nth-child(4) div.texto-elemento-r2::before {
+        border-right-color: #49a5aa
+    }
+    .timeline ul li:nth-child(5) div.texto-elemento-r2::before {
+        border-right-color: #ad123c
+    }
+    .timeline ul {
+        margin-left: -280px;
+        padding: 50px -79px 0px 50px;
+    }
+    .titulo-cuadro-r2 {
+    font-size: 24px;
+    width: 504px;
+    }
+
+
+}
+@media screen and (max-width: 600px) {
+    .timeline ul {
+        margin-left: -203px;
+        padding: 50px -79px 0px 50px;
+    }
+    .timeline ul li:nth-child(odd) div.texto-elemento-r2 {
+        width: 200px;
+        font-size: 10px;
+        padding: 10px;
+        left: -56px;
+    }
+    .img-elemento-r2{
+        height: 110px;
+        width: 120px;
+    }
+    .timeline ul li:nth-child(1n+1) div::before {
+        left: -16px;
+        border-width: 10px 14px 10px 0;
+        border-color: transparent #000 transparent transparent;
+    }
+    .titulo-cuadro-r2 {
+        font-size: 19px;
+        width: 336px;
+    }
+
+
+}

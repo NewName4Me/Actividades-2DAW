@@ -1,0 +1,124 @@
+:root {
+    --dark-gray: #333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+}
+
+body {
+    height: 100vh;
+    font-size: 0.8rem;
+    color: var(--dark-gray);
+}
+
+main {
+    display: flex;
+    min-height: 100%;
+}
+
+section {
+    width: 50vw;
+    overflow: hidden;
+}
+
+section:first-of-type img {
+    height: 100%;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background: white;
+
+}
+
+.info h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.info h2 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-block: 0.5rem 1rem;
+}
+
+.info h3 {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-left: 0;
+}
+
+.info form {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    width: 100%;
+}
+
+span {
+    color: #0069d9;
+}
+
+.info form label {
+    margin-bottom: 0.5rem;
+}
+
+.info form input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.info form input[type="submit"] {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.info form input[type="submit"]:hover {
+    background: #0069d9;
+}
+
+h4 {
+    font-size: medium;
+}
+
+.inline {
+    display: grid;
+    grid-template-columns: 15px 1fr;
+    height: 3rem;
+    align-items: center;
+    gap: 1rem;
+    margin-top: -2rem;
+    font-size: 0.9rem;
+}
+
+.language {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+}
+
+.ignoreGrid {
+    grid-column: 1 / -1;
+}
+
+label{
+    font-size: 1rem;
+}
+
+input{
+    font-size: 1rem;
+}

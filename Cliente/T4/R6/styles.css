@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: lightgray;
+}
+
+h1 {
+    text-align: center;
+}
+
+main {
+    display: flex;
+}
+
+form {
+    width: 50vw;
+    display: grid;
+    place-content: center;
+    gap: 1rem;
+    margin-top: -20rem;
+}
+
+label {
+    font-size: large;
+}
+
+form input {
+    padding: 1rem;
+    font-size: large;
+}
+
+#myReadingList {
+    width: 50vw;
+    height: 100vh;
+}
+
+.book {
+    border: 1px solid black;
+}
+
+.read {
+    background: lightblue;
+}
+
+.not-read {
+    background: lightcoral;
+}
+
+main>div {
+    margin-top: 5rem;
+    text-align: center;
+}
+
+#remainingBooksToRead {
+    position: absolute;
+    top: 90%;
+    right: 20%;
+}

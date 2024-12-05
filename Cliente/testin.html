@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .data {
+            border: 1px solid black;
+            padding: 1rem;
+            margin: 1rem;
+            height: fit-content;
+        }
+
+        .data h2 {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        const data = [
+            { title: 'Ejercicio 1', description: 'Imprimir titulos en la pantalla' },
+            { title: 'Ejercicio 2', description: 'Imprimir tabla con las caracteristicas de una tabla (n de columnas, n de filas, alto y ancho)' },
+            { title: 'Ejercicio 3', description: 'Imprimir tabla con las caracteristicas de una tabla (n de columnas, n de filas, alto y ancho) y pintar las celdas de diferente color' },
+            { title: 'Ejercicio 4', description: 'Imprimir tabla con las caracteristicas de una tabla (n de columnas, n de filas, alto y ancho) y pintar las celdas de diferente color y usar un bucle for en lugar de while' },
+            { title: 'Ejercicio 5', description: 'Adivinar el numero que pense el usuario' },
+            { title: 'Ejercicio 6', description: 'Imprimir tabla de multiplicar' },
+            { title: 'Ejercicio 7', description: 'Imprimir tabla con las caracteristicas de una tabla (n de columnas, n de filas, alto y ancho)' },
+            { title: 'Ejercicio 8', description: 'Imprimir una tabla de ajedrez' },
+        ];
+
+        document.addEventListener('DOMContentLoaded', startApp);
+
+        function startApp() {
+            const divContainer = document.querySelector('div');
+            displayUserInfo(data, divContainer)
+        }
+
+        function displayUserInfo(data = [{}], divContainer) {
+            const fragment = document.createDocumentFragment();
+
+            data.forEach(obj => {
+                fragment.appendChild(createDivContent(obj));
+            });
+
+            divContainer.appendChild(fragment);
+        }
+
+        function createDivContent({ title, description }) {
+            const $articleDOM = document.createElement('article');
+            const $titleDOM = document.createElement('h1');
+            const $descriptionDOM = document.createElement('h2');
+            const $buttonDOM = document.createElement('button');
+
+            $articleDOM.classList.add('data');
+
+            $titleDOM.textContent = title;
+            $descriptionDOM.textContent = description;
+
+            $buttonDOM.textContent = 'Ver descripcion';
+            $buttonDOM.addEventListener('click', (e) => openInAnotherWindow(e))
+
+            $articleDOM.appendChild($titleDOM);
+            $articleDOM.appendChild($descriptionDOM);
+            $articleDOM.appendChild($buttonDOM);
+
+            return $articleDOM;
+        }
+
+        function openInAnotherWindow(e) {
+            const newWindow = window.open('', '_blank');
+            const article = e.target.parentElement;
+            const title = article.querySelector('h1');
+            const description = article.querySelector('h2');
+
+            newWindow.document.write(`<h1>${title.textContent}</h1>`);
+            newWindow.document.write(`<h2>${description.textContent}</h2>`);
+        }
+    </script>
+</body>
+
+</html>
