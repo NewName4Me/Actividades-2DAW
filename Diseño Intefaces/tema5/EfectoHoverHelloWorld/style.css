@@ -1,0 +1,64 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: all 0.2s ease;
+}
+
+p {
+    background: aqua;
+    margin: 2rem auto;
+    font-size: xx-large;
+    width: fit-content;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+}
+
+p>span {
+    position: relative;
+    padding: 1rem;
+}
+
+p .W::after {
+    content: 'W';
+}
+
+p .O::after {
+    content: 'O';
+}
+
+p .R::after {
+    content: 'R';
+}
+
+p .L::after {
+    content: 'L';
+}
+
+p .D::after {
+    content: 'D';
+}
+
+p>span::after {
+    padding-right: 0.2rem;
+    position: absolute;
+    left: 0;
+    color: white;
+    background: black;
+    padding: 1rem;
+}
+
+p>span:nth-child(even)::after {
+    transform: translateY(100%);
+    transition: transform 0.5s ease;
+}
+
+p>span:nth-child(odd)::after {
+    transform: translateY(-125%);
+    transition: transform 0.5s ease;
+}
+
+p:hover>span::after {
+    transform: translateY(-22%);
+}
