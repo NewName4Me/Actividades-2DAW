@@ -1,0 +1,69 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+nav {
+  background-color: #670d0f;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+nav li {
+  padding: 0.25rem 1rem;
+}
+nav li a {
+  color: white;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  display: block;
+}
+nav li a:hover {
+  transform: scale(1.3);
+}
+nav li a:active {
+  color: #f01945;
+  font-weight: bold;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.card {
+  background-color: #ffe3c9;
+  border-radius: 0;
+  padding: 1rem;
+  margin: 0;
+  box-shadow: 4px 4px 8px #f01945;
+  overflow: hidden;
+  border-radius: 16px;
+}
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+  border-radius: 0;
+}
+.card figcaption {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #670d0f;
+  font-weight: 500;
+  padding: 0.25rem;
+}
+
+/*# sourceMappingURL=styles.css.map */

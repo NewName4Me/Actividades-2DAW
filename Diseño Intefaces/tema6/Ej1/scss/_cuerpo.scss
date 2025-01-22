@@ -1,0 +1,77 @@
+// Container styles
+.container {
+   width: 80%;
+   margin: 0 auto;
+   padding: 20px;
+}
+
+// Navigation styles
+nav {
+   background-color: $color-primario;
+   padding: 0.5rem;
+   margin-bottom: 1rem;
+
+   ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+   }
+
+   li {
+      padding: 0.25rem 1rem;
+
+      a {
+         color: white;
+         text-decoration: none;
+         transition: transform 0.3s ease;
+         cursor: pointer;
+         display: block;
+
+         &:hover {
+            transform: scale(1.3);
+         }
+
+         &:active {
+            color: $color-secundario;
+            font-weight: bold;
+         }
+      }
+   }
+}
+
+// Cards section
+.cards {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   gap: 1rem;
+   padding: 1rem;
+}
+
+.card {
+   background-color: $color-clear;
+   border-radius: 0;
+   padding: 1rem;
+   margin: 0;
+   box-shadow: 4px 4px 8px $color-secundario;
+   overflow: hidden;
+   border-radius: 16px;
+
+   img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      margin-bottom: 0.5rem;
+      border-radius: 0;
+   }
+
+   figcaption {
+      text-align: center;
+      font-size: 1.2rem;
+      color: $color-primario;
+      font-weight: 500;
+      padding: 0.25rem;
+   }
+}

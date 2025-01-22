@@ -1,0 +1,51 @@
+.box-1 {
+  background-color: #2c3e50;
+  border: 2px solid rgb(25.9032258065, 36.5, 47.0967741935);
+}
+
+.box-2 {
+  background-color: rgb(71.1451612903, 100.25, 129.3548387097);
+  border: 2px solid rgb(53.0483870968, 74.75, 96.4516129032);
+}
+
+.box-3 {
+  background-color: rgb(104.6774193548, 138.5, 172.3225806452);
+  border: 2px solid rgb(80.1935483871, 113, 145.8064516129);
+}
+
+.box-4 {
+  background-color: rgb(154.0322580645, 176.75, 199.4677419355);
+  border: 2px solid rgb(121.1290322581, 151.25, 181.3709677419);
+}
+
+.box-5 {
+  background-color: rgb(203.3870967742, 215, 226.6129032258);
+  border: 2px solid rgb(170.4838709677, 189.5, 208.5161290323);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  gap: 10px;
+  padding: 10px;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease-in-out;
+  font-family: Arial, sans-serif;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+.box:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=styles.css.map */

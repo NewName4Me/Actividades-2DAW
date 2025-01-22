@@ -1,0 +1,9 @@
+@for $i from 1 through 5 {
+   .box-#{$i} {
+      $lightness-percentage: ($i - 1) * 15%;
+      background-color: lighten($base-color, $lightness-percentage);
+      border: 2px
+         solid
+         darken(lighten($base-color, $lightness-percentage), 10%);
+   }
+}
