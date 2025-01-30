@@ -23,10 +23,11 @@ function App() {
       setTitle("");
       setAuthor("");
       setGenre("");
+      setRemainingBooks(booklist.getPendingBooks()); // Actualiza el número de libros restantes
    }
 
    /**
-    * funncion encargada de actualizar el estado de un libro de leido a no leido
+    * funcion encargada de actualizar el estado de un libro de leido a no leido
     * @param {Event} event
     */
    function setBookAsRead(event) {
@@ -35,16 +36,9 @@ function App() {
       book.setRead(true);
       book.setReadDate();
 
-      //modifico el objeto pulsado dentro de la lista usando el spread operator
+      // Actualiza el estado de la lista de libros
       setBookList({ ...booklist, book });
-   }
-
-   useEffect(() => {
-      setRemainingBooks(displayRemainingBooksToRead());
-   }, [booklist]);
-
-   function displayRemainingBooksToRead() {
-      return booklist.getBookList().filter((book) => !book.getIsRead()).length;
+      setRemainingBooks(booklist.getPendingBooks()); // Actualiza el número de libros restantes
    }
 
    return (
@@ -109,9 +103,11 @@ function App() {
                      </div>
                   ))}
                </section>
-               <h4 id="remainingBooksToRead">
-                  Books remaining to read: {remainingBooks}
-               </h4>
+            </div>
+
+            {/* Muestra el número de libros restantes */}
+            <div>
+               <h3>Libros restantes por leer: {remainingBooks}</h3>
             </div>
          </main>
       </>
