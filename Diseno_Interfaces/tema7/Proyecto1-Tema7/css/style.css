@@ -133,3 +133,8 @@ a:hover {
 .bg-second-alpha-color {
    background: var(--second-alpha-color);
 }
+
+/* CONTACTO */
+.carousel-caption {
+   z-index: 10;
+}

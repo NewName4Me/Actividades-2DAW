@@ -1,0 +1,28 @@
+img {
+   width: 10%;
+}
+
+article {
+   border: 1px solid black;
+}
+
+h2,
+h1 {
+   font-size: small;
+}
+
+.spinner{
+   animation: spin 2s linear infinite;
+   font-size: xx-large;
+
+}
+
+@keyframes spin {
+   0% {
+      transform: rotate(0deg);
+   }
+   100% {
+      transform: rotate(360deg);
+   }
+}
+
