@@ -12,6 +12,7 @@ export default defineConfig({
          "@utils": path.resolve(__dirname, "./src/utils"),
          "@repository": path.resolve(__dirname, "./src/repository"),
          "@views": path.resolve(__dirname, "./src/views"),
+         "@db": path.resolve(__dirname, "./db"),
       },
    },
    test: {},

@@ -1,5 +1,6 @@
 export class ProductRepository {
-   #PRODCUTS_URI = "https://fakestoreapi.com/products";
+   /* #PRODCUTS_URI = "https://fakestoreapi.com/products"; */
+   #PRODCUTS_URI = "../../db/products.json";
 
    constructor() {
       this.api_uri = this.#PRODCUTS_URI;
@@ -19,6 +20,13 @@ export class ProductRepository {
       const productList = await this.getProductList();
       return productList.filter((item) =>
          item.title.toLowerCase().includes(title.toLowerCase())
+      );
+   };
+
+   getProductsFilteredByCategory = async (category) => {
+      const productList = await this.getProductList();
+      return productList.filter((item) =>
+         item.category.toLowerCase().includes(category.toLowerCase())
       );
    };
 }

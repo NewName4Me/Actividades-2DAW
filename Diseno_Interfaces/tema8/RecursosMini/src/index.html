@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="stylesheet" href="./output.css" />
+   <title>Document</title>
+</head>
+
+<body>
+   <!-- GLobal container -->
+   <div class="flex items-center justify-center min-h-screen bg-slate-100">
+
+      <!-- Card container -->
+      <div class="flex flex-col bg-white rounded-2xl shadow-2xl md:flex-row md:space-x-10 p-6 m-3">
+
+         <!-- Imagen -->
+         <div>
+            <img class="w-60 mx-auto transform hover:scale-105 duration-200 z-0" src="./assets/headphone.png"
+               alt="headphones">
+         </div>
+
+         <!-- Contenido -->
+         <div class="flex flex-col space-y-6 z-10">
+
+            <!-- Label y Titulo -->
+            <div class="flex flex-col text-center md:text-left mb-4 space-x-3">
+               <div class="inline-block w-fit text-white bg-black rounded-full py-1 px-3 text-sm ">Envio Gratis</div>
+            </div>
+
+            <!-- Title -->
+            <div class="text-2xl font-medium max-w-sm">Razer Kraken Kitty Edt Auriculares para juegos Cuarzo</div>
+
+            <!-- Precios -->
+            <div class="flex flex-col mb-4 text-center md:text-left space-y-3">
+               <p class="line-through">799 €</p>
+               <p class="text-5xl font-bold">599 €</p>
+               <p class="text-sm font-light text-gray-400">!Esta oferta es válida hasta el 25 de febrero o hasta agotar
+                  existencias!
+               </p>
+            </div>
+
+            <!-- Agregar a la cesta -->
+            <div
+               class="transform bg-sky-700 px-2 py-3 text-white border-b-sky-950 border-b-6 rounded-lg text-center hover:bg-sky-950 transition duration-200 hover:border-b-transparent cursor-pointer">
+               Añadir a la cesta
+            </div>
+
+            <!-- Texto e icono -->
+            <div class="flex items-center space-x-3 group">
+               <div class="w-3 h-3 bg-green-400 rounded-full group-hover:animate-ping "></div>
+               <div>50+ pcs. in stock</div>
+            </div>
+
+            <!-- Botones de abajo -->
+            <div class="flex flex-col md:flex-row spcae-y-0 space-x-4 space-y-4">
+               <button
+                  class="flex items-center justify-center border-2 border-gray-300 py-3 px-5 rounded-lg cursor-pointer space-x-2 shadow hover:shadow-lg transition duration-200 hover:translate-y-1 w-full h-full whitespace-nowrap">
+                  <img class="w-7" src="./assets/weight.png" alt="weight">
+                  <span>Añadir a la cesta</span>
+               </button>
+               <button
+                  class="w-full h-full flex items-center justify-center border-2 border-gray-300 py-3 px-5 rounded-lg cursor-pointer space-x-2 shadow hover:shadow-lg transition duration-200 hover:translate-y-1 whitespace-nowrap">
+                  <img class="w-7" src="./assets/heart.png" alt="heart">
+                  <span class=""> Añadir a a la lista de deseos</span>
+               </button>
+            </div>
+         </div>
+      </div>
+   </div>
+</body>
+
+</html>
